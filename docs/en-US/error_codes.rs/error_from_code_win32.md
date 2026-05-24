@@ -20,7 +20,7 @@ A Win32 error code as returned by `GetLastError` or extracted from an `HRESULT`.
 
 ## Remarks
 
-The function uses a `match` statement over a curated set of Win32 error codes that are commonly encountered during process and thread manipulation. The set is not exhaustive — it covers the codes most relevant to AffinityServiceRust's operations:
+The function uses a `match` statement over a curated set of Win32 error codes that are commonly encountered during process and thread manipulation. The set is not exhaustive — it covers the codes most relevant to ProcGovernor's operations:
 
 ### Recognized codes
 
@@ -94,4 +94,4 @@ A static lookup is preferred over calling `FormatMessage` at runtime to avoid ad
 | Error deduplication | [log_error_if_new](../apply.rs/log_error_if_new.md) |
 | Microsoft Win32 error code reference | [System Error Codes](https://learn.microsoft.com/en-us/windows/win32/debug/system-error-codes) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

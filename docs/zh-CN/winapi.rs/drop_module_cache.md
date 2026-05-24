@@ -50,4 +50,4 @@ pub fn drop_module_cache(pid: u32)
 | 填充缓存条目的模块枚举 | [enumerate_process_modules](enumerate_process_modules.md) |
 | 调用此函数的进程清理 | [PrimeThreadScheduler::drop_process_by_pid](../scheduler.rs/PrimeThreadScheduler.md) |
 
-*文档记录于提交：[facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*文档记录于提交：[facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

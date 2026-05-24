@@ -6,7 +6,7 @@
 
 ## 语法
 
-```AffinityServiceRust/src/apply.rs#L585-591
+```ProcGovernor/src/apply.rs#L585-591
 pub fn prefetch_all_thread_cycles<'a>(
     pid: u32,
     config: &ThreadLevelConfig,
@@ -99,4 +99,4 @@ pub fn prefetch_all_thread_cycles<'a>(
 | [PrimeThreadScheduler](../scheduler.rs/PrimeThreadScheduler.md) | 存储所有每线程统计信息的调度器结构 |
 | [ApplyConfigResult](ApplyConfigResult.md) | 更改和错误的累积器 |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

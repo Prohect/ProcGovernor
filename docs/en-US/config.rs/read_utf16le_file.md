@@ -40,7 +40,7 @@ The use of `from_utf16_lossy` means this function never fails due to encoding is
 
 ### Comparison with standard file reading
 
-For files encoded in UTF-8 (the default for AffinityServiceRust config files), [read_config](read_config.md) uses `std::io::BufReader` with line-by-line reading. `read_utf16le_file` is only needed for Process Lasso imports, which use Windows-native UTF-16LE encoding.
+For files encoded in UTF-8 (the default for ProcGovernor config files), [read_config](read_config.md) uses `std::io::BufReader` with line-by-line reading. `read_utf16le_file` is only needed for Process Lasso imports, which use Windows-native UTF-16LE encoding.
 
 ## Requirements
 
@@ -60,4 +60,4 @@ For files encoded in UTF-8 (the default for AffinityServiceRust config files), [
 | Standard config reader (UTF-8) | [read_config](read_config.md) |
 | Blacklist reader (UTF-8) | [read_bleack_list](read_bleack_list.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

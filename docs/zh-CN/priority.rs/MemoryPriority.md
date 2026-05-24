@@ -102,7 +102,7 @@ pub fn from_win_const(val: u32) -> &'static str
 
 | | |
 |---|---|
-| **模块** | [`src/priority.rs`](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf/src/priority.rs) |
+| **模块** | [`src/priority.rs`](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf/src/priority.rs) |
 | **调用方** | [`apply_memory_priority`](../apply.rs/apply_memory_priority.md)，[`config.rs`](../config.rs/README.md) 中的配置解析 |
 | **依赖项** | `windows::Win32::System::Threading::{MEMORY_PRIORITY, MEMORY_PRIORITY_VERY_LOW, MEMORY_PRIORITY_LOW, MEMORY_PRIORITY_MEDIUM, MEMORY_PRIORITY_BELOW_NORMAL, MEMORY_PRIORITY_NORMAL}` |
 | **Win32 API** | [`SetProcessInformation`](https://learn.microsoft.com/zh-cn/windows/win32/api/processthreadsapi/nf-processthreadsapi-setprocessinformation), [`GetProcessInformation`](https://learn.microsoft.com/zh-cn/windows/win32/api/processthreadsapi/nf-processthreadsapi-getprocessinformation) |
@@ -119,4 +119,4 @@ pub fn from_win_const(val: u32) -> &'static str
 | 线程优先级枚举 | [`ThreadPriority`](ThreadPriority.md) |
 | 模块概述 | [priority.rs](README.md) |
 
-*文档记录于提交：[facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*文档记录于提交：[facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

@@ -62,7 +62,7 @@ fn apply_process_level<'a>(
 
 | | |
 |---|---|
-| **模块** | [`src/main.rs`](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf/src/main.rs) |
+| **模块** | [`src/main.rs`](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf/src/main.rs) |
 | **调用方** | [`apply_config`](apply_config.md) |
 | **被调用方** | [`get_process_handle`](../winapi.rs/get_process_handle.md)、[`apply_priority`](../apply.rs/apply_priority.md)、[`apply_affinity`](../apply.rs/apply_affinity.md)、[`apply_process_default_cpuset`](../apply.rs/apply_process_default_cpuset.md)、[`apply_io_priority`](../apply.rs/apply_io_priority.md)、[`apply_memory_priority`](../apply.rs/apply_memory_priority.md) |
 | **Win32 API** | 无（直接委托给被调用方） |
@@ -78,4 +78,4 @@ fn apply_process_level<'a>(
 | 配置结构体 | [`ProcessLevelConfig`](../config.rs/ProcessLevelConfig.md) |
 | 结果累加器 | [`ApplyConfigResult`](../apply.rs/ApplyConfigResult.md) |
 
-*为提交 [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf) 记录*
+*为提交 [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf) 记录*

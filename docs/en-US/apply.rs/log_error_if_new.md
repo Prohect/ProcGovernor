@@ -4,7 +4,7 @@ Logs an error message only if the same error has not already been logged for the
 
 ## Syntax
 
-```AffinityServiceRust/src/apply.rs#L71-80
+```ProcGovernor/src/apply.rs#L71-80
 fn log_error_if_new(
     pid: u32,
     tid: u32,
@@ -92,4 +92,4 @@ Every `apply_*` function in the module calls `log_error_if_new` after a failed W
 | [Operation](../logging.rs/Operation.md) | Enum of Windows API operation identifiers |
 | [is_new_error](../logging.rs/is_new_error.md) | Underlying deduplication logic |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

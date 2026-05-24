@@ -80,4 +80,4 @@ The function handles the mismatch between `es.exe` output encoding and Rust's UT
 | Entry point and mode dispatch | [main](main.md) |
 | Logging infrastructure | [logging.rs](../logging.rs/README.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

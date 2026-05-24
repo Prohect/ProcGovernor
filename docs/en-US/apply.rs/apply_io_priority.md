@@ -4,7 +4,7 @@ Gets and sets the I/O priority of a process using the undocumented `NtQueryInfor
 
 ## Syntax
 
-```AffinityServiceRust/src/apply.rs#L403-410
+```ProcGovernor/src/apply.rs#L403-410
 pub fn apply_io_priority(
     pid: u32,
     config: &ProcessLevelConfig,
@@ -98,4 +98,4 @@ The read handle requires `PROCESS_QUERY_INFORMATION` or `PROCESS_QUERY_LIMITED_I
 | [ProcessLevelConfig](../config.rs/ProcessLevelConfig.md) | Configuration struct containing `io_priority` field |
 | [IOPriority](../priority.rs/IOPriority.md) | I/O priority level enum |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

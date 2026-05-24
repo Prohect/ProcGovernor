@@ -99,7 +99,7 @@ const TABLE: &'static [(Self, &'static str, Option<PROCESS_CREATION_FLAGS>)]
 
 | | |
 |---|---|
-| **模块** | [`src/priority.rs`](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf/src/priority.rs) |
+| **模块** | [`src/priority.rs`](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf/src/priority.rs) |
 | **调用方** | [`apply_priority`](../apply.rs/apply_priority.md)，配置解析 ([`read_config`](../config.rs/read_config.md)) |
 | **依赖项** | `windows::Win32::System::Threading::PROCESS_CREATION_FLAGS` 及相关常量 |
 | **权限** | `Realtime` 需要 `SeIncreaseBasePriorityPrivilege` |
@@ -115,4 +115,4 @@ const TABLE: &'static [(Self, &'static str, Option<PROCESS_CREATION_FLAGS>)]
 | 模块概述 | [priority.rs](README.md) |
 | Win32 参考 | [`SetPriorityClass`](https://learn.microsoft.com/zh-cn/windows/win32/api/processthreadsapi/nf-processthreadsapi-setpriorityclass) |
 
-*文档记录于提交：[facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*文档记录于提交：[facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

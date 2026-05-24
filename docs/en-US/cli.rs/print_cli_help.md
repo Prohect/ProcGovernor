@@ -54,4 +54,4 @@ All output is written through the project's `log!` macro, which routes to either
 | Argument parser | [parse_args](parse_args.md) |
 | CLI state struct | [CliArgs](CliArgs.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

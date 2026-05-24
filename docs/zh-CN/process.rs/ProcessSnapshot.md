@@ -101,4 +101,4 @@ let snapshot = ProcessSnapshot::take(&mut buffer, &mut map)?;
 | 线程句柄管理 | [ThreadHandle](../winapi.rs/ThreadHandle.md) |
 | Prime 线程调度器 | [PrimeThreadScheduler](../scheduler.rs/PrimeThreadScheduler.md) |
 
-*文档记录自提交：[facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*文档记录自提交：[facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

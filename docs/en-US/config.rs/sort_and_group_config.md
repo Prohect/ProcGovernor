@@ -70,7 +70,7 @@ Unique rule strings are emitted in the order they are first encountered in the i
 ### Typical usage
 
 ```
-AffinityServiceRust.exe -autogroup -in config.txt -out config_grouped.txt
+ProcGovernor.exe -autogroup -in config.txt -out config_grouped.txt
 ```
 
 This is a one-shot transformation tool — the output file is not automatically used by the service. The user should review the output and replace the original config file manually.
@@ -99,7 +99,7 @@ The function reuses [collect_members](collect_members.md) and [collect_group_blo
 
 | | |
 |---|---|
-| **Module** | [`src/config.rs`](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf/src/config.rs) |
+| **Module** | [`src/config.rs`](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf/src/config.rs) |
 | **Callers** | CLI dispatch in `main.rs` (invoked by `-autogroup` flag) |
 | **Callees** | [collect_members](collect_members.md), [collect_group_block](collect_group_block.md), `std::fs::read_to_string`, `std::fs::File::create`, `std::io::Write` |
 | **Dependencies** | [HashMap](../collections.rs/README.md) |
@@ -116,4 +116,4 @@ The function reuses [collect_members](collect_members.md) and [collect_group_blo
 | Config file reader | [read_config](read_config.md) |
 | CLI arguments | [CliArgs](../cli.rs/CliArgs.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

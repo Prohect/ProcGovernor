@@ -1,4 +1,4 @@
-# event_trace 模块 (AffinityServiceRust)
+# event_trace 模块 (ProcGovernor)
 
 `event_trace` 模块实现了最小的 ETW（Windows 事件跟踪）消费者，用于实时进程启动/停止监控。它订阅 **Microsoft-Windows-Kernel-Process** 提供程序（`{22fb2cd6-0e7b-422b-a0c7-2fad1fd0e716}`），并通过标准 `mpsc` 通道交付 `EtwProcessEvent` 消息，使主服务循环能够在进程创建或终止时立即响应并应用配置规则——无需轮询。
 
@@ -28,7 +28,7 @@
 |------|-----|------|
 | `KERNEL_PROCESS_GUID` | `{22fb2cd6-0e7b-422b-a0c7-2fad1fd0e716}` | Microsoft-Windows-Kernel-Process ETW 提供程序的 GUID。 |
 | `WINEVENT_KEYWORD_PROCESS` | `0x10` | 选择进程生命周期事件的关键词掩码位。 |
-| `SESSION_NAME` | `"AffinityServiceRust_EtwProcessMonitor"` | 在 ETW 子系统注册的跟踪会话名称。用于检测和在启动时清理残留的会话。 |
+| `SESSION_NAME` | `"ProcGovernor_EtwProcessMonitor"` | 在 ETW 子系统注册的跟踪会话名称。用于检测和在启动时清理残留的会话。 |
 
 ## 参见
 
@@ -39,4 +39,4 @@
 | Microsoft-Windows-Kernel-Process 提供程序 | [Microsoft 文档](https://learn.microsoft.com/zh-cn/windows/win32/etw/event-tracing-portal) |
 | EVENT_TRACE_PROPERTIES | [Microsoft 文档](https://learn.microsoft.com/zh-cn/windows/win32/api/evntrace/ns-evntrace-event_trace_properties) |
 
-*文档记录于提交：[facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*文档记录于提交：[facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

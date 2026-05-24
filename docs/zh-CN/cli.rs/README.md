@@ -1,6 +1,6 @@
-# cli 模块 (AffinityServiceRust)
+# cli 模块 (ProcGovernor)
 
-`cli` 模块实现了 AffinityServiceRust 的命令行参数解析和帮助文本打印。它定义了 [CliArgs](CliArgs.md) 结构体，用于捕获所有运行时选项——轮询间隔、运行模式、调试标志、文件路径和权限控制——并提供 [parse_args](parse_args.md) 从进程参数中填充该结构体。该模块还暴露了几个帮助打印函数，用于记录基本用法、详细的 CLI 选项和配置文件格式。
+`cli` 模块实现了 ProcGovernor 的命令行参数解析和帮助文本打印。它定义了 [CliArgs](CliArgs.md) 结构体，用于捕获所有运行时选项——轮询间隔、运行模式、调试标志、文件路径和权限控制——并提供 [parse_args](parse_args.md) 从进程参数中填充该结构体。该模块还暴露了几个帮助打印函数，用于记录基本用法、详细的 CLI 选项和配置文件格式。
 
 ## 结构体
 
@@ -28,4 +28,4 @@
 | 日志基础设施 | [logging.rs](../logging.rs/README.md) |
 | 优先级枚举 | [priority.rs](../priority.rs/README.md) |
 
-*记录于提交：[facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*记录于提交：[facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

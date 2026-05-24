@@ -70,4 +70,4 @@ The return type `List<[u32; CONSUMER_CPUS]>` is a `SmallVec` that stores up to `
 | Alias resolution wrapper | [resolve_cpu_spec](resolve_cpu_spec.md) |
 | Collection types | [List / CONSUMER_CPUS](../collections.rs/README.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

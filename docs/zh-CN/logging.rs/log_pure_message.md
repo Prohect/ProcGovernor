@@ -60,4 +60,4 @@ pub fn log_pure_message(args: &str)
 | 查找模式日志记录 | [log_to_find](log_to_find.md) |
 | 日志文件路径计算 | [get_log_path](get_log_path.md) |
 
-*记录于提交：[facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*记录于提交：[facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

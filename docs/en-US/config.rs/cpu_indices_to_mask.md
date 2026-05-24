@@ -45,7 +45,7 @@ This function is called by [apply_affinity](../apply.rs/apply_affinity.md) to co
 
 | | |
 |---|---|
-| **Module** | [`src/config.rs`](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf/src/config.rs) |
+| **Module** | [`src/config.rs`](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf/src/config.rs) |
 | **Callers** | [apply_affinity](../apply.rs/apply_affinity.md), [apply_prime_threads_promote](../apply.rs/apply_prime_threads_promote.md), [parse_mask](parse_mask.md), [convert](convert.md) |
 | **Callees** | None |
 | **Privileges** | None |
@@ -60,4 +60,4 @@ This function is called by [apply_affinity](../apply.rs/apply_affinity.md) to co
 | Affinity application | [apply_affinity](../apply.rs/apply_affinity.md) |
 | Module overview | [config.rs](README.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

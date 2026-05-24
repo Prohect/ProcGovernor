@@ -4,7 +4,7 @@ Assigns ideal processor hints to threads based on configurable [`IdealProcessorR
 
 ## Syntax
 
-```AffinityServiceRust/src/apply.rs#L1048-1057
+```ProcGovernor/src/apply.rs#L1048-1057
 pub fn apply_ideal_processors<'a>(
     pid: u32,
     config: &ThreadLevelConfig,
@@ -93,4 +93,4 @@ Errors from `GetThreadIdealProcessorEx` and `SetThreadIdealProcessorEx` are repo
 | Thread stats snapshot | [update_thread_stats](update_thread_stats.md) |
 | Module overview | [apply.rs](README.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

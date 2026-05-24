@@ -52,7 +52,7 @@ fn get_log_path(suffix: &str) -> PathBuf
 | 主日志输出 | [log_message](log_message.md) |
 | 查找日志输出 | [log_to_find](log_to_find.md) |
 
-*记录于提交：[facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*记录于提交：[facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
 ```
 
 <tool_call>
@@ -61,7 +61,7 @@ fn get_log_path(suffix: &str) -> PathBuf
 Translate log_message.md from English to Chinese
 </parameter>
 <parameter=path>
-AffinityServiceRust/docs/zh-CN/logging.rs/log_message.md
+ProcGovernor/docs/zh-CN/logging.rs/log_message.md
 </parameter>
 <parameter=mode>
 overwrite
@@ -74,7 +74,7 @@ overwrite
 Translate log_process_find.md from English to Chinese
 </parameter>
 <parameter=path>
-AffinityServiceRust/docs/zh-CN/logging.rs/log_process_find.md
+ProcGovernor/docs/zh-CN/logging.rs/log_process_find.md
 </parameter>
 <parameter=mode>
 overwrite
@@ -87,7 +87,7 @@ overwrite
 Translate log_pure_message.md from English to Chinese
 </parameter>
 <parameter=path>
-AffinityServiceRust/docs/zh-CN/logging.rs/log_pure_message.md
+ProcGovernor/docs/zh-CN/logging.rs/log_pure_message.md
 </parameter>
 <parameter=mode>
 overwrite
@@ -100,7 +100,7 @@ overwrite
 Translate log_to_find.md from English to Chinese
 </parameter>
 <parameter=path>
-AffinityServiceRust/docs/zh-CN/logging.rs/log_to_find.md
+ProcGovernor/docs/zh-CN/logging.rs/log_to_find.md
 </parameter>
 <parameter=mode>
 overwrite
@@ -113,7 +113,7 @@ overwrite
 Translate purge_fail_map.md from English to Chinese
 </parameter>
 <parameter=path>
-AffinityServiceRust/docs/zh-CN/logging.rs/purge_fail_map.md
+ProcGovernor/docs/zh-CN/logging.rs/purge_fail_map.md
 </parameter>
 <parameter=mode>
 overwrite

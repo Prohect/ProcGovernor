@@ -62,4 +62,4 @@ pub fn parse_mask(s: &str) -> usize
 | 位掩码到索引转换 | [mask_to_cpu_indices](mask_to_cpu_indices.md) |
 | 显示格式化 | [format_cpu_indices](format_cpu_indices.md) |
 
-*文档针对 Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*文档针对 Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

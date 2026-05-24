@@ -1,6 +1,6 @@
 # convert 函数 (config.rs)
 
-将 Process Lasso 配置文件转换为 AffinityServiceRust 原生格式。读取 UTF-16LE 编码的 Process Lasso INI 风格配置，生成带有 CPU 别名和每进程规则行的 UTF-8 配置文件。
+将 Process Lasso 配置文件转换为 ProcGovernor 原生格式。读取 UTF-16LE 编码的 Process Lasso INI 风格配置，生成带有 CPU 别名和每进程规则行的 UTF-8 配置文件。
 
 ## 语法
 
@@ -16,7 +16,7 @@ pub fn convert(in_file: Option<String>, out_file: Option<String>)
 
 `out_file: Option<String>`
 
-输出 AffinityServiceRust 配置文件的路径。文件将被创建或覆盖为 UTF-8 编码内容。如果为 `None`，则函数记录错误并立即返回。
+输出 ProcGovernor 配置文件的路径。文件将被创建或覆盖为 UTF-8 编码内容。如果为 `None`，则函数记录错误并立即返回。
 
 ## 返回值
 
@@ -46,9 +46,9 @@ pub fn convert(in_file: Option<String>, out_file: Option<String>)
 
 ### 优先级映射
 
-Process Lasso 使用字符串和数字优先级标识符。转换器将它们映射到 AffinityServiceRust 优先级名称：
+Process Lasso 使用字符串和数字优先级标识符。转换器将它们映射到 ProcGovernor 优先级名称：
 
-| Process Lasso 值 | AffinityServiceRust 值 |
+| Process Lasso 值 | ProcGovernor 值 |
 |------------------|----------------------|
 | `"idle"` 或 `"1"` | `idle` |
 | `"below normal"` 或 `"2"` | `below normal` |
@@ -76,7 +76,7 @@ Process Lasso 使用字符串和数字优先级标识符。转换器将它们映
 
 | | |
 |---|---|
-| **模块** | [`src/config.rs`](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf/src/config.rs) |
+| **模块** | [`src/config.rs`](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf/src/config.rs) |
 | **调用方** | CLI 分发（使用 `-convert` 标志时） |
 | **被调用方** | [read_utf16le_file](read_utf16le_file.md), `get_config_help_lines`（来自 [cli.rs](../cli.rs/README.md)） |
 | **依赖项** | [HashMap](../collections.rs/README.md), [HashSet](../collections.rs/README.md) |
@@ -93,4 +93,4 @@ Process Lasso 使用字符串和数字优先级标识符。转换器将它们映
 | 配置文件读取器 | [read_config](read_config.md) |
 | CLI 参数 | [CliArgs](../cli.rs/CliArgs.md) |
 
-*文档针对 Commit：[facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*文档针对 Commit：[facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

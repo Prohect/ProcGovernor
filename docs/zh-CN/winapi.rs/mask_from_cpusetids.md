@@ -67,4 +67,4 @@ pub fn mask_from_cpusetids(cpuids: &[u32]) -> usize
 | CPU 集合拓扑缓存 | [CpuSetData](CpuSetData.md) |
 | 亲和性检查工具 | [is_affinity_unset](is_affinity_unset.md) |
 
-*文档版本：[facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*文档版本：[facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

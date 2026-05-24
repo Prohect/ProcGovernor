@@ -98,4 +98,4 @@ Unrecognized switches are silently ignored (matched by the `_ => {}` arm). No wa
 | Full help output | [print_help_all](print_help_all.md) |
 | Logging system | [logging.rs](../logging.rs/README.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

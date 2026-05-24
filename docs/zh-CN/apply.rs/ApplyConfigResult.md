@@ -4,7 +4,7 @@
 
 ## 语法
 
-```AffinityServiceRust/src/apply.rs#L31-35
+```ProcGovernor/src/apply.rs#L31-35
 #[derive(Debug, Default)]
 pub struct ApplyConfigResult {
     pub changes: Vec<String>,
@@ -23,7 +23,7 @@ pub struct ApplyConfigResult {
 
 ### new
 
-```AffinityServiceRust/src/apply.rs#L38-40
+```ProcGovernor/src/apply.rs#L38-40
 pub fn new() -> Self
 ```
 
@@ -31,7 +31,7 @@ pub fn new() -> Self
 
 ### add_change
 
-```AffinityServiceRust/src/apply.rs#L45-47
+```ProcGovernor/src/apply.rs#L45-47
 pub fn add_change(&mut self, change: String)
 ```
 
@@ -45,7 +45,7 @@ pub fn add_change(&mut self, change: String)
 
 ### add_error
 
-```AffinityServiceRust/src/apply.rs#L51-53
+```ProcGovernor/src/apply.rs#L51-53
 pub fn add_error(&mut self, error: String)
 ```
 
@@ -59,7 +59,7 @@ pub fn add_error(&mut self, error: String)
 
 ### is_empty
 
-```AffinityServiceRust/src/apply.rs#L55-57
+```ProcGovernor/src/apply.rs#L55-57
 pub fn is_empty(&self) -> bool
 ```
 
@@ -91,4 +91,4 @@ pub fn is_empty(&self) -> bool
 | 模块概述 | [apply.rs](README.md) |
 | 错误去重辅助函数 | [log_error_if_new](log_error_if_new.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

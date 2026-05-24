@@ -70,7 +70,7 @@ pub fn hotreload_blacklist(
 
 | | |
 |---|---|
-| **模块** | [`src/config.rs`](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf/src/config.rs) |
+| **模块** | [`src/config.rs`](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf/src/config.rs) |
 | **调用方** | `main.rs` 中的主轮询循环 |
 | **被调用方** | [read_bleack_list](read_bleack_list.md), `std::fs::metadata` |
 | **依赖项** | [CliArgs](../cli.rs/CliArgs.md) |
@@ -86,4 +86,4 @@ pub fn hotreload_blacklist(
 | CLI 参数结构体 | [CliArgs](../cli.rs/CliArgs.md) |
 | 主服务循环 | [main.rs](../main.rs/README.md) |
 
-*文档针对 Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*文档针对 Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

@@ -49,4 +49,4 @@ pub struct ApplyFailEntry {
 | Operation 枚举 | [Operation](Operation.md) |
 | 去重结果的消费者 | [log_error_if_new](../apply.rs/log_error_if_new.md) |
 
-*文档记录于提交：[facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*文档记录于提交：[facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

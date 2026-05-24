@@ -80,4 +80,4 @@ The `r_handle` field of [ThreadHandle](ThreadHandle.md) (opened with `THREAD_QUE
 | Thread stats that store the start address | [ThreadStats](../scheduler.rs/ThreadStats.md) |
 | Ideal processor assignment | [apply_ideal_processors](../apply.rs/apply_ideal_processors.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

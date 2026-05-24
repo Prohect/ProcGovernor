@@ -117,4 +117,4 @@ pub fn print_report(&self)
 | 带验证的热重载 | [hotreload_config](hotreload_config.md) |
 | 应用引擎 | [apply.rs](../apply.rs/README.md) |
 
-*文档针对 Commit：[facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*文档针对 Commit：[facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

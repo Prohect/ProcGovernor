@@ -4,7 +4,7 @@
 
 ## 语法
 
-```AffinityServiceRust/src/apply.rs#L219-226
+```ProcGovernor/src/apply.rs#L219-226
 pub fn reset_thread_ideal_processors<'a>(
     pid: u32,
     config: &ProcessLevelConfig,
@@ -94,4 +94,4 @@ pub fn reset_thread_ideal_processors<'a>(
 | [ApplyConfigResult](ApplyConfigResult.md) | 更改和错误的累加器 |
 | [ProcessLevelConfig](../config.rs/ProcessLevelConfig.md) | 进程级配置结构 |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

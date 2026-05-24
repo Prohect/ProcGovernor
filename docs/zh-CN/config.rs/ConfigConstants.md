@@ -86,4 +86,4 @@ Prime 线程调度器使用双阈值迟滞系统：
 | 热重载机制 | [hotreload_config](hotreload_config.md) |
 | 配置结果容器 | [ConfigResult](ConfigResult.md) |
 
-*文档为 Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*文档为 Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

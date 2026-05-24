@@ -1,6 +1,6 @@
-# main 模块 (AffinityServiceRust)
+# main 模块 (ProcGovernor)
 
-`main` 模块是 AffinityServiceRust 的应用程序入口点和顶层协调器。它解析命令行参数、读取配置文件、请求管理员权限，并运行主轮询循环，该循环获取进程快照、将其与配置规则进行匹配，并委托 [apply](../apply.rs/README.md) 模块进行强制执行。它还管理基于 ETW 的响应式睡眠、配置和黑名单文件的热重载，以及发现未管理进程的查找模式。
+`main` 模块是 ProcGovernor 的应用程序入口点和顶层协调器。它解析命令行参数、读取配置文件、请求管理员权限，并运行主轮询循环，该循环获取进程快照、将其与配置规则进行匹配，并委托 [apply](../apply.rs/README.md) 模块进行强制执行。它还管理基于 ETW 的响应式睡眠、配置和黑名单文件的热重载，以及发现未管理进程的查找模式。
 
 ## 函数
 
@@ -28,4 +28,4 @@
 | Win32 辅助工具 | [winapi.rs](../winapi.rs/README.md) |
 | 日志记录 | [logging.rs](../logging.rs/README.md) |
 
-*为提交 [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf) 记录*
+*为提交 [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf) 记录*

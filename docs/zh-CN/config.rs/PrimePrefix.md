@@ -64,4 +64,4 @@ process.exe:normal:0:0:*pcore@engine.dll;helper.dll!above normal:none:none:0:1
 | 规则解析器 | [parse_and_insert_rules](parse_and_insert_rules.md) |
 | 模块概述 | [config.rs](README.md) |
 
-*文档针对提交：[facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*文档针对提交：[facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

@@ -94,4 +94,4 @@ When the function returns `None`, the caller in [read_config](read_config.md) pu
 | Main config reader | [read_config](read_config.md) |
 | Config result with error reporting | [ConfigResult](ConfigResult.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

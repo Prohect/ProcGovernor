@@ -1,6 +1,6 @@
 # print_help_all 函数 (cli.rs)
 
-为 AffinityServiceRust 打印完整的帮助输出，将命令行用法和配置文件格式文档组合成一个统一的参考。这是 `-helpall` / `--helpall` 命令行标志的处理程序。
+为 ProcGovernor 打印完整的帮助输出，将命令行用法和配置文件格式文档组合成一个统一的参考。这是 `-helpall` / `--helpall` 命令行标志的处理程序。
 
 ## 语法
 
@@ -60,4 +60,4 @@ pub fn print_help_all()
 | 配置帮助行来源 | [get_config_help_lines](get_config_help_lines.md) |
 | CLI 参数结构体 | [CliArgs](CliArgs.md) |
 
-*记录于提交：[facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*记录于提交：[facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

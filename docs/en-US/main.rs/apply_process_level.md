@@ -62,7 +62,7 @@ The `threads` closure is only invoked if an `apply_*` function actually needs th
 
 | | |
 |---|---|
-| **Module** | [`src/main.rs`](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf/src/main.rs) |
+| **Module** | [`src/main.rs`](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf/src/main.rs) |
 | **Callers** | [`apply_config`](apply_config.md) |
 | **Callees** | [`get_process_handle`](../winapi.rs/get_process_handle.md), [`apply_priority`](../apply.rs/apply_priority.md), [`apply_affinity`](../apply.rs/apply_affinity.md), [`apply_process_default_cpuset`](../apply.rs/apply_process_default_cpuset.md), [`apply_io_priority`](../apply.rs/apply_io_priority.md), [`apply_memory_priority`](../apply.rs/apply_memory_priority.md) |
 | **Win32 API** | None directly (delegated to callees) |
@@ -78,4 +78,4 @@ The `threads` closure is only invoked if an `apply_*` function actually needs th
 | Configuration struct | [`ProcessLevelConfig`](../config.rs/ProcessLevelConfig.md) |
 | Result accumulator | [`ApplyConfigResult`](../apply.rs/ApplyConfigResult.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

@@ -4,7 +4,7 @@ Orchestrates prime thread scheduling for a process by identifying CPU-intensive 
 
 ## Syntax
 
-```AffinityServiceRust/src/apply.rs#L708-718
+```ProcGovernor/src/apply.rs#L708-718
 pub fn apply_prime_threads<'a>(
     pid: u32,
     config: &ThreadLevelConfig,
@@ -112,4 +112,4 @@ The candidate pool intentionally oversamples relative to the number of prime slo
 | Result accumulator | [ApplyConfigResult](ApplyConfigResult.md) |
 | Module overview | [apply.rs](README.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

@@ -4,7 +4,7 @@ Sets the memory priority of a process to the value specified in the configuratio
 
 ## Syntax
 
-```AffinityServiceRust/src/apply.rs#L491-498
+```ProcGovernor/src/apply.rs#L491-498
 pub fn apply_memory_priority(
     pid: u32,
     config: &ProcessLevelConfig,
@@ -100,4 +100,4 @@ Errors are reported through [log_error_if_new](log_error_if_new.md), which dedup
 | [apply_priority](apply_priority.md) | Companion function that sets process (CPU scheduling) priority |
 | [ProcessHandle](../winapi.rs/ProcessHandle.md) | Handle wrapper providing read/write access to a process |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

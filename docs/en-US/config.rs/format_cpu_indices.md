@@ -43,7 +43,7 @@ Ranges and individual values are joined with commas.
 
 ### Empty-returns-zero convention
 
-The string `"0"` is returned for an empty input because `0` in the AffinityServiceRust config format means "no change" or "not configured." This convention allows the output of `format_cpu_indices` to be directly inserted into config file lines without special-casing empty CPU sets.
+The string `"0"` is returned for an empty input because `0` in the ProcGovernor config format means "no change" or "not configured." This convention allows the output of `format_cpu_indices` to be directly inserted into config file lines without special-casing empty CPU sets.
 
 ### Relationship with parse_cpu_spec
 
@@ -76,4 +76,4 @@ This function is used throughout the codebase for:
 | Indices to bitmask | [cpu_indices_to_mask](cpu_indices_to_mask.md) |
 | Collection types | [List / CONSUMER_CPUS](../collections.rs/README.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

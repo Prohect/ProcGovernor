@@ -4,7 +4,7 @@
 
 ## 语法
 
-```AffinityServiceRust/src/apply.rs#L1312-1315
+```ProcGovernor/src/apply.rs#L1312-1315
 pub fn update_thread_stats(
     pid: u32,
     prime_scheduler: &mut PrimeThreadScheduler,
@@ -66,4 +66,4 @@ pub fn update_thread_stats(
 | [apply_ideal_processors](apply_ideal_processors.md) | 消耗周期增量用于理想处理器分配 |
 | [PrimeThreadScheduler](../scheduler.rs/PrimeThreadScheduler.md) | 拥有每进程、每线程的统计信息映射表 |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

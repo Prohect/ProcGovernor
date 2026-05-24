@@ -4,7 +4,7 @@
 
 ## 语法
 
-```AffinityServiceRust/src/apply.rs#L134-142
+```ProcGovernor/src/apply.rs#L134-142
 pub fn apply_affinity<'a>(
     pid: u32,
     config: &ProcessLevelConfig,
@@ -97,4 +97,4 @@ Affinity: 0xFF -> 0x15
 | [ProcessLevelConfig](../config.rs/ProcessLevelConfig.md) | 包含 `affinity_cpus` 的配置结构 |
 | [ProcessHandle](../winapi.rs/ProcessHandle.md) | 具有读/写访问级别的进程句柄包装器 |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

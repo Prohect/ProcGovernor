@@ -93,7 +93,7 @@ pub fn from_win_const(val: u32) -> &'static str
 
 | | |
 |---|---|
-| **模块** | [`src/priority.rs`](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf/src/priority.rs) |
+| **模块** | [`src/priority.rs`](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf/src/priority.rs) |
 | **使用者** | [`apply_io_priority`](../apply.rs/apply_io_priority.md)，配置解析器 ([`read_config`](../config.rs/read_config.md)) |
 | **Win32 API** | `NtQueryInformationProcess` / `NtSetInformationProcess` 配合 `ProcessIoPriority` |
 | **权限** | `High` 变体需要 `SeIncreaseBasePriorityPrivilege` |
@@ -108,4 +108,4 @@ pub fn from_win_const(val: u32) -> &'static str
 | IO 优先级应用 | [apply_io_priority](../apply.rs/apply_io_priority.md) |
 | 模块概览 | [priority.rs](README.md) |
 
-*文档记录于提交：[facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*文档记录于提交：[facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

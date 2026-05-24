@@ -4,7 +4,7 @@ Selects the top threads for prime status using hysteresis-based promotion logic.
 
 ## Syntax
 
-```AffinityServiceRust/src/apply.rs#L794-800
+```ProcGovernor/src/apply.rs#L794-800
 pub fn apply_prime_threads_select(
     pid: u32,
     prime_count: usize,
@@ -50,7 +50,7 @@ The function is deliberately separated from `apply_prime_threads_promote` and `a
 
 The closure passed to the hysteresis selector is:
 
-```AffinityServiceRust/src/apply.rs#L801-803
+```ProcGovernor/src/apply.rs#L801-803
 |thread_stats| {
     !thread_stats.pinned_cpu_set_ids.is_empty()
 }
@@ -78,4 +78,4 @@ A thread is considered currently assigned (and eligible for the lower keep thres
 | [prefetch_all_thread_cycles](prefetch_all_thread_cycles.md) | Collects cycle data consumed by selection |
 | [PrimeThreadScheduler](../scheduler.rs/PrimeThreadScheduler.md) | Scheduler owning hysteresis logic and thread statistics |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

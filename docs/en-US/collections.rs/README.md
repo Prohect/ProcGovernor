@@ -1,4 +1,4 @@
-# collections module (AffinityServiceRust)
+# collections module (ProcGovernor)
 
 The `collections` module defines performance-oriented type aliases and pre-tuned capacity constants used throughout the project. By centralizing these definitions, every module shares the same high-performance hash map, hash set, and small-vector implementations without repeating crate-level imports.
 
@@ -46,7 +46,7 @@ pub const PENDING: usize = 16;
 
 ## Remarks
 
-- **Why `FxHashMap` over `std::HashMap`?** The default `std::HashMap` uses SipHash-1-3, which provides HashDoS resistance at the cost of throughput. AffinityServiceRust hashes only local, trusted data (PIDs, TIDs, process names) in a tight polling loop, so the faster Fx algorithm yields measurable latency savings with no security trade-off.
+- **Why `FxHashMap` over `std::HashMap`?** The default `std::HashMap` uses SipHash-1-3, which provides HashDoS resistance at the cost of throughput. ProcGovernor hashes only local, trusted data (PIDs, TIDs, process names) in a tight polling loop, so the faster Fx algorithm yields measurable latency savings with no security trade-off.
 - **Why `SmallVec` over `Vec`?** Most affinity rules target fewer than 32 CPUs and most processes have fewer than 96 threads. `SmallVec` keeps these common cases entirely on the stack, avoiding allocator overhead in the hot path of the apply loop. The capacity constants above are tuned for consumer-grade hardware; workstation or server topologies with more than 32 logical processors will transparently spill to the heap.
 - **Naming convention:** The constants use short, uppercase names (`PIDS`, `TIDS_FULL`) because they appear as generic array-size parameters in type signatures (e.g., `List<[u32; CONSUMER_CPUS]>`) and brevity improves readability at call sites.
 
@@ -68,4 +68,4 @@ pub const PENDING: usize = 16;
 | Prime thread scheduler | [PrimeThreadScheduler](../scheduler.rs/PrimeThreadScheduler.md) |
 | Process snapshot data | [ProcessEntry](../process.rs/ProcessEntry.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

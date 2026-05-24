@@ -75,4 +75,4 @@ PID 的缓存条目在以下情况被移除：
 | 使用此进行 Debug 输出的线程统计 | [ThreadStats](../scheduler.rs/ThreadStats.md) |
 | 进程退出报告 | [PrimeThreadScheduler](../scheduler.rs/PrimeThreadScheduler.md) |
 
-*文档版本：[facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*文档版本：[facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

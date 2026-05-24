@@ -1,6 +1,6 @@
-# config 模块 (AffinityServiceRust)
+# config 模块 (ProcGovernor)
 
-`config` 模块负责 AffinityServiceRust 配置文件的解析、验证和管理。它定义了进程级和线程级调度策略的规则结构，并实现了多段 INI 风格的配置解析器，支持 CPU 别名（`*name = spec`）、命名组（`name { members }`）、调优常量（`@NAME = value`）以及复杂的 CPU 规格（范围、十六进制掩码、分号分隔的索引）。该模块还提供了配置和黑名单文件的热重载功能、Process Lasso 格式转换器，以及自动分组实用工具，可将具有相同规则的进程合并。
+`config` 模块负责 ProcGovernor 配置文件的解析、验证和管理。它定义了进程级和线程级调度策略的规则结构，并实现了多段 INI 风格的配置解析器，支持 CPU 别名（`*name = spec`）、命名组（`name { members }`）、调优常量（`@NAME = value`）以及复杂的 CPU 规格（范围、十六进制掩码、分号分隔的索引）。该模块还提供了配置和黑名单文件的热重载功能、Process Lasso 格式转换器，以及自动分组实用工具，可将具有相同规则的进程合并。
 
 ## 结构体
 
@@ -32,7 +32,7 @@
 | [read_config](read_config.md) | 主配置文件读取器。处理常量、别名、组和单行规则。 |
 | [read_bleack_list](read_bleack_list.md) | 读取黑名单文件（每行一个进程名，`#` 注释）。 |
 | [read_utf16le_file](read_utf16le_file.md) | 读取 UTF-16LE 编码的文件并返回为 Rust `String`。 |
-| [convert](convert.md) | 将 Process Lasso 配置格式转换为 AffinityServiceRust 格式。 |
+| [convert](convert.md) | 将 Process Lasso 配置格式转换为 ProcGovernor 格式。 |
 | [sort_and_group_config](sort_and_group_config.md) | 将具有相同设置的规则自动分组到命名组块中。 |
 | [hotreload_blacklist](hotreload_blacklist.md) | 如果黑名单文件在磁盘上已修改，则热重载黑名单文件。 |
 | [hotreload_config](hotreload_config.md) | 如果配置文件已修改，则热重载配置，成功时重置调度器状态。 |
@@ -77,4 +77,4 @@ group_name {
 | 集合类型 | [List / HashMap](../collections.rs/README.md) |
 | 主服务循环 | [main.rs](../main.rs/README.md) |
 
-*文档为 Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*文档为 Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

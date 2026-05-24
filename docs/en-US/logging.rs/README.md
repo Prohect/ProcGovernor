@@ -1,6 +1,6 @@
-# logging module (AffinityServiceRust)
+# logging module (ProcGovernor)
 
-The `logging` module provides the logging infrastructure for AffinityServiceRust, including date-based file rotation, optional console output, find-mode discovery logging, and error deduplication. All log output is gated by a dust-bin mode flag (which suppresses logging entirely during UAC elevation) and a console flag (which redirects output to stdout instead of files). Log files are written to the `logs/` directory with date-stamped filenames in the format `YYYYMMDD.log` and `YYYYMMDD.find.log`.
+The `logging` module provides the logging infrastructure for ProcGovernor, including date-based file rotation, optional console output, find-mode discovery logging, and error deduplication. All log output is gated by a dust-bin mode flag (which suppresses logging entirely during UAC elevation) and a console flag (which redirects output to stdout instead of files). Log files are written to the `logs/` directory with date-stamped filenames in the format `YYYYMMDD.log` and `YYYYMMDD.find.log`.
 
 ## Statics
 
@@ -61,4 +61,4 @@ The `logging` module provides the logging infrastructure for AffinityServiceRust
 | Configuration types | [ProcessLevelConfig](../config.rs/ProcessLevelConfig.md) |
 | Main service loop | [main.rs](../main.rs/README.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

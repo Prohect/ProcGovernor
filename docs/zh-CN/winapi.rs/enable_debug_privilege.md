@@ -68,4 +68,4 @@ pub fn enable_debug_privilege(no_debug_priv: bool)
 | 进程句柄打开（从此特权受益） | [get_process_handle](get_process_handle.md) |
 | 线程句柄打开（从此特权受益） | [get_thread_handle](get_thread_handle.md) |
 
-*文档针对提交：[facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*文档针对提交：[facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

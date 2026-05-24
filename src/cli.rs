@@ -131,7 +131,7 @@ pub fn print_help() {
     log!(
         r#"
     A Windows service to manage process priority, CPU affinity, IO priority, and memory priority.
-    usage: AffinityServiceRust.exe [args]
+    usage: ProcGovernor.exe [args]
 
     Common Options:
       -help | --help       show this help message
@@ -158,7 +158,7 @@ pub fn print_cli_help() {
     log!(
         r#"
         A Windows service to manage process priority, CPU affinity, IO priority, and memory priority.
-        usage: AffinityServiceRust.exe [args]
+        usage: ProcGovernor.exe [args]
 
         === COMMAND LINE OPTIONS ===
 
@@ -194,10 +194,10 @@ pub fn print_cli_help() {
         === DEBUGGING ===
 
         Quick debug command (non-admin):
-          AffinityServiceRust.exe -console -noUAC -logloop -loop 3 -interval 2000 -config test.ini
+          ProcGovernor.exe -console -noUAC -logloop -loop 3 -interval 2000 -config test.ini
 
         Admin debug (check log file after, do NOT use -console):
-          AffinityServiceRust.exe -logloop -loop 3 -interval 2000 -config test.ini
+          ProcGovernor.exe -logloop -loop 3 -interval 2000 -config test.ini
           Then check: logs/YYYYMMDD.log
 
         Note: When running with UAC elevation, -console output goes to a new session
@@ -213,7 +213,7 @@ pub fn get_config_help_lines() -> Vec<&'static str> {
     vec![
         r#"
         ## ============================================================================
-        ## AffinityServiceRust Configuration File
+        ## ProcGovernor Configuration File
         ## ============================================================================
         ##
         ## This config file defines CPU affinity: priority: and scheduling rules for

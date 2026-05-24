@@ -1,4 +1,4 @@
-# collections 模块 (AffinityServiceRust)
+# collections 模块 (ProcGovernor)
 
 `collections` 模块定义了贯穿整个项目的高性能类型别名和预调优容量常量。通过集中化这些定义，每个模块都可以共享相同的高性能哈希图、哈希集和小向量实现，无需重复 crate 级别的导入。
 
@@ -46,7 +46,7 @@ pub const PENDING: usize = 16;
 
 ## 备注
 
-- **为什么选择 `FxHashMap` 而不是 `std::HashMap`？** 默认的 `std::HashMap` 使用 SipHash-1-3，提供防止 HashDoS 攻击的能力，但以吞吐量作为代价。AffinityServiceRust 仅在紧密轮询循环中对本地可信数据（PIDs、TIDs、进程名）进行哈希，因此更快的 Fx 算法可带来可测量的延迟节省，且无安全妥协。
+- **为什么选择 `FxHashMap` 而不是 `std::HashMap`？** 默认的 `std::HashMap` 使用 SipHash-1-3，提供防止 HashDoS 攻击的能力，但以吞吐量作为代价。ProcGovernor 仅在紧密轮询循环中对本地可信数据（PIDs、TIDs、进程名）进行哈希，因此更快的 Fx 算法可带来可测量的延迟节省，且无安全妥协。
 - **为什么选择 `SmallVec` 而不是 `Vec`？** 大多数亲和性规则针对少于 32 个 CPU，大多数进程拥有少于 96 个线程。`SmallVec` 将这些常见情况完全保留在栈上，避免在应用循环的热路径中产生分配器开销。上述容量常量针对消费级硬件进行了调优；拥有超过 32 个逻辑处理器的专业工作站或服务器拓扑将透明地溢出到堆。
 - **命名约定：** 常量使用短大写名称（`PIDS`、`TIDS_FULL`），因为它们在类型签名中作为泛型数组大小参数出现（如 `List<[u32; CONSUMER_CPUS]>`），简洁性提高了调用点的可读性。
 
@@ -68,4 +68,4 @@ pub const PENDING: usize = 16;
 | Prime 线程调度器 | [PrimeThreadScheduler](../scheduler.rs/PrimeThreadScheduler.md) |
 | 进程快照数据 | [ProcessEntry](../process.rs/ProcessEntry.md) |
 
-*文档记录于提交：[facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*文档记录于提交：[facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

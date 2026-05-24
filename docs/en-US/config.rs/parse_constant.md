@@ -94,4 +94,4 @@ If the same constant is defined multiple times in the config file, the last defi
 | Hot-reload that propagates constants | [hotreload_config](hotreload_config.md) |
 | Parse result container | [ConfigResult](ConfigResult.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

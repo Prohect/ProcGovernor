@@ -89,4 +89,4 @@ This achieves the same effect as the documented `timeBeginPeriod`/`timeEndPeriod
 | CLI argument parsing | [cli.rs](../cli.rs/README.md) |
 | NT FFI declarations | [winapi.rs](README.md) (External FFI section) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

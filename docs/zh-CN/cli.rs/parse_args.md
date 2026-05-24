@@ -98,4 +98,4 @@ pub fn parse_args(args: &[String], cli: &mut CliArgs) -> Result<()>
 | 完整帮助输出 | [print_help_all](print_help_all.md) |
 | 日志系统 | [logging.rs](../logging.rs/README.md) |
 
-*文档记录于提交：[facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*文档记录于提交：[facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

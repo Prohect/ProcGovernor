@@ -251,4 +251,4 @@ The `entry_threshold` is higher than `keep_threshold`. A thread must:
 | Prime thread application | [apply_prime_threads](../apply.rs/apply_prime_threads.md) |
 | Configuration constants | [ConfigConstants](../config.rs/ConfigConstants.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

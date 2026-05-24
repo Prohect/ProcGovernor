@@ -80,4 +80,4 @@ fn enumerate_process_modules(pid: u32) -> Vec<(usize, usize, String)>
 | 线程起始地址查询 | [get_thread_start_address](get_thread_start_address.md) |
 | 存储 start_address 的 ThreadStats | [ThreadStats](../scheduler.rs/ThreadStats.md) |
 
-*文档版本：[facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*文档版本：[facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

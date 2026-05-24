@@ -93,7 +93,7 @@ This `from_str` is an inherent method, not a `std::str::FromStr` trait implement
 
 | | |
 |---|---|
-| **Module** | [`src/priority.rs`](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf/src/priority.rs) |
+| **Module** | [`src/priority.rs`](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf/src/priority.rs) |
 | **Used by** | [`apply_io_priority`](../apply.rs/apply_io_priority.md), config parser ([`read_config`](../config.rs/read_config.md)) |
 | **Win32 API** | `NtQueryInformationProcess` / `NtSetInformationProcess` with `ProcessIoPriority` |
 | **Privileges** | `SeIncreaseBasePriorityPrivilege` required for `High` variant |
@@ -108,4 +108,4 @@ This `from_str` is an inherent method, not a `std::str::FromStr` trait implement
 | IO priority application | [apply_io_priority](../apply.rs/apply_io_priority.md) |
 | Module overview | [priority.rs](README.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

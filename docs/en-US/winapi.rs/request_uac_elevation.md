@@ -68,4 +68,4 @@ The actual UAC consent dialog is presented by Windows when the elevated PowerShe
 | Base priority privilege enabled after elevation | [enable_inc_base_priority_privilege](enable_inc_base_priority_privilege.md) |
 | Child process cleanup on startup | [terminate_child_processes](terminate_child_processes.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

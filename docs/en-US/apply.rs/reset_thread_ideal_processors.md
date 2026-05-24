@@ -4,7 +4,7 @@ Resets ideal processor assignments for all threads in a process after an affinit
 
 ## Syntax
 
-```AffinityServiceRust/src/apply.rs#L219-226
+```ProcGovernor/src/apply.rs#L219-226
 pub fn reset_thread_ideal_processors<'a>(
     pid: u32,
     config: &ProcessLevelConfig,
@@ -94,4 +94,4 @@ When Windows changes a process's affinity mask, thread ideal processor assignmen
 | [ApplyConfigResult](ApplyConfigResult.md) | Accumulator for changes and errors |
 | [ProcessLevelConfig](../config.rs/ProcessLevelConfig.md) | Process-level configuration struct |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

@@ -50,4 +50,4 @@ pub fn print_config_help()
 | CLI 帮助打印函数 | [print_cli_help](print_cli_help.md) |
 | 配置解析器 | [read_config](../config.rs/read_config.md) |
 
-*记录于提交：[facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*记录于提交：[facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

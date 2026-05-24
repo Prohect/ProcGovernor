@@ -27,7 +27,7 @@ const KERNEL_PROCESS_GUID: GUID = GUID::from_u128(0x22fb2cd6_0e7b_422b_a0c7_2fad
 const WINEVENT_KEYWORD_PROCESS: u64 = 0x10;
 
 /// ETW session name used by this monitor
-const SESSION_NAME: &str = "AffinityServiceRust_EtwProcessMonitor";
+const SESSION_NAME: &str = "ProcGovernor_EtwProcessMonitor";
 
 /// Global sender for the ETW callback to use.
 /// The ETW callback is an `extern "system"` fn pointer, so we need a global to send events.

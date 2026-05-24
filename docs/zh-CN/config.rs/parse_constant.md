@@ -94,4 +94,4 @@ fn parse_constant(name: &str, value: &str, line_number: usize, result: &mut Conf
 | 传播常量的热重载 | [hotreload_config](hotreload_config.md) |
 | 解析结果容器 | [ConfigResult](ConfigResult.md) |
 
-*文档针对 Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*文档针对 Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

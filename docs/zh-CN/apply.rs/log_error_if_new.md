@@ -4,7 +4,7 @@
 
 ## 语法
 
-```AffinityServiceRust/src/apply.rs#L71-80
+```ProcGovernor/src/apply.rs#L71-80
 fn log_error_if_new(
     pid: u32,
     tid: u32,
@@ -92,4 +92,4 @@ apply_affinity: [SET_PROCESS_AFFINITY_MASK][Access is denied. (0x5)] 1234-my_pro
 | [Operation](../logging.rs/Operation.md) | Windows API 操作标识符枚举 |
 | [is_new_error](../logging.rs/is_new_error.md) | 底层去重逻辑 |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

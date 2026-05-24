@@ -1,4 +1,4 @@
-# priority 模块 (AffinityServiceRust)
+# priority 模块 (ProcGovernor)
 
 `priority` 模块为 Windows 优先级级别提供了类型安全的 Rust 枚举，实现了人类可读的字符串名称与 Win32 数值常量之间的双向转换。每个枚举遵循相同模式：一个表示"无配置值"的 `None` 变体、用于 DRY 查找转换的 `TABLE` 常量，以及四个标准方法（`as_str`、`as_win_const`、`from_str`、`from_win_const`）。这些枚举在整个配置解析器和应用引擎中使用，用于表示优先级设置，而无需暴露原始 Win32 数值。
 
@@ -27,6 +27,6 @@
 | IO 优先级应用 | [apply_io_priority](../apply.rs/apply_io_priority.md) |
 | 内存优先级应用 | [apply_memory_priority](../apply.rs/apply_memory_priority.md) |
 | 线程级调度 | [apply_prime_threads](../apply.rs/apply_prime_threads.md) |
-| 源代码文件 | [`src/priority.rs`](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf/src/priority.rs) |
+| 源代码文件 | [`src/priority.rs`](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf/src/priority.rs) |
 
-*文档记录于提交：[facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*文档记录于提交：[facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

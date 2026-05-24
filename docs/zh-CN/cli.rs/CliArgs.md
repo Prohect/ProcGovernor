@@ -1,6 +1,6 @@
 # CliArgs 结构体 (cli.rs)
 
-保存所有控制 AffinityServiceRust 运行时行为的解析后的命令行参数。通过 `new()` 在启动时创建单个实例，由 [parse_args](parse_args.md) 填充，然后通过引用在整个应用程序生命周期内传递。
+保存所有控制 ProcGovernor 运行时行为的解析后的命令行参数。通过 `new()` 在启动时创建单个实例，由 [parse_args](parse_args.md) 填充，然后通过引用在整个应用程序生命周期内传递。
 
 ## 语法
 
@@ -98,4 +98,4 @@ pub fn new() -> Self
 | 完整帮助输出 | [print_help_all](print_help_all.md) |
 | 配置文件类型 | [ConfigResult](../config.rs/ConfigResult.md) |
 
-*文档记录于提交：[facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*文档记录于提交：[facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

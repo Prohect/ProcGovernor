@@ -4,7 +4,7 @@
 
 ## 语法
 
-```AffinityServiceRust/src/apply.rs#L811-819
+```ProcGovernor/src/apply.rs#L811-819
 pub fn apply_prime_threads_promote(
     pid: u32,
     config: &ThreadLevelConfig,
@@ -116,4 +116,4 @@ pub fn apply_prime_threads_promote(
 | [`ThreadLevelConfig`](../config.rs/ThreadLevelConfig.md) | 包含 Prime 前缀的线程级别设置配置。 |
 | [`PrimePrefix`](../config.rs/PrimePrefix.md) | 可选 CPU 集合和线程优先级覆盖的每模块前缀规则。 |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

@@ -120,4 +120,4 @@ game2.exe:normal:0:0:0:none:none:*pcore@engine.dll;render.dll*ecore@audio.dll:1
 | Prime 线程前缀（相关概念） | [PrimePrefix](PrimePrefix.md) |
 | 其他字段的别名解析 | [resolve_cpu_spec](resolve_cpu_spec.md) |
 
-*文档针对 Commit：[facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*文档针对 Commit：[facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

@@ -45,7 +45,7 @@ CPU 索引 ≥ 64 会被静默跳过。这意味着该函数仅对具有单个�
 
 | | |
 |---|---|
-| **模块** | [`src/config.rs`](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf/src/config.rs) |
+| **模块** | [`src/config.rs`](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf/src/config.rs) |
 | **调用方** | [apply_affinity](../apply.rs/apply_affinity.md), [apply_prime_threads_promote](../apply.rs/apply_prime_threads_promote.md), [parse_mask](parse_mask.md), [convert](convert.md) |
 | **被调用方** | 无 |
 | **权限** | 无 |
@@ -60,4 +60,4 @@ CPU 索引 ≥ 64 会被静默跳过。这意味着该函数仅对具有单个�
 | 亲和性应用 | [apply_affinity](../apply.rs/apply_affinity.md) |
 | 模块概述 | [config.rs](README.md) |
 
-*文档针对 Commit：[facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*文档针对 Commit：[facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

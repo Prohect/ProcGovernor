@@ -62,4 +62,4 @@ The function is annotated with `#[allow(dead_code)]`, indicating it may not have
 | Mask-to-index conversion | [mask_to_cpu_indices](mask_to_cpu_indices.md) |
 | Display formatting | [format_cpu_indices](format_cpu_indices.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

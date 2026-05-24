@@ -72,4 +72,4 @@ The `system_mask` output of `GetProcessAffinityMask` represents all logical proc
 | CPU Set ID ↔ mask conversions | [cpusetids_from_mask](cpusetids_from_mask.md), [mask_from_cpusetids](mask_from_cpusetids.md) |
 | Debug privilege enablement | [enable_debug_privilege](enable_debug_privilege.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

@@ -4,7 +4,7 @@ Promotes threads selected as prime to dedicated high-performance CPUs via CPU Se
 
 ## Syntax
 
-```AffinityServiceRust/src/apply.rs#L811-819
+```ProcGovernor/src/apply.rs#L811-819
 pub fn apply_prime_threads_promote(
     pid: u32,
     config: &ThreadLevelConfig,
@@ -116,4 +116,4 @@ On successful promotion, two change messages may be logged:
 | [`ThreadLevelConfig`](../config.rs/ThreadLevelConfig.md) | Configuration for thread-level settings including prime prefixes. |
 | [`PrimePrefix`](../config.rs/PrimePrefix.md) | Per-module prefix rule with optional CPU set and thread priority override. |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

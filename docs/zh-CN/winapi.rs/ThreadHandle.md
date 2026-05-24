@@ -87,4 +87,4 @@ impl Drop for ThreadHandle {
 | 进程句柄对应物 | [ProcessHandle](ProcessHandle.md) |
 | 线程统计缓存 | [ThreadStats](../scheduler.rs/ThreadStats.md) |
 
-*文档化于提交：[facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*文档化于提交：[facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

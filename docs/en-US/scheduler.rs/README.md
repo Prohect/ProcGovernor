@@ -1,4 +1,4 @@
-# scheduler module (AffinityServiceRust)
+# scheduler module (ProcGovernor)
 
 The `scheduler` module implements the prime thread scheduling engine — the core algorithm that identifies the hottest threads in a process and tracks their activity over time for CPU pinning decisions. It uses hysteresis-based selection to prevent promotion/demotion thrashing, where threads must sustain activity above an entry threshold for a minimum streak before being promoted, and must drop below a separate (lower) keep threshold before being demoted.
 
@@ -31,4 +31,4 @@ The module maintains per-process and per-thread statistics across polling iterat
 | Process snapshot data | [ProcessEntry](../process.rs/ProcessEntry.md) |
 | Module address resolution | [resolve_address_to_module](../winapi.rs/resolve_address_to_module.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

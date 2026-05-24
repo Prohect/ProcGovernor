@@ -1,5 +1,5 @@
 [package]
-name = "AffinityServiceRust"
+name = "ProcGovernor"
 version = "1.0.0"
 edition = "2024"
 

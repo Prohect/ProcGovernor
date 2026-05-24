@@ -61,4 +61,4 @@ While [format_100ns](format_100ns.md) formats *durations* (elapsed 100ns interva
 | Scheduler drop logic | [PrimeThreadScheduler](PrimeThreadScheduler.md) |
 | Thread statistics | [ThreadStats](ThreadStats.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

@@ -1,4 +1,4 @@
-# priority module (AffinityServiceRust)
+# priority module (ProcGovernor)
 
 The `priority` module provides type-safe Rust enums for Windows priority levels with bidirectional conversion between human-readable string names and Win32 numeric constants. Each enum follows an identical pattern: a `None` variant representing "no configured value," a `TABLE` constant for DRY lookup-based conversions, and four standard methods (`as_str`, `as_win_const`, `from_str`, `from_win_const`). These enums are used throughout the configuration parser and apply engine to represent priority settings without exposing raw Win32 numeric values.
 
@@ -27,6 +27,6 @@ The `priority` module provides type-safe Rust enums for Windows priority levels 
 | IO priority application | [apply_io_priority](../apply.rs/apply_io_priority.md) |
 | Memory priority application | [apply_memory_priority](../apply.rs/apply_memory_priority.md) |
 | Thread-level scheduling | [apply_prime_threads](../apply.rs/apply_prime_threads.md) |
-| Source file | [`src/priority.rs`](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf/src/priority.rs) |
+| Source file | [`src/priority.rs`](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf/src/priority.rs) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

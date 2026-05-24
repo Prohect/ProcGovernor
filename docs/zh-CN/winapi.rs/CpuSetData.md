@@ -64,4 +64,4 @@ pub struct CpuSetData {
 | CPU 集合 ID → 掩码转换 | [mask_from_cpusetids](mask_from_cpusetids.md) |
 | CPU 集合应用到进程 | [apply_process_default_cpuset](../apply.rs/apply_process_default_cpuset.md) |
 
-*文档记录于 Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*文档记录于 Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

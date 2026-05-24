@@ -1,4 +1,4 @@
-# event_trace module (AffinityServiceRust)
+# event_trace module (ProcGovernor)
 
 The `event_trace` module implements a minimal ETW (Event Tracing for Windows) consumer for real-time process start/stop monitoring. It subscribes to the **Microsoft-Windows-Kernel-Process** provider (`{22fb2cd6-0e7b-422b-a0c7-2fad1fd0e716}`) and delivers `EtwProcessEvent` messages through a standard `mpsc` channel, enabling the main service loop to reactively apply configuration rules the moment a process is created or terminated — without polling.
 
@@ -28,7 +28,7 @@ The `event_trace` module implements a minimal ETW (Event Tracing for Windows) co
 |------|-------|-------------|
 | `KERNEL_PROCESS_GUID` | `{22fb2cd6-0e7b-422b-a0c7-2fad1fd0e716}` | GUID for the Microsoft-Windows-Kernel-Process ETW provider. |
 | `WINEVENT_KEYWORD_PROCESS` | `0x10` | Keyword bitmask that selects process-lifecycle events from the provider. |
-| `SESSION_NAME` | `"AffinityServiceRust_EtwProcessMonitor"` | Name registered with the ETW subsystem for this trace session. Used to detect and clean up stale sessions on startup. |
+| `SESSION_NAME` | `"ProcGovernor_EtwProcessMonitor"` | Name registered with the ETW subsystem for this trace session. Used to detect and clean up stale sessions on startup. |
 
 ## See Also
 
@@ -39,4 +39,4 @@ The `event_trace` module implements a minimal ETW (Event Tracing for Windows) co
 | Microsoft-Windows-Kernel-Process provider | [Microsoft docs](https://learn.microsoft.com/en-us/windows/win32/etw/event-tracing-portal) |
 | EVENT_TRACE_PROPERTIES | [Microsoft docs](https://learn.microsoft.com/en-us/windows/win32/api/evntrace/ns-evntrace-event_trace_properties) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

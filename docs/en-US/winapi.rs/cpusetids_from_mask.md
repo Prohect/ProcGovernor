@@ -54,4 +54,4 @@ The function performs a single pass over the cached CPU set data (one entry per 
 | CPU set topology cache | [CpuSetData](CpuSetData.md) |
 | Module overview | [winapi.rs](README.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

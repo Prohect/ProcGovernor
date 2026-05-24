@@ -4,7 +4,7 @@ Extracts read and write handles from a [ProcessHandle](../winapi.rs/ProcessHandl
 
 ## Syntax
 
-```AffinityServiceRust/src/apply.rs#L63-64
+```ProcGovernor/src/apply.rs#L63-64
 fn get_handles(process_handle: &ProcessHandle) -> (Option<HANDLE>, Option<HANDLE>)
 ```
 
@@ -50,4 +50,4 @@ Both elements are always `Some` when the `ProcessHandle` was successfully opened
 | Process priority application | [apply_priority](apply_priority.md) |
 | Process affinity application | [apply_affinity](apply_affinity.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

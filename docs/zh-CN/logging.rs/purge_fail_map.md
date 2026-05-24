@@ -58,4 +58,4 @@ pub fn purge_fail_map(pids_and_names: &[(u32, &str)])
 | 失败键 | [ApplyFailEntry](ApplyFailEntry.md) |
 | 操作枚举 | [Operation](Operation.md) |
 
-*记录于提交：[facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*记录于提交：[facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

@@ -60,7 +60,7 @@ The function propagates `std::io::Error` from `File::open` if the file cannot be
 
 | | |
 |---|---|
-| **Module** | [`src/config.rs`](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf/src/config.rs) |
+| **Module** | [`src/config.rs`](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf/src/config.rs) |
 | **Callers** | [hotreload_blacklist](hotreload_blacklist.md), main initialization in `main.rs` |
 | **Callees** | `std::fs::File::open`, `std::io::BufReader`, `log!` macro |
 | **Privileges** | File read access to the blacklist path |
@@ -74,4 +74,4 @@ The function propagates `std::io::Error` from `File::open` if the file cannot be
 | Config file reader (counterpart) | [read_config](read_config.md) |
 | CLI arguments specifying blacklist path | [CliArgs](../cli.rs/CliArgs.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

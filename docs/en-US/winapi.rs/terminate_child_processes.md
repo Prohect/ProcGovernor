@@ -73,4 +73,4 @@ When the service starts without administrator privileges, [request_uac_elevation
 | Admin check that triggers elevation | [is_running_as_admin](is_running_as_admin.md) |
 | Module enumeration (uses similar snapshot pattern) | [enumerate_process_modules](enumerate_process_modules.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

@@ -102,7 +102,7 @@ Converts a raw `u32` memory priority value (as returned by [`GetProcessInformati
 
 | | |
 |---|---|
-| **Module** | [`src/priority.rs`](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf/src/priority.rs) |
+| **Module** | [`src/priority.rs`](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf/src/priority.rs) |
 | **Callers** | [`apply_memory_priority`](../apply.rs/apply_memory_priority.md), configuration parsing in [`config.rs`](../config.rs/README.md) |
 | **Dependencies** | `windows::Win32::System::Threading::{MEMORY_PRIORITY, MEMORY_PRIORITY_VERY_LOW, MEMORY_PRIORITY_LOW, MEMORY_PRIORITY_MEDIUM, MEMORY_PRIORITY_BELOW_NORMAL, MEMORY_PRIORITY_NORMAL}` |
 | **Win32 API** | [`SetProcessInformation`](https://learn.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-setprocessinformation), [`GetProcessInformation`](https://learn.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-getprocessinformation) |
@@ -119,4 +119,4 @@ Converts a raw `u32` memory priority value (as returned by [`GetProcessInformati
 | Thread priority enum | [`ThreadPriority`](ThreadPriority.md) |
 | Module overview | [priority.rs](README.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

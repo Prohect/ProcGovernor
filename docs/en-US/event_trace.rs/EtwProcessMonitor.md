@@ -41,7 +41,7 @@ Creates and starts a new ETW real-time trace session for process monitoring.
 The startup sequence performs six steps in order:
 
 1. **Create channel** — Allocates an `mpsc` channel and installs the sender into the global [ETW_SENDER](README.md) static so the OS callback can reach it.
-2. **Prepare `EVENT_TRACE_PROPERTIES`** — Allocates a buffer large enough for the properties struct plus the UTF-16 session name `"AffinityServiceRust_EtwProcessMonitor"`. Configures real-time mode with QPC timestamps.
+2. **Prepare `EVENT_TRACE_PROPERTIES`** — Allocates a buffer large enough for the properties struct plus the UTF-16 session name `"ProcGovernor_EtwProcessMonitor"`. Configures real-time mode with QPC timestamps.
 3. **Stop existing session** — Calls `stop_existing_session` to clean up any stale session with the same name (e.g., from a previous crash).
 4. **Start trace** — Calls `StartTraceW` to create the ETW session and obtain the control handle.
 5. **Enable provider** — Calls `EnableTraceEx2` with the `Microsoft-Windows-Kernel-Process` provider GUID (`{22fb2cd6-0e7b-422b-a0c7-2fad1fd0e716}`) and the `WINEVENT_KEYWORD_PROCESS` (`0x10`) keyword at `TRACE_LEVEL_INFORMATION`.
@@ -102,7 +102,7 @@ The `Drop` implementation calls `stop()`, ensuring that the ETW session is alway
 ## Remarks
 
 - Only one `EtwProcessMonitor` should be active at a time because the callback communicates through a single global sender (`ETW_SENDER`). Starting a second monitor replaces the sender, orphaning the first monitor's receiver.
-- The session name `"AffinityServiceRust_EtwProcessMonitor"` is a fixed constant. If the service crashes without calling `stop()`, the stale session persists in the kernel until the next call to `start()` cleans it up via `stop_existing_session`.
+- The session name `"ProcGovernor_EtwProcessMonitor"` is a fixed constant. If the service crashes without calling `stop()`, the stale session persists in the kernel until the next call to `start()` cleans it up via `stop_existing_session`.
 - `ProcessTrace` is a blocking Win32 call that only returns when the trace handle is closed. This is why it runs on a dedicated background thread rather than the main thread.
 - The `properties_buf` must remain valid and at the same address for the entire session lifetime because `ControlTraceW` at stop time writes back into the same buffer.
 
@@ -125,4 +125,4 @@ The `Drop` implementation calls `stop()`, ensuring that the ETW session is alway
 | Error code helper | [error_from_code_win32](../error_codes.rs/README.md) |
 | Scheduler integration | [PrimeThreadScheduler](../scheduler.rs/PrimeThreadScheduler.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

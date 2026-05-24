@@ -20,7 +20,7 @@ pub fn error_from_code_win32(code: u32) -> String
 
 ## 备注
 
-该函数使用 `match` 语句对一组精选的 Win32 错误码进行匹配，这些错误码在进程和线程操作过程中经常遇到。该集合并非详尽无遗——它仅涵盖与 AffinityServiceRust 操作最相关的错误码：
+该函数使用 `match` 语句对一组精选的 Win32 错误码进行匹配，这些错误码在进程和线程操作过程中经常遇到。该集合并非详尽无遗——它仅涵盖与 ProcGovernor 操作最相关的错误码：
 
 ### 已识别的错误码
 
@@ -94,4 +94,4 @@ pub fn error_from_code_win32(code: u32) -> String
 | 错误去重 | [log_error_if_new](../apply.rs/log_error_if_new.md) |
 | Microsoft Win32 错误码参考 | [System Error Codes](https://learn.microsoft.com/zh-cn/windows/win32/debug/system-error-codes) |
 
-*文档记录于提交：[facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*文档记录于提交：[facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

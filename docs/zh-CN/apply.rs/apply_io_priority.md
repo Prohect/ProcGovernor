@@ -4,7 +4,7 @@
 
 ## 语法
 
-```AffinityServiceRust/src/apply.rs#L403-410
+```ProcGovernor/src/apply.rs#L403-410
 pub fn apply_io_priority(
     pid: u32,
     config: &ProcessLevelConfig,
@@ -98,4 +98,4 @@ pub fn apply_io_priority(
 | [ProcessLevelConfig](../config.rs/ProcessLevelConfig.md) | 包含 `io_priority` 字段的配置结构 |
 | [IOPriority](../priority.rs/IOPriority.md) | I/O 优先级级别枚举 |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

@@ -89,4 +89,4 @@ NTSTATUS NtSetTimerResolution(
 | CLI 参数解析 | [cli.rs](../cli.rs/README.md) |
 | NT FFI 声明 | [winapi.rs](README.md)（外部 FFI 部分） |
 
-*文档版本：[facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*文档版本：[facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

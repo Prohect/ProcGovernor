@@ -1,6 +1,6 @@
 # print_help 函数 (cli.rs)
 
-向控制台打印 AffinityServiceRust 的基本使用说明。这是当用户在命令行传递 `-help`、`--help`、`-?`、`/?` 或 `?` 时显示的默认帮助输出。
+向控制台打印 ProcGovernor 的基本使用说明。这是当用户在命令行传递 `-help`、`--help`、`-?`、`/?` 或 `?` 时显示的默认帮助输出。
 
 ## 语法
 
@@ -62,4 +62,4 @@ pub fn print_help()
 | CLI 参数结构体 | [CliArgs](CliArgs.md) |
 | 模块概述 | [cli.rs](README.md) |
 
-*文档记录于提交：[facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*文档记录于提交：[facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

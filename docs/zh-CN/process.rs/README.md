@@ -1,4 +1,4 @@
-# process 模块 (AffinityServiceRust)
+# process 模块 (ProcGovernor)
 
 \`process\` 模块提供了一个基于 \`NtQuerySystemInformation(SystemProcessInformation)\` 构建的高性能进程快照机制。它将所有正在运行的进程及其线程的时间点视图捕获到可重用的缓冲区中，最大限度地减少了轮询迭代之间的分配开销。该模块公开了一个基于 RAII 的 [ProcessSnapshot](ProcessSnapshot.md) 类型，在 drop 时自动清除共享状态，以及一个 [ProcessEntry](ProcessEntry.md) 结构体，用于包装每个进程的数据，包括从原始内核结构中解析出的线程数组。
 
@@ -26,4 +26,4 @@
 | 配置应用 | [apply.rs](../apply.rs/README.md) |
 | Windows API 包装器 | [winapi.rs](../winapi.rs/README.md) |
 
-*文档记录自提交：[facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*文档记录自提交：[facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

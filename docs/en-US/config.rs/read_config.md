@@ -90,7 +90,7 @@ Aliases are stored in a local `HashMap<String, List<[u32; CONSUMER_CPUS]>>` scop
 
 | | |
 |---|---|
-| **Module** | [`src/config.rs`](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf/src/config.rs) |
+| **Module** | [`src/config.rs`](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf/src/config.rs) |
 | **Callers** | [hotreload_config](hotreload_config.md), main service startup |
 | **Callees** | [parse_constant](parse_constant.md), [parse_alias](parse_alias.md), [collect_members](collect_members.md), [collect_group_block](collect_group_block.md), [parse_and_insert_rules](parse_and_insert_rules.md) |
 | **Dependencies** | `std::fs::File`, `std::io::BufReader`, [ConfigResult](ConfigResult.md), [HashMap](../collections.rs/README.md) |
@@ -109,4 +109,4 @@ Aliases are stored in a local `HashMap<String, List<[u32; CONSUMER_CPUS]>>` scop
 | Hot-reload wrapper | [hotreload_config](hotreload_config.md) |
 | Process Lasso converter | [convert](convert.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

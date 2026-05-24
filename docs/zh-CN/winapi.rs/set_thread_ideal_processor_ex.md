@@ -63,4 +63,4 @@ pub fn set_thread_ideal_processor_ex(
 | 提供写入访问的线程句柄 | [ThreadHandle](ThreadHandle.md) |
 | 设置理想处理器的应用函数 | [apply_ideal_processors](../apply.rs/apply_ideal_processors.md) |
 
-*文档版本：[facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*文档版本：[facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

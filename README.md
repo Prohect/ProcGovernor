@@ -1,17 +1,17 @@
-# AffinityServiceRust
+# ProcGovernor
 
 <!-- languages -->
 - 🇺🇸 [English](README.md)
 - 🇨🇳 [中文 (简体)](README.zh-CN.md)
 
-![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/prohect/AffinityServiceRust/total)
+![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/prohect/ProcGovernor/total)
 
 
 A high-performance Windows process management service written in Rust that automatically applies CPU affinity, priority, I/O priority, and memory priority rules to running processes based on configuration files.
 
 ## Overview
 
-AffinityServiceRust continuously monitors running processes and applies customized scheduling policies based on rules defined in configuration files. It supports:
+ProcGovernor continuously monitors running processes and applies customized scheduling policies based on rules defined in configuration files. It supports:
 
 - **Process Priority Management**: Set process priority class (Idle to Real-time) — see [Priority Levels](#priority-levels)
 - **CPU Affinity**: Hard-pin processes to specific logical processors (legacy ≤64 core systems) — see [`apply_affinity()`](docs/en-US/apply.rs/apply_affinity.md)
@@ -46,13 +46,13 @@ AffinityServiceRust continuously monitors running processes and applies customiz
 
 ```bash
 # Basic usage with console output
-AffinityServiceRust.exe -config my_config.ini -console
+ProcGovernor.exe -config my_config.ini -console
 
 # Run with admin elevation (recommended for full functionality)
-powershell -Command "Start-Process -FilePath './AffinityServiceRust.exe' -Verb RunAs -Wait"
+powershell -Command "Start-Process -FilePath './ProcGovernor.exe' -Verb RunAs -Wait"
 
 # Show all available options
-AffinityServiceRust.exe -helpall
+ProcGovernor.exe -helpall
 ```
 
 ## Features
@@ -116,7 +116,7 @@ See [`apply_ideal_processors()`](docs/en-US/apply.rs/apply_ideal_processors.md) 
 
 ### Ideal Processor Reset
 
-When a process's CPU affinity is changed, AffinityServiceRust automatically resets per-thread ideal processor assignments to prevent Windows from clamping threads to narrow CPU ranges.
+When a process's CPU affinity is changed, ProcGovernor automatically resets per-thread ideal processor assignments to prevent Windows from clamping threads to narrow CPU ranges.
 
 This can also be enabled for CPU set changes by prefixing the cpuset field with `@`:
 
@@ -225,35 +225,35 @@ See [cli.md](docs/en-US/cli.rs/README.md) for complete CLI documentation.
 
 Validate your configuration before running:
 ```bash
-AffinityServiceRust.exe -validate -config my_config.ini
+ProcGovernor.exe -validate -config my_config.ini
 ```
 
 ### Dry Run Mode
 
 Preview changes without applying them:
 ```bash
-AffinityServiceRust.exe -dryrun -noUAC -config test.ini
+ProcGovernor.exe -dryrun -noUAC -config test.ini
 ```
 
 ### Process Discovery
 
 Find processes not covered by your config:
 ```bash
-AffinityServiceRust.exe -find -blacklist blacklist.ini
+ProcGovernor.exe -find -blacklist blacklist.ini
 ```
 
 ### Config Conversion
 
 Convert Process Lasso config format:
 ```bash
-AffinityServiceRust.exe -convert -in prolasso.ini -out my_config.ini
+ProcGovernor.exe -convert -in prolasso.ini -out my_config.ini
 ```
 
 ### Config Auto-Grouping
 
 Automatically merge rules with identical settings into named group blocks:
 ```bash
-AffinityServiceRust.exe -autogroup -in config.ini -out config_grouped.ini
+ProcGovernor.exe -autogroup -in config.ini -out config_grouped.ini
 ```
 
 Rules that share the exact same rule string are collected into a `grp_N { }` block, with members sorted alphabetically. Groups that fit within 128 characters are written on a single line; larger groups wrap across multiple lines with `: `-separated members, each line kept under 128 characters.
@@ -314,19 +314,19 @@ cargo build --release
 cargo test
 
 # Validate config
-cargo build --release && ./target/release/AffinityServiceRust.exe -validate
+cargo build --release && ./target/release/ProcGovernor.exe -validate
 ```
 
 ### Output
 
 The release binary will be at:
 ```
-target/release/AffinityServiceRust.exe
+target/release/ProcGovernor.exe
 ```
 
 ## How It Works
 
-AffinityServiceRust continuously monitors running processes and applies configured rules for process priority, CPU affinity/sets, I/O/memory priority, prime thread scheduling, and ideal processor assignment. It uses ETW for reactive process detection and supports hot reloading of config files.
+ProcGovernor continuously monitors running processes and applies configured rules for process priority, CPU affinity/sets, I/O/memory priority, prime thread scheduling, and ideal processor assignment. It uses ETW for reactive process detection and supports hot reloading of config files.
 
 For detailed architecture and implementation, see [docs/main.md](docs/en-US/main.rs/README.md).
 
@@ -362,7 +362,7 @@ See [`is_new_error()`](docs/en-US/logging.rs/is_new_error.md) for error deduplic
 
 Issues and pull requests are welcome.
 
-Please update the commit SHA here when you try to update this README: **[29c0140](https://github.com/Prohect/AffinityServiceRust/tree/29c0140cfc5ad80a5ee53fea0ce61fedb90783aa)**. This give the developer a way to compare source code from the newest to understand changes.
+Please update the commit SHA here when you try to update this README: **[29c0140](https://github.com/Prohect/ProcGovernor/tree/29c0140cfc5ad80a5ee53fea0ce61fedb90783aa)**. This give the developer a way to compare source code from the newest to understand changes.
 
 ## License
 

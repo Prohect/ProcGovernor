@@ -4,7 +4,7 @@
 
 ## 语法
 
-```AffinityServiceRust/src/apply.rs#L794-800
+```ProcGovernor/src/apply.rs#L794-800
 pub fn apply_prime_threads_select(
     pid: u32,
     prime_count: usize,
@@ -50,7 +50,7 @@ pub fn apply_prime_threads_select(
 
 传递给迟滞选择器的闭包为：
 
-```AffinityServiceRust/src/apply.rs#L801-803
+```ProcGovernor/src/apply.rs#L801-803
 |thread_stats| {
     !thread_stats.pinned_cpu_set_ids.is_empty()
 }
@@ -78,4 +78,4 @@ pub fn apply_prime_threads_select(
 | [prefetch_all_thread_cycles](prefetch_all_thread_cycles.md) | 收集选择所消耗的周期数据 |
 | [PrimeThreadScheduler](../scheduler.rs/PrimeThreadScheduler.md) | 拥有迟滞逻辑和线程统计信息的调度器 |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

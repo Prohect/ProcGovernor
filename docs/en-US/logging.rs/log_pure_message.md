@@ -60,4 +60,4 @@ Errors from `writeln!` are silently discarded (the return value of `writeln!` is
 | Find-mode logging | [log_to_find](log_to_find.md) |
 | Log file path computation | [get_log_path](get_log_path.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

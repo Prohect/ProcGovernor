@@ -58,4 +58,4 @@ pub fn get_config_help_lines() -> Vec<&'static str>
 | CLI 参数解析器 | [parse_args](parse_args.md) |
 | 配置解析器 | [ConfigResult](../config.rs/ConfigResult.md) |
 
-*记录于提交：[facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*记录于提交：[facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

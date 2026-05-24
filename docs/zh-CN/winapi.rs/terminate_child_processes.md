@@ -73,4 +73,4 @@ pub fn terminate_child_processes()
 | 触发提升的管理员检查 | [is_running_as_admin](is_running_as_admin.md) |
 | 模块枚举（使用类似的快照模式） | [enumerate_process_modules](enumerate_process_modules.md) |
 
-*文档版本：[facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*文档版本：[facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

@@ -50,7 +50,7 @@ The `fail_find_set` global prevents the same process name from being logged on e
 
 ### Affinity heuristic
 
-The assumption is that any process still running with the system-default full affinity mask has not been managed by any external tool or by AffinityServiceRust itself. This is a simple heuristic; processes that intentionally use full affinity will also be flagged.
+The assumption is that any process still running with the system-default full affinity mask has not been managed by any external tool or by ProcGovernor itself. This is a simple heuristic; processes that intentionally use full affinity will also be flagged.
 
 ## Requirements
 
@@ -72,4 +72,4 @@ The assumption is that any process still running with the system-default full af
 | CLI flags | [CliArgs](../cli.rs/CliArgs.md) |
 | Module overview | [main.rs](README.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

@@ -166,4 +166,4 @@ Cloning a `ProcessEntry` copies the `SYSTEM_PROCESS_INFORMATION` structure by va
 | Thread-level stats tracking | [ThreadStats](../scheduler.rs/ThreadStats.md) |
 | Process handle management | [ProcessHandle](../winapi.rs/ProcessHandle.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

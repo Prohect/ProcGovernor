@@ -87,4 +87,4 @@ Limited access rights succeed more often (e.g., for protected processes) but sup
 | Process handle counterpart | [ProcessHandle](ProcessHandle.md) |
 | Thread stats cache | [ThreadStats](../scheduler.rs/ThreadStats.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

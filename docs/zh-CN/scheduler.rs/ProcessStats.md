@@ -88,4 +88,4 @@ impl Default for ProcessStats {
 | 进程快照条目 | [ProcessEntry](../process.rs/ProcessEntry.md) |
 | 模块名称解析 | [resolve_address_to_module](../winapi.rs/resolve_address_to_module.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

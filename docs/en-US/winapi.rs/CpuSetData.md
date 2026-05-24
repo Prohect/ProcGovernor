@@ -64,4 +64,4 @@ Configuration files use human-friendly logical indices. The Windows CPU Sets API
 | CPU Set ID → mask conversion | [mask_from_cpusetids](mask_from_cpusetids.md) |
 | CPU set application to processes | [apply_process_default_cpuset](../apply.rs/apply_process_default_cpuset.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

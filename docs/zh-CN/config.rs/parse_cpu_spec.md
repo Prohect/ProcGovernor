@@ -70,4 +70,4 @@ pub fn parse_cpu_spec(s: &str) -> List<[u32; CONSUMER_CPUS]>
 | 别名解析包装器 | [resolve_cpu_spec](resolve_cpu_spec.md) |
 | 集合类型 | [List / CONSUMER_CPUS](../collections.rs/README.md) |
 
-*文档针对 Commit：[facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*文档针对 Commit：[facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

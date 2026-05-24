@@ -61,4 +61,4 @@ fn format_filetime(time: i64) -> String
 | 调度器清理逻辑 | [PrimeThreadScheduler](PrimeThreadScheduler.md) |
 | 线程统计 | [ThreadStats](ThreadStats.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

@@ -72,4 +72,4 @@ pub fn is_affinity_unset(pid: u32, process_name: &str) -> bool
 | CPU 集合 ID ↔ 掩码转换 | [cpusetids_from_mask](cpusetids_from_mask.md), [mask_from_cpusetids](mask_from_cpusetids.md) |
 | 调试权限启用 | [enable_debug_privilege](enable_debug_privilege.md) |
 
-*文档版本：[facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*文档版本：[facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

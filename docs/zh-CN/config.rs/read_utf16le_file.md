@@ -40,7 +40,7 @@ pub fn read_utf16le_file(path: &str) -> Result<String>
 
 ### 与标准文件读取的比较
 
-对于采用 UTF-8 编码的文件（AffinityServiceRust 配置文件的默认编码），[read_config](read_config.md) 使用带逐行读取的 `std::io::BufReader`。`read_utf16le_file` 仅用于 Process Lasso 导入，这些导入使用 Windows 原生 UTF-16LE 编码。
+对于采用 UTF-8 编码的文件（ProcGovernor 配置文件的默认编码），[read_config](read_config.md) 使用带逐行读取的 `std::io::BufReader`。`read_utf16le_file` 仅用于 Process Lasso 导入，这些导入使用 Windows 原生 UTF-16LE 编码。
 
 ## 需求
 
@@ -60,4 +60,4 @@ pub fn read_utf16le_file(path: &str) -> Result<String>
 | 标准配置读取器（UTF-8） | [read_config](read_config.md) |
 | 黑名单读取器（UTF-8） | [read_bleack_list](read_bleack_list.md) |
 
-*文档针对 Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*文档针对 Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

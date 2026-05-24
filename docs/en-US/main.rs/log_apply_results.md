@@ -72,4 +72,4 @@ This alignment ensures that all changes for a single process appear as a visuall
 | Combined apply entry point | [apply_config](apply_config.md) |
 | Logging infrastructure | [logging.rs](../logging.rs/README.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

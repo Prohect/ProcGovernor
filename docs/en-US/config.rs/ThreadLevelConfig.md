@@ -96,4 +96,4 @@ The prime spec supports several forms:
 | Rule parser | [parse_and_insert_rules](parse_and_insert_rules.md) |
 | Config file reader | [read_config](read_config.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

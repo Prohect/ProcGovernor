@@ -251,4 +251,4 @@ pub fn drop_process_by_pid(&mut self, pid: &u32)
 | Prime 线程应用 | [apply_prime_threads](../apply.rs/apply_prime_threads.md) |
 | 配置常量 | [ConfigConstants](../config.rs/ConfigConstants.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

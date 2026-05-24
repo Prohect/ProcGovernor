@@ -1,6 +1,6 @@
-# cli module (AffinityServiceRust)
+# cli module (ProcGovernor)
 
-The `cli` module implements command-line argument parsing and help text printing for AffinityServiceRust. It defines the [CliArgs](CliArgs.md) struct that captures all runtime options — polling interval, operating modes, debug flags, file paths, and privilege controls — and provides [parse_args](parse_args.md) to populate it from process arguments. The module also exposes several help printers that document basic usage, detailed CLI options, and configuration file format.
+The `cli` module implements command-line argument parsing and help text printing for ProcGovernor. It defines the [CliArgs](CliArgs.md) struct that captures all runtime options — polling interval, operating modes, debug flags, file paths, and privilege controls — and provides [parse_args](parse_args.md) to populate it from process arguments. The module also exposes several help printers that document basic usage, detailed CLI options, and configuration file format.
 
 ## Structs
 
@@ -28,4 +28,4 @@ The `cli` module implements command-line argument parsing and help text printing
 | Logging infrastructure | [logging.rs](../logging.rs/README.md) |
 | Priority enumerations | [priority.rs](../priority.rs/README.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

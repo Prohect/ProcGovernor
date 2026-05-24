@@ -54,4 +54,4 @@ fn mask_to_cpu_indices(mask: u64) -> List<[u32; CONSUMER_CPUS]>
 | 十六进制掩码解析器 | [parse_mask](parse_mask.md) |
 | 集合类型 | [List](../collections.rs/README.md) |
 
-*文档针对 Commit：[facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*文档针对 Commit：[facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

@@ -66,4 +66,4 @@ idx < 64 && ((1usize << idx) & affinity_mask) != 0
 | CPU 集合 ID → 掩码转换 | [mask_from_cpusetids](mask_from_cpusetids.md) |
 | Prime 线程提升 | [apply_prime_threads_promote](../apply.rs/apply_prime_threads_promote.md) |
 
-*文档版本：[facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*文档版本：[facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

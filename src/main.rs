@@ -555,7 +555,7 @@ fn main() -> windows::core::Result<()> {
                     match event_trace_receiver.recv_timeout(Duration::from_millis(((cli.interval_ms + 16) / 2) as u64)) {
                         Err(RecvTimeoutError::Disconnected) => {
                             should_continue = false;
-                            break; // probably another AffinityServiceRust instance is running and reusing the same event trace pipe
+                            break; // probably another ProcGovernor instance is running and reusing the same event trace pipe
                         }
                         Err(RecvTimeoutError::Timeout) => {
                             if !process_level_pending.is_empty() {

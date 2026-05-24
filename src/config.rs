@@ -899,7 +899,7 @@ pub fn parse_mask(s: &str) -> usize {
     cpu_indices_to_mask(&cpus)
 }
 
-/// Converts Process Lasso configuration to AffinityServiceRust format.
+/// Converts Process Lasso configuration to ProcGovernor format.
 ///
 /// Parses INI-style Process Lasso config with:
 /// - NamedAffinities=alias,cpus,alias,cpus...

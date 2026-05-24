@@ -79,4 +79,4 @@ fn error_detail(internal_op_code: &u32) -> String
 | 线程句柄 RAII 封装 | [ThreadHandle](ThreadHandle.md) |
 | 进程句柄等效项 | [get_process_handle](get_process_handle.md) |
 
-*文档版本：[facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*文档版本：[facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

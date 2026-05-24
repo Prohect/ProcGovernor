@@ -1,6 +1,6 @@
 # CliArgs struct (cli.rs)
 
-Holds all parsed command-line arguments that control the runtime behavior of AffinityServiceRust. A single instance is created at startup via `new()`, populated by [parse_args](parse_args.md), and then passed by reference throughout the application lifetime.
+Holds all parsed command-line arguments that control the runtime behavior of ProcGovernor. A single instance is created at startup via `new()`, populated by [parse_args](parse_args.md), and then passed by reference throughout the application lifetime.
 
 ## Syntax
 
@@ -98,4 +98,4 @@ A new `CliArgs` instance with default configuration.
 | Full help output | [print_help_all](print_help_all.md) |
 | Configuration file types | [ConfigResult](../config.rs/ConfigResult.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

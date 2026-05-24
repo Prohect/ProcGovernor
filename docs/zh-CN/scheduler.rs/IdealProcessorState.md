@@ -79,4 +79,4 @@ impl Default for IdealProcessorState {
 | 理想处理器获取封装 | [get_thread_ideal_processor_ex](../winapi.rs/get_thread_ideal_processor_ex.md) |
 | 带迟滞机制的线程选择 | [PrimeThreadScheduler](PrimeThreadScheduler.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

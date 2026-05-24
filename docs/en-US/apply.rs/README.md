@@ -1,6 +1,6 @@
-# apply module (AffinityServiceRust)
+# apply module (ProcGovernor)
 
-The `apply` module is the core enforcement engine of AffinityServiceRust. It applies configured settings — process priority, CPU affinity, CPU sets, IO priority, memory priority, prime thread scheduling, and ideal processor hints — to running Windows processes. Each function reads the current state of a target process or thread via Windows API, compares it against the desired configuration, and makes changes only when a difference is detected. All changes and errors are accumulated into an [ApplyConfigResult](ApplyConfigResult.md) for structured logging.
+The `apply` module is the core enforcement engine of ProcGovernor. It applies configured settings — process priority, CPU affinity, CPU sets, IO priority, memory priority, prime thread scheduling, and ideal processor hints — to running Windows processes. Each function reads the current state of a target process or thread via Windows API, compares it against the desired configuration, and makes changes only when a difference is detected. All changes and errors are accumulated into an [ApplyConfigResult](ApplyConfigResult.md) for structured logging.
 
 ## Structs
 
@@ -39,4 +39,4 @@ The `apply` module is the core enforcement engine of AffinityServiceRust. It app
 | Error deduplication | [is_new_error](../logging.rs/is_new_error.md) |
 | Priority enums | [ProcessPriority](../priority.rs/ProcessPriority.md), [IOPriority](../priority.rs/IOPriority.md), [MemoryPriority](../priority.rs/MemoryPriority.md), [ThreadPriority](../priority.rs/ThreadPriority.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

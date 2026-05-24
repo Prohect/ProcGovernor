@@ -41,7 +41,7 @@ pub fn start() -> Result<(Self, Receiver<EtwProcessEvent>), String>
 启动顺序按顺序执行六个步骤：
 
 1. **创建通道** — 分配一个 `mpsc` 通道，并将发送者安装到全局 [ETW_SENDER](README.md) 静态变量中，以便 OS 回调可以访问它。
-2. **准备 `EVENT_TRACE_PROPERTIES`** — 分配足够大的缓冲区以容纳属性结构以及 UTF-16 会话名称 `"AffinityServiceRust_EtwProcessMonitor"`。配置为实时模式，使用 QPC 时间戳。
+2. **准备 `EVENT_TRACE_PROPERTIES`** — 分配足够大的缓冲区以容纳属性结构以及 UTF-16 会话名称 `"ProcGovernor_EtwProcessMonitor"`。配置为实时模式，使用 QPC 时间戳。
 3. **停止现有会话** — 调用 `stop_existing_session` 以清理具有相同名称的任何陈旧会话（例如，来自以前的崩溃）。
 4. **开始跟踪** — 调用 `StartTraceW` 创建 ETW 会话并获得控制句柄。
 5. **启用提供者** — 调用 `EnableTraceEx2`，使用 `Microsoft-Windows-Kernel-Process` 提供者 GUID (`{22fb2cd6-0e7b-422b-a0c7-2fad1fd0e716}`) 和 `WINEVENT_KEYWORD_PROCESS` (`0x10`) 关键字，级别为 `TRACE_LEVEL_INFORMATION`。
@@ -102,7 +102,7 @@ impl Drop for EtwProcessMonitor {
 ## 备注
 
 - 一次只应该有一个 `EtwProcessMonitor` 处于活动状态，因为回调通过单个全局发送者（`ETW_SENDER`）通信。启动第二个监视器会替换发送者，使第一个监视器的接收者脱离关系。
-- 会话名称 `"AffinityServiceRust_EtwProcessMonitor"` 是一个固定常量。如果服务崩溃而没有调用 `stop()`，陈旧的会话会保留在内核中，直到下一次调用 `start()` 通过 `stop_existing_session` 清理它。
+- 会话名称 `"ProcGovernor_EtwProcessMonitor"` 是一个固定常量。如果服务崩溃而没有调用 `stop()`，陈旧的会话会保留在内核中，直到下一次调用 `start()` 通过 `stop_existing_session` 清理它。
 - `ProcessTrace` 是一个阻塞的 Win32 调用，仅在跟踪句柄关闭时才返回。这就是为什么它在专用后台线程上运行，而不是在主线程上。
 - `properties_buf` 必须在整个会话生命周期内保持有效并且地址相同，因为 `ControlTraceW` 在停止时会写回到同一个缓冲区。
 
@@ -125,4 +125,4 @@ impl Drop for EtwProcessMonitor {
 | 错误代码辅助 | [error_from_code_win32](../error_codes.rs/README.md) |
 | 调度器集成 | [PrimeThreadScheduler](../scheduler.rs/PrimeThreadScheduler.md) |
 
-*文档记录于提交：[facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*文档记录于提交：[facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

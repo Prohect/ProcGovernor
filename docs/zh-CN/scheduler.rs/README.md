@@ -1,4 +1,4 @@
-# scheduler 模块 (AffinityServiceRust)
+# scheduler 模块 (ProcGovernor)
 
 `scheduler` 模块实现了 Prime 线程调度引擎——核心算法，用于识别进程中最活跃的线程并跟踪其随时间变化的活动状态，为 CPU 绑定决策提供依据。该模块使用基于迟滞机制的选择策略来防止提升/降级抖动，其中线程必须在超过进入阈值后维持一定的连续迭代次数才能被提升，并且必须降至一个较低的保持阈值以下才会被降级。
 
@@ -31,4 +31,4 @@
 | 进程快照数据 | [ProcessEntry](../process.rs/ProcessEntry.md) |
 | 模块地址解析 | [resolve_address_to_module](../winapi.rs/resolve_address_to_module.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

@@ -1,6 +1,6 @@
-# AffinityServiceRust Documentation (en-US)
+# ProcGovernor Documentation (en-US)
 
-AffinityServiceRust is a Windows service written in Rust that manages process CPU affinity, priority, IO priority, memory priority, and thread scheduling via an INI-like configuration file. It supports hot-reloading of configuration, ETW-based reactive process detection, prime thread scheduling with hysteresis, and tools for Process Lasso config conversion.
+ProcGovernor is a Windows service written in Rust that manages process CPU affinity, priority, IO priority, memory priority, and thread scheduling via an INI-like configuration file. It supports hot-reloading of configuration, ETW-based reactive process detection, prime thread scheduling with hysteresis, and tools for Process Lasso config conversion.
 
 ## Modules
 
@@ -39,4 +39,4 @@ Configuration hot-reload is supported: the service detects config file changes a
 | en-US | (this page) |
 | zh-CN | [zh-CN](../zh-CN/README.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

@@ -50,7 +50,7 @@ fn process_find(
 
 ### 亲和性启发式
 
-该假设是：任何仍以系统默认完整亲和性掩码运行的进程都未被任何外部工具或 AffinityServiceRust 本身管理。这是一个简单的启发式方法；有意使用完整亲和性的进程也会被标记。
+该假设是：任何仍以系统默认完整亲和性掩码运行的进程都未被任何外部工具或 ProcGovernor 本身管理。这是一个简单的启发式方法；有意使用完整亲和性的进程也会被标记。
 
 ## 要求
 
@@ -72,4 +72,4 @@ fn process_find(
 | 命令行标志 | [CliArgs](../cli.rs/CliArgs.md) |
 | 模块概述 | [main.rs](README.md) |
 
-*为提交 [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf) 记录*
+*为提交 [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf) 记录*

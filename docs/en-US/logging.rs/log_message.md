@@ -80,4 +80,4 @@ crate::logging::log_message(format!(" applied affinity mask 0x{:X} to pid {}", m
 | No-timestamp variant | [log_pure_message](log_pure_message.md) |
 | Find-mode logging | [log_to_find](log_to_find.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

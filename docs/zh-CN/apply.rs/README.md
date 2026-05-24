@@ -1,6 +1,6 @@
-# apply 模块 (AffinityServiceRust)
+# apply 模块 (ProcGovernor)
 
-`apply` 模块是 AffinityServiceRust 的核心执行引擎。它将已配置的设置——进程优先级、CPU 亲和性、CPU 集合、IO 优先级、内存优先级、Prime 线程调度以及理想处理器提示——应用到正在运行的 Windows 进程上。每个函数通过 Windows API 读取目标进程或线程的当前状态，将其与期望的配置进行比较，仅在检测到差异时才进行更改。所有变更和错误都会累积到 [ApplyConfigResult](ApplyConfigResult.md) 中，以便进行结构化日志记录。
+`apply` 模块是 ProcGovernor 的核心执行引擎。它将已配置的设置——进程优先级、CPU 亲和性、CPU 集合、IO 优先级、内存优先级、Prime 线程调度以及理想处理器提示——应用到正在运行的 Windows 进程上。每个函数通过 Windows API 读取目标进程或线程的当前状态，将其与期望的配置进行比较，仅在检测到差异时才进行更改。所有变更和错误都会累积到 [ApplyConfigResult](ApplyConfigResult.md) 中，以便进行结构化日志记录。
 
 ## 结构体
 
@@ -39,4 +39,4 @@
 | 错误去重 | [is_new_error](../logging.rs/is_new_error.md) |
 | 优先级枚举 | [ProcessPriority](../priority.rs/ProcessPriority.md)、[IOPriority](../priority.rs/IOPriority.md)、[MemoryPriority](../priority.rs/MemoryPriority.md)、[ThreadPriority](../priority.rs/ThreadPriority.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

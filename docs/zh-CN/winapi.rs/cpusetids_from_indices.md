@@ -64,4 +64,4 @@ pub fn cpusetids_from_indices(cpu_indices: &[u32]) -> List<[u32; CONSUMER_CPUS]>
 | 基于掩码的转换 | [cpusetids_from_mask](cpusetids_from_mask.md) |
 | CPU 集合应用 | [apply_process_default_cpuset](../apply.rs/apply_process_default_cpuset.md) |
 
-*文档版本：[facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*文档版本：[facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

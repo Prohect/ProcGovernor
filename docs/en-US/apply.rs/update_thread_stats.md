@@ -4,7 +4,7 @@ Caches current cycle times and total times as "last" values for the next iterati
 
 ## Syntax
 
-```AffinityServiceRust/src/apply.rs#L1312-1315
+```ProcGovernor/src/apply.rs#L1312-1315
 pub fn update_thread_stats(
     pid: u32,
     prime_scheduler: &mut PrimeThreadScheduler,
@@ -66,4 +66,4 @@ Omitting this call would cause deltas to accumulate across multiple cycles, resu
 | [apply_ideal_processors](apply_ideal_processors.md) | Consumes cycle deltas for ideal processor assignment |
 | [PrimeThreadScheduler](../scheduler.rs/PrimeThreadScheduler.md) | Owns the per-process, per-thread statistics maps |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

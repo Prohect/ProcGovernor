@@ -121,7 +121,7 @@ const TABLE: &'static [(Self, &'static str, Option<i32>)] = &[...];
 
 ### 后台模式变体
 
-`ModeBackgroundBegin` 和 `ModeBackgroundEnd` 是特殊的线程优先级值，它们将调用线程切换到后台处理模式或退出该模式。在后台模式下，系统会降低线程的调度优先级、IO 优先级和内存优先级。这些值仅在对**当前**线程应用时有效 — 使用它们与远程线程的 `SetThreadPriority` 将失败。AffinityServiceRust 通常不会在远程线程上设置这些值；它们是为了完整性和 `from_win_const` 往返而包含的。
+`ModeBackgroundBegin` 和 `ModeBackgroundEnd` 是特殊的线程优先级值，它们将调用线程切换到后台处理模式或退出该模式。在后台模式下，系统会降低线程的调度优先级、IO 优先级和内存优先级。这些值仅在对**当前**线程应用时有效 — 使用它们与远程线程的 `SetThreadPriority` 将失败。ProcGovernor 通常不会在远程线程上设置这些值；它们是为了完整性和 `from_win_const` 往返而包含的。
 
 ### 平台说明
 
@@ -133,7 +133,7 @@ const TABLE: &'static [(Self, &'static str, Option<i32>)] = &[...];
 
 | | |
 |---|---|
-| **模块** | [`src/priority.rs`](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf/src/priority.rs) |
+| **模块** | [`src/priority.rs`](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf/src/priority.rs) |
 | **使用者** | [`apply_prime_threads_promote`](../apply.rs/apply_prime_threads_promote.md)、[`apply_prime_threads_demote`](../apply.rs/apply_prime_threads_demote.md)、[配置解析](../config.rs/README.md) |
 | **Win32 类型** | [`THREAD_PRIORITY`](https://learn.microsoft.com/zh-cn/windows/win32/api/processthreadsapi/nf-processthreadsapi-setthreadpriority) |
 | **权限** | `THREAD_SET_INFORMATION`（通过 `SetThreadPriority` 设置时） |
@@ -149,4 +149,4 @@ const TABLE: &'static [(Self, &'static str, Option<i32>)] = &[...];
 | Prime 线程降级 | [apply_prime_threads_demote](../apply.rs/apply_prime_threads_demote.md) |
 | 模块概述 | [priority.rs](README.md) |
 
-*文档记录于提交：[facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*文档记录于提交：[facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

@@ -4,7 +4,7 @@
 
 ## 语法
 
-```AffinityServiceRust/src/apply.rs#L491-498
+```ProcGovernor/src/apply.rs#L491-498
 pub fn apply_memory_priority(
     pid: u32,
     config: &ProcessLevelConfig,
@@ -100,4 +100,4 @@ pub fn apply_memory_priority(
 | [apply_priority](apply_priority.md) | 设置进程（CPU 调度）优先级的配套函数 |
 | [ProcessHandle](../winapi.rs/ProcessHandle.md) | 提供进程读/写访问的句柄封装 |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

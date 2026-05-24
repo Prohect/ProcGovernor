@@ -61,4 +61,4 @@ Both functions operate on the same per-thread ideal processor attribute. The get
 | Thread handle wrapper | [ThreadHandle](ThreadHandle.md) |
 | Ideal processor application logic | [apply_ideal_processors](../apply.rs/apply_ideal_processors.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

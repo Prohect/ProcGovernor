@@ -80,4 +80,4 @@ pub fn error_from_ntstatus(status: i32) -> String
 | IO 优先级应用 | [apply_io_priority](../apply.rs/apply_io_priority.md) |
 | 内存优先级应用 | [apply_memory_priority](../apply.rs/apply_memory_priority.md) |
 
-*文档记录于提交：[facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*文档记录于提交：[facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

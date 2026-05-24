@@ -4,7 +4,7 @@ Reads the current process priority class and, if it differs from the configured 
 
 ## Syntax
 
-```AffinityServiceRust/src/apply.rs#L85-91
+```ProcGovernor/src/apply.rs#L85-91
 pub fn apply_priority(
     pid: u32,
     config: &ProcessLevelConfig,
@@ -81,4 +81,4 @@ Errors from `SetPriorityClass` are captured via `GetLastError` and passed throug
 | [`apply_io_priority`](apply_io_priority.md) | Companion function that applies IO priority |
 | [`apply_memory_priority`](apply_memory_priority.md) | Companion function that applies memory priority |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

@@ -85,4 +85,4 @@ HashMap<u32, HashMap<ApplyFailEntry, bool>>
 | 陈旧条目的垃圾回收 | [purge_fail_map](purge_fail_map.md) |
 | 调用方侧错误日志记录辅助函数 | [log_error_if_new](../apply.rs/log_error_if_new.md) |
 
-*记录于提交：[facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*记录于提交：[facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

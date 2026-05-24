@@ -70,4 +70,4 @@ This produces two `IdealProcessorRule` entries:
 | CPU alias resolution | [parse_alias](parse_alias.md) |
 | Prime thread prefixes (related concept) | [PrimePrefix](PrimePrefix.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

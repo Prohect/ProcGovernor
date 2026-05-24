@@ -85,4 +85,4 @@ The function acquires the global `PID_MAP_FAIL_ENTRY_SET` mutex via the `get_pid
 | Garbage collection for stale entries | [purge_fail_map](purge_fail_map.md) |
 | Caller-side error logging helper | [log_error_if_new](../apply.rs/log_error_if_new.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

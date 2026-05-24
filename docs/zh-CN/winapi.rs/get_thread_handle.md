@@ -80,4 +80,4 @@ pub fn get_thread_handle(tid: u32, pid: u32, process_name: &str) -> Option<Threa
 | 缓存句柄的线程统计 | [ThreadStats](../scheduler.rs/ThreadStats.md) |
 | 模块概述 | [winapi.rs](README.md) |
 
-*文档版本：[facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*文档版本：[facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

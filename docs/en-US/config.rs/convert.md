@@ -1,6 +1,6 @@
 # convert function (config.rs)
 
-Converts a Process Lasso configuration file into AffinityServiceRust native format. Reads a UTF-16LE encoded Process Lasso INI-style config and produces a UTF-8 config file with CPU aliases and per-process rule lines.
+Converts a Process Lasso configuration file into ProcGovernor native format. Reads a UTF-16LE encoded Process Lasso INI-style config and produces a UTF-8 config file with CPU aliases and per-process rule lines.
 
 ## Syntax
 
@@ -16,7 +16,7 @@ Path to the input Process Lasso configuration file. The file must be UTF-16LE en
 
 `out_file: Option<String>`
 
-Path to the output AffinityServiceRust configuration file. The file is created or overwritten with UTF-8 encoded content. If `None`, the function logs an error and returns immediately.
+Path to the output ProcGovernor configuration file. The file is created or overwritten with UTF-8 encoded content. If `None`, the function logs an error and returns immediately.
 
 ## Return value
 
@@ -46,9 +46,9 @@ The converter recognizes three INI-style key-value pairs from the Process Lasso 
 
 ### Priority mapping
 
-Process Lasso uses both string and numeric priority identifiers. The converter maps them to AffinityServiceRust priority names:
+Process Lasso uses both string and numeric priority identifiers. The converter maps them to ProcGovernor priority names:
 
-| Process Lasso Value | AffinityServiceRust Value |
+| Process Lasso Value | ProcGovernor Value |
 |---------------------|--------------------------|
 | `"idle"` or `"1"` | `idle` |
 | `"below normal"` or `"2"` | `below normal` |
@@ -76,7 +76,7 @@ Process Lasso uses both string and numeric priority identifiers. The converter m
 
 | | |
 |---|---|
-| **Module** | [`src/config.rs`](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf/src/config.rs) |
+| **Module** | [`src/config.rs`](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf/src/config.rs) |
 | **Callers** | CLI dispatch (when `-convert` flag is used) |
 | **Callees** | [read_utf16le_file](read_utf16le_file.md), `get_config_help_lines` from [cli.rs](../cli.rs/README.md) |
 | **Dependencies** | [HashMap](../collections.rs/README.md), [HashSet](../collections.rs/README.md) |
@@ -93,4 +93,4 @@ Process Lasso uses both string and numeric priority identifiers. The converter m
 | Config file reader | [read_config](read_config.md) |
 | CLI arguments | [CliArgs](../cli.rs/CliArgs.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

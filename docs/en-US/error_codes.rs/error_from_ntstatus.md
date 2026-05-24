@@ -80,4 +80,4 @@ Unknown codes are formatted as `"NTSTATUS_0x{code:08X}"` where `code` is cast to
 | IO priority application | [apply_io_priority](../apply.rs/apply_io_priority.md) |
 | Memory priority application | [apply_memory_priority](../apply.rs/apply_memory_priority.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

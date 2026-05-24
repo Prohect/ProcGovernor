@@ -43,7 +43,7 @@ pub fn format_cpu_indices(cpus: &[u32]) -> String
 
 ### 空值返回零约定
 
-对于空输入，返回字符串 `"0"`，因为 AffinityServiceRust 配置格式中的 `0` 意味着"无更改"或"未配置"。此约定允许 `format_cpu_indices` 的输出直接插入配置行中，而无需特殊处理空的 CPU 集合。
+对于空输入，返回字符串 `"0"`，因为 ProcGovernor 配置格式中的 `0` 意味着"无更改"或"未配置"。此约定允许 `format_cpu_indices` 的输出直接插入配置行中，而无需特殊处理空的 CPU 集合。
 
 ### 与 parse_cpu_spec 的关系
 
@@ -76,4 +76,4 @@ pub fn format_cpu_indices(cpus: &[u32]) -> String
 | 索引到位掩码 | [cpu_indices_to_mask](cpu_indices_to_mask.md) |
 | 集合类型 | [List / CONSUMER_CPUS](../collections.rs/README.md) |
 
-*文档针对 Commit：[facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*文档针对 Commit：[facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

@@ -70,7 +70,7 @@ pub fn sort_and_group_config(in_file: Option<String>, out_file: Option<String>)
 ### 典型用法
 
 ```
-AffinityServiceRust.exe -autogroup -in config.txt -out config_grouped.txt
+ProcGovernor.exe -autogroup -in config.txt -out config_grouped.txt
 ```
 
 这是一个一次性转换工具——输出文件不会被服务自动使用。用户应检查输出并手动替换原始配置文件。
@@ -99,7 +99,7 @@ Written to config_grouped.txt
 
 | | |
 |---|---|
-| **模块** | [`src/config.rs`](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf/src/config.rs) |
+| **模块** | [`src/config.rs`](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf/src/config.rs) |
 | **调用方** | `main.rs` 中的 CLI 分发（由 `-autogroup` 标志调用） |
 | **被调用方** | [collect_members](collect_members.md), [collect_group_block](collect_group_block.md), `std::fs::read_to_string`, `std::fs::File::create`, `std::io::Write` |
 | **依赖项** | [HashMap](../collections.rs/README.md) |
@@ -116,4 +116,4 @@ Written to config_grouped.txt
 | 配置文件读取器 | [read_config](read_config.md) |
 | CLI 参数 | [CliArgs](../cli.rs/CliArgs.md) |
 
-*文档针对 Commit：[facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*文档针对 Commit：[facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

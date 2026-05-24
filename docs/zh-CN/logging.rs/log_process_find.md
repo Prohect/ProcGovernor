@@ -63,4 +63,4 @@ pub fn log_process_find(process_name: &str)
 | 查找日志写入器 | [log_to_find](log_to_find.md) |
 | 通用日志函数 | [log_message](log_message.md) |
 
-*记录于提交：[facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*记录于提交：[facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

@@ -1,6 +1,6 @@
-# winapi 模块 (AffinityServiceRust)
+# winapi 模块 (ProcGovernor)
 
-`winapi` 模块为 AffinityServiceRust 中使用的 Windows API 函数提供安全的 Rust 封装，用于进程和线程句柄管理、CPU 集合拓扑查询和转换、特权提升、亲和性检查、理想处理器分配、模块枚举、地址解析、计时器分辨率控制和子进程清理。所有持有句柄的类型都通过 `Drop` 实现 RAII，以防止资源泄漏。
+`winapi` 模块为 ProcGovernor 中使用的 Windows API 函数提供安全的 Rust 封装，用于进程和线程句柄管理、CPU 集合拓扑查询和转换、特权提升、亲和性检查、理想处理器分配、模块枚举、地址解析、计时器分辨率控制和子进程清理。所有持有句柄的类型都通过 `Drop` 实现 RAII，以防止资源泄漏。
 
 ## 外部 FFI
 
@@ -91,4 +91,4 @@
 | 错误代码格式化 | [error_codes.rs](../error_codes.rs/README.md) |
 | 日志和错误去重 | [logging.rs](../logging.rs/README.md) |
 
-*文档针对提交：[facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*文档针对提交：[facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

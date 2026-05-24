@@ -1,6 +1,6 @@
-# winapi module (AffinityServiceRust)
+# winapi module (ProcGovernor)
 
-The `winapi` module provides safe Rust wrappers around the Windows API functions used throughout AffinityServiceRust for process and thread handle management, CPU set topology queries and conversions, privilege escalation, affinity inspection, ideal processor assignment, module enumeration, address resolution, timer resolution control, and child process cleanup. All handle-owning types implement RAII via `Drop` to prevent resource leaks.
+The `winapi` module provides safe Rust wrappers around the Windows API functions used throughout ProcGovernor for process and thread handle management, CPU set topology queries and conversions, privilege escalation, affinity inspection, ideal processor assignment, module enumeration, address resolution, timer resolution control, and child process cleanup. All handle-owning types implement RAII via `Drop` to prevent resource leaks.
 
 ## External FFI
 
@@ -91,4 +91,4 @@ The module links directly to `ntdll.dll` for undocumented NT APIs not exposed by
 | Error code formatting | [error_codes.rs](../error_codes.rs/README.md) |
 | Logging and error deduplication | [logging.rs](../logging.rs/README.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

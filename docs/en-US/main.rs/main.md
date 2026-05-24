@@ -1,6 +1,6 @@
 # main function (main.rs)
 
-Application entry point for AffinityServiceRust. Parses command-line arguments, dispatches to the appropriate operational mode, and — for the default service mode — runs the main polling loop that enforces process and thread configuration on running Windows processes.
+Application entry point for ProcGovernor. Parses command-line arguments, dispatches to the appropriate operational mode, and — for the default service mode — runs the main polling loop that enforces process and thread configuration on running Windows processes.
 
 ## Syntax
 
@@ -108,4 +108,4 @@ This results in lower CPU usage during idle periods while maintaining fast react
 | Prime thread scheduler | [PrimeThreadScheduler](../scheduler.rs/PrimeThreadScheduler.md) |
 | ETW process monitor | [EtwProcessMonitor](../event_trace.rs/EtwProcessMonitor.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

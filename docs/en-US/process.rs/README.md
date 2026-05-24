@@ -1,4 +1,4 @@
-# process module (AffinityServiceRust)
+# process module (ProcGovernor)
 
 The `process` module provides a high-performance process snapshot mechanism built on top of `NtQuerySystemInformation(SystemProcessInformation)`. It captures a point-in-time view of all running processes and their threads into reusable buffers, minimizing allocation overhead across polling iterations. The module exposes an RAII-based [ProcessSnapshot](ProcessSnapshot.md) type that automatically clears shared state on drop, and a [ProcessEntry](ProcessEntry.md) struct that wraps per-process data including thread arrays parsed from raw kernel structures.
 
@@ -26,4 +26,4 @@ The `process` module provides a high-performance process snapshot mechanism buil
 | Configuration application | [apply.rs](../apply.rs/README.md) |
 | Windows API wrappers | [winapi.rs](../winapi.rs/README.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

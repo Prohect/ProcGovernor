@@ -4,7 +4,7 @@ Demotes threads that no longer qualify for prime status by removing their CPU se
 
 ## Syntax
 
-```AffinityServiceRust/src/apply.rs#L953-961
+```ProcGovernor/src/apply.rs#L953-961
 pub fn apply_prime_threads_demote<'a>(
     pid: u32,
     config: &ThreadLevelConfig,
@@ -99,4 +99,4 @@ On priority restoration failure, an error is logged via `log_error_if_new`.
 | [PrimeThreadScheduler](../scheduler.rs/PrimeThreadScheduler.md) | Manages per-thread scheduling state and hysteresis |
 | [ApplyConfigResult](ApplyConfigResult.md) | Accumulator for change and error reporting |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

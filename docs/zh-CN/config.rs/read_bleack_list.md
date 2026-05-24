@@ -60,7 +60,7 @@ taskmgr.exe
 
 | | |
 |---|---|
-| **模块** | [`src/config.rs`](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf/src/config.rs) |
+| **模块** | [`src/config.rs`](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf/src/config.rs) |
 | **调用方** | [hotreload_blacklist](hotreload_blacklist.md), `main.rs` 中的主初始化 |
 | **被调用方** | `std::fs::File::open`, `std::io::BufReader`, `log!` 宏 |
 | **权限** | 黑名单路径的文件读取访问 |
@@ -74,4 +74,4 @@ taskmgr.exe
 | 配置文件读取器（对应项） | [read_config](read_config.md) |
 | 指定黑名单路径的 CLI 参数 | [CliArgs](../cli.rs/CliArgs.md) |
 
-*文档针对 Commit：[facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*文档针对 Commit：[facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

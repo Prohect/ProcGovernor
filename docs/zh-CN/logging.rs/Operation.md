@@ -1,6 +1,6 @@
 # Operation 枚举 (logging.rs)
 
-列出 AffinityServiceRust 可能对目标进程或线程调用的每个 Windows API 操作。用作 [ApplyFailEntry](ApplyFailEntry.md) 去重键的组成部分，以便独立跟踪同一进程上的不同失败。
+列出 ProcGovernor 可能对目标进程或线程调用的每个 Windows API 操作。用作 [ApplyFailEntry](ApplyFailEntry.md) 去重键的组成部分，以便独立跟踪同一进程上的不同失败。
 
 ## 语法
 
@@ -79,4 +79,4 @@ pub enum Operation {
 | 首次出现检查 | [is_new_error](is_new_error.md) |
 | Apply 模块 | [apply.rs](../apply.rs/README.md) |
 
-*记录于提交：[facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*记录于提交：[facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

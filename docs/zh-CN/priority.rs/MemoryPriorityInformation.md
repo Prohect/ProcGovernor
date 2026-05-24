@@ -47,7 +47,7 @@ typedef struct _MEMORY_PRIORITY_INFORMATION {
 
 | | |
 |---|---|
-| **模块** | [`src/priority.rs`](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf/src/priority.rs) |
+| **模块** | [`src/priority.rs`](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf/src/priority.rs) |
 | **调用方** | [`apply_memory_priority`](../apply.rs/apply_memory_priority.md) |
 | **依赖项** | 无（纯 newtype 包装器） |
 | **Win32 API** | [`SetProcessInformation`](https://learn.microsoft.com/zh-cn/windows/win32/api/processthreadsapi/nf-processthreadsapi-setprocessinformation)，使用 `ProcessMemoryPriority` |
@@ -62,4 +62,4 @@ typedef struct _MEMORY_PRIORITY_INFORMATION {
 | 模块概览 | [priority.rs](README.md) |
 | 进程优先级枚举 | [`ProcessPriority`](ProcessPriority.md) |
 
-*文档记录于提交：[facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*文档记录于提交：[facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

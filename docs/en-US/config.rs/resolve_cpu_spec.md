@@ -79,4 +79,4 @@ This function is module-private (`fn`, not `pub fn`). It is an internal helper u
 | Config reader | [read_config](read_config.md) |
 | Module overview | [config.rs](README.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

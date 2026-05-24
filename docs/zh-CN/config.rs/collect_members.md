@@ -64,4 +64,4 @@ fn collect_members(text: &str, members: &mut Vec<String>)
 | 主配置读取器 | [read_config](read_config.md) |
 | 自动分组工具 | [sort_and_group_config](sort_and_group_config.md) |
 
-*文档针对 Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*文档针对 Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

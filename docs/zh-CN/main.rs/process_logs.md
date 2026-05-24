@@ -80,4 +80,4 @@ fn process_logs(
 | 入口点和模式分发 | [main](main.md) |
 | 日志基础设施 | [logging.rs](../logging.rs/README.md) |
 
-*为提交 [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf) 记录*
+*为提交 [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf) 记录*

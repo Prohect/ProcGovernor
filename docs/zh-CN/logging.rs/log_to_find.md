@@ -66,4 +66,4 @@ pub fn log_to_find(msg: &str)
 | 日志文件路径构造 | [get_log_path](get_log_path.md) |
 | 无时间戳的原始日志记录 | [log_pure_message](log_pure_message.md) |
 
-*记录于提交：[facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*记录于提交：[facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

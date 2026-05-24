@@ -70,7 +70,7 @@ This function is not thread-safe. It is designed to be called from the single-th
 
 | | |
 |---|---|
-| **Module** | [`src/config.rs`](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf/src/config.rs) |
+| **Module** | [`src/config.rs`](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf/src/config.rs) |
 | **Callers** | Main polling loop in `main.rs` |
 | **Callees** | [read_bleack_list](read_bleack_list.md), `std::fs::metadata` |
 | **Dependencies** | [CliArgs](../cli.rs/CliArgs.md) |
@@ -86,4 +86,4 @@ This function is not thread-safe. It is designed to be called from the single-th
 | CLI arguments struct | [CliArgs](../cli.rs/CliArgs.md) |
 | Main service loop | [main.rs](../main.rs/README.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

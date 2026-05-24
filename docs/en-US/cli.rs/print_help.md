@@ -1,6 +1,6 @@
 # print_help function (cli.rs)
 
-Prints the basic usage help message for AffinityServiceRust to the console. This is the default help output shown when the user passes `-help`, `--help`, `-?`, `/?`, or `?` on the command line.
+Prints the basic usage help message for ProcGovernor to the console. This is the default help output shown when the user passes `-help`, `--help`, `-?`, `/?`, or `?` on the command line.
 
 ## Syntax
 
@@ -62,4 +62,4 @@ Because `print_help` forces `use_console = true`, any subsequent logging in the 
 | CLI arguments struct | [CliArgs](CliArgs.md) |
 | Module overview | [cli.rs](README.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

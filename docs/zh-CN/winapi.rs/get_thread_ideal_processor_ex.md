@@ -61,4 +61,4 @@ pub fn get_thread_ideal_processor_ex(thread_handle: HANDLE) -> Result<PROCESSOR_
 | 线程句柄包装器 | [ThreadHandle](ThreadHandle.md) |
 | 设置理想处理器的应用逻辑 | [apply_ideal_processors](../apply.rs/apply_ideal_processors.md) |
 
-*文档版本：[facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*文档版本：[facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

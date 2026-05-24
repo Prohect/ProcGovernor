@@ -91,4 +91,4 @@ impl Drop for ProcessHandle {
 | 线程句柄对应项 | [ThreadHandle](ThreadHandle.md) |
 | 错误去重 | [is_new_error](../logging.rs/is_new_error.md) |
 
-*为 Commit 记录：[facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*为 Commit 记录：[facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

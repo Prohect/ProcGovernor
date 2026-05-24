@@ -1,6 +1,6 @@
-# logging 模块 (AffinityServiceRust)
+# logging 模块 (ProcGovernor)
 
-`logging` 模块为 AffinityServiceRust 提供了日志基础设施，包括基于日期的日志轮转、可选的控制台输出、查找模式发现日志和错误去重。所有日志输出都由一个禁用模式标志（在 UAC 提升期间抑制日志记录）和一个控制台标志（将输出重定向到 stdout 而不是文件）控制。日志文件写入 `logs/` 目录，文件名格式为 `YYYYMMDD.log` 和 `YYYYMMDD.find.log`。
+`logging` 模块为 ProcGovernor 提供了日志基础设施，包括基于日期的日志轮转、可选的控制台输出、查找模式发现日志和错误去重。所有日志输出都由一个禁用模式标志（在 UAC 提升期间抑制日志记录）和一个控制台标志（将输出重定向到 stdout 而不是文件）控制。日志文件写入 `logs/` 目录，文件名格式为 `YYYYMMDD.log` 和 `YYYYMMDD.find.log`。
 
 ## 静态变量
 
@@ -61,4 +61,4 @@
 | 配置类型 | [ProcessLevelConfig](../config.rs/ProcessLevelConfig.md) |
 | 主服务循环 | [main.rs](../main.rs/README.md) |
 
-*记录于提交：[facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*记录于提交：[facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

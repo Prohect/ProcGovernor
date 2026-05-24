@@ -4,7 +4,7 @@
 
 ## 语法
 
-```AffinityServiceRust/src/apply.rs#L953-961
+```ProcGovernor/src/apply.rs#L953-961
 pub fn apply_prime_threads_demote<'a>(
     pid: u32,
     config: &ThreadLevelConfig,
@@ -99,4 +99,4 @@ pub fn apply_prime_threads_demote<'a>(
 | [PrimeThreadScheduler](../scheduler.rs/PrimeThreadScheduler.md) | 管理每线程调度状态和迟滞逻辑 |
 | [ApplyConfigResult](ApplyConfigResult.md) | 更改和错误报告的累加器 |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

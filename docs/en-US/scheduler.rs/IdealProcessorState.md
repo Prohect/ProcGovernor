@@ -79,4 +79,4 @@ The `current_group`/`current_number` pair maps directly to the Windows `PROCESSO
 | Ideal processor get wrapper | [get_thread_ideal_processor_ex](../winapi.rs/get_thread_ideal_processor_ex.md) |
 | Thread selection with hysteresis | [PrimeThreadScheduler](PrimeThreadScheduler.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

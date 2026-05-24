@@ -63,4 +63,4 @@ This function is the write counterpart to [get_thread_ideal_processor_ex](get_th
 | Thread handle providing write access | [ThreadHandle](ThreadHandle.md) |
 | Apply function that sets ideal processors | [apply_ideal_processors](../apply.rs/apply_ideal_processors.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

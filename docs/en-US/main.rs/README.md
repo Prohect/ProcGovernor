@@ -1,6 +1,6 @@
-# main module (AffinityServiceRust)
+# main module (ProcGovernor)
 
-The `main` module is the application entry point and top-level orchestrator of AffinityServiceRust. It parses CLI arguments, reads configuration, requests administrative privileges, and runs the main polling loop that takes process snapshots, matches them against configuration rules, and delegates to the [apply](../apply.rs/README.md) module for enforcement. It also manages ETW-based reactive sleep, hot-reloading of configuration and blacklist files, and a find-mode that discovers unmanaged processes.
+The `main` module is the application entry point and top-level orchestrator of ProcGovernor. It parses CLI arguments, reads configuration, requests administrative privileges, and runs the main polling loop that takes process snapshots, matches them against configuration rules, and delegates to the [apply](../apply.rs/README.md) module for enforcement. It also manages ETW-based reactive sleep, hot-reloading of configuration and blacklist files, and a find-mode that discovers unmanaged processes.
 
 ## Functions
 
@@ -28,4 +28,4 @@ The `main` module is the application entry point and top-level orchestrator of A
 | Win32 helpers | [winapi.rs](../winapi.rs/README.md) |
 | Logging | [logging.rs](../logging.rs/README.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

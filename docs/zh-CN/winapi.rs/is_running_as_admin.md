@@ -57,4 +57,4 @@ pub fn is_running_as_admin() -> bool
 | 调试权限启用 | [enable_debug_privilege](enable_debug_privilege.md) |
 | 基础优先级权限启用 | [enable_inc_base_priority_privilege](enable_inc_base_priority_privilege.md) |
 
-*文档版本：[facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*文档版本：[facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

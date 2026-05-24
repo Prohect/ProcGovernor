@@ -1,6 +1,6 @@
 # print_help_all function (cli.rs)
 
-Prints the complete help output for AffinityServiceRust, combining both command-line usage and configuration file format documentation into a single reference. This is the handler for the `-helpall` / `--helpall` command-line flag.
+Prints the complete help output for ProcGovernor, combining both command-line usage and configuration file format documentation into a single reference. This is the handler for the `-helpall` / `--helpall` command-line flag.
 
 ## Syntax
 
@@ -60,4 +60,4 @@ Because `print_help_all` forces `use_console = true`, any subsequent logging in 
 | Config help line source | [get_config_help_lines](get_config_help_lines.md) |
 | CLI arguments struct | [CliArgs](CliArgs.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

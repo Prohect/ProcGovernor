@@ -93,4 +93,4 @@ Once defined, aliases are consumed by [resolve_cpu_spec](resolve_cpu_spec.md) wh
 | Config file reader | [read_config](read_config.md) |
 | Aggregate result | [ConfigResult](ConfigResult.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

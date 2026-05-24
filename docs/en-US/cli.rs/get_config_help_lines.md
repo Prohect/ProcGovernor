@@ -58,4 +58,4 @@ The function returns `Vec<&'static str>` rather than a single `&'static str` to 
 | CLI argument parser | [parse_args](parse_args.md) |
 | Configuration parser | [ConfigResult](../config.rs/ConfigResult.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

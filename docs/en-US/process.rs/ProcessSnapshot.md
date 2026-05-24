@@ -101,4 +101,4 @@ The initial buffer size is 32 bytes (from `SNAPSHOT_BUFFER`), which will always 
 | Thread handle management | [ThreadHandle](../winapi.rs/ThreadHandle.md) |
 | Prime thread scheduler | [PrimeThreadScheduler](../scheduler.rs/PrimeThreadScheduler.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

@@ -79,4 +79,4 @@ pub fn get_process_handle(pid: u32, process_name: &str) -> Option<ProcessHandle>
 | 调试权限启用 | [enable_debug_privilege](enable_debug_privilege.md) |
 | 模块概述 | [winapi.rs](README.md) |
 
-*文档版本：[facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*文档版本：[facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

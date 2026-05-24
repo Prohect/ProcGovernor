@@ -4,7 +4,7 @@ Sets the default CPU set for a process using the Windows CPU Sets API, providing
 
 ## Syntax
 
-```AffinityServiceRust/src/apply.rs#L298-308
+```ProcGovernor/src/apply.rs#L298-308
 pub fn apply_process_default_cpuset<'a>(
     pid: u32,
     config: &ProcessLevelConfig,
@@ -91,4 +91,4 @@ CPU sets and affinity masks are independent mechanisms. A process can have both 
 | [ProcessLevelConfig](../config.rs/ProcessLevelConfig.md) | Configuration struct with `cpu_set_cpus` and `cpu_set_reset_ideal` fields |
 | [ApplyConfigResult](ApplyConfigResult.md) | Accumulator for changes and errors |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

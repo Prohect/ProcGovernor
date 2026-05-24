@@ -1,6 +1,6 @@
-# config module (AffinityServiceRust)
+# config module (ProcGovernor)
 
-The `config` module handles parsing, validation, and management of configuration files for AffinityServiceRust. It defines rule structures for process-level and thread-level scheduling policies and implements a multi-section INI-like config parser with support for CPU aliases (`*name = spec`), named groups (`name { members }`), tuning constants (`@NAME = value`), and complex CPU specifications (ranges, hex masks, semicolon-separated indices). The module also provides hot-reload capability for both config and blacklist files, a converter from Process Lasso format, and an auto-grouping utility that merges processes sharing identical rules.
+The `config` module handles parsing, validation, and management of configuration files for ProcGovernor. It defines rule structures for process-level and thread-level scheduling policies and implements a multi-section INI-like config parser with support for CPU aliases (`*name = spec`), named groups (`name { members }`), tuning constants (`@NAME = value`), and complex CPU specifications (ranges, hex masks, semicolon-separated indices). The module also provides hot-reload capability for both config and blacklist files, a converter from Process Lasso format, and an auto-grouping utility that merges processes sharing identical rules.
 
 ## Structs
 
@@ -32,7 +32,7 @@ The `config` module handles parsing, validation, and management of configuration
 | [read_config](read_config.md) | Main config file reader. Handles constants, aliases, groups, and single-line rules. |
 | [read_bleack_list](read_bleack_list.md) | Reads a blacklist file (one process name per line, `#` comments). |
 | [read_utf16le_file](read_utf16le_file.md) | Reads a UTF-16LE encoded file and returns it as a Rust `String`. |
-| [convert](convert.md) | Converts Process Lasso config format to AffinityServiceRust format. |
+| [convert](convert.md) | Converts Process Lasso config format to ProcGovernor format. |
 | [sort_and_group_config](sort_and_group_config.md) | Auto-groups rules with identical settings into named group blocks. |
 | [hotreload_blacklist](hotreload_blacklist.md) | Hot-reloads the blacklist file if it has been modified on disk. |
 | [hotreload_config](hotreload_config.md) | Hot-reloads the config file if modified, resetting scheduler state on success. |
@@ -77,4 +77,4 @@ group_name {
 | Collection types | [List / HashMap](../collections.rs/README.md) |
 | Main service loop | [main.rs](../main.rs/README.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

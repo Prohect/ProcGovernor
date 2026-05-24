@@ -80,4 +80,4 @@ pub fn get_thread_start_address(thread_handle: HANDLE) -> usize
 | 存储起始地址的线程统计 | [ThreadStats](../scheduler.rs/ThreadStats.md) |
 | 理想处理器分配 | [apply_ideal_processors](../apply.rs/apply_ideal_processors.md) |
 
-*文档版本：[facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*文档版本：[facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

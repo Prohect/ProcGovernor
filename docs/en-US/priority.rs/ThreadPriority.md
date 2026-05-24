@@ -121,7 +121,7 @@ This array of `(variant, name, win32_value)` tuples is the single source of trut
 
 ### Background mode variants
 
-`ModeBackgroundBegin` and `ModeBackgroundEnd` are special thread priority values that switch the calling thread into or out of background processing mode. In background mode, the system reduces the thread's scheduling priority, IO priority, and memory priority simultaneously. These values are only valid when applied to the **current** thread — using them with `SetThreadPriority` on a remote thread will fail. AffinityServiceRust does not typically set these values on remote threads; they are included for completeness and for `from_win_const` round-tripping.
+`ModeBackgroundBegin` and `ModeBackgroundEnd` are special thread priority values that switch the calling thread into or out of background processing mode. In background mode, the system reduces the thread's scheduling priority, IO priority, and memory priority simultaneously. These values are only valid when applied to the **current** thread — using them with `SetThreadPriority` on a remote thread will fail. ProcGovernor does not typically set these values on remote threads; they are included for completeness and for `from_win_const` round-tripping.
 
 ### Platform notes
 
@@ -133,7 +133,7 @@ This array of `(variant, name, win32_value)` tuples is the single source of trut
 
 | | |
 |---|---|
-| **Module** | [`src/priority.rs`](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf/src/priority.rs) |
+| **Module** | [`src/priority.rs`](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf/src/priority.rs) |
 | **Used by** | [`apply_prime_threads_promote`](../apply.rs/apply_prime_threads_promote.md), [`apply_prime_threads_demote`](../apply.rs/apply_prime_threads_demote.md), [config parsing](../config.rs/README.md) |
 | **Win32 type** | [`THREAD_PRIORITY`](https://learn.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-setthreadpriority) |
 | **Privileges** | `THREAD_SET_INFORMATION` (when setting via `SetThreadPriority`) |
@@ -149,4 +149,4 @@ This array of `(variant, name, win32_value)` tuples is the single source of trut
 | Prime thread demotion | [apply_prime_threads_demote](../apply.rs/apply_prime_threads_demote.md) |
 | Module overview | [priority.rs](README.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/AffinityServiceRust/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*

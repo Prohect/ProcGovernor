@@ -14,5 +14,3 @@ test_*.bat
 # Except for the main config and blacklist files
 !config.ini
 !blacklist.ini
-docs/RE-LY.docx
-docs/file-formats.md

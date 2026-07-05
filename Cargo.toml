@@ -1,7 +1,11 @@
 [package]
-name = "ProcGovernor"
+name = "proc_governor"
 version = "1.0.0"
 edition = "2024"
+
+[[bin]]
+name = "proc_governor"
+path = "src/main.rs"
 
 [dependencies]
 chrono = "0.4.42"

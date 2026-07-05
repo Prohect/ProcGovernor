@@ -284,6 +284,19 @@
 - [L261]impl Drop for EtwProcessMonitor
   - [L262:264]fn drop(&mut self) 
 
+## src/lib.rs
+- [L1:1]mod apply;
+- [L2:2]mod cli;
+- [L3:3]mod collections;
+- [L4:4]mod config;
+- [L5:5]mod error_codes;
+- [L6:6]mod event_trace;
+- [L7:7]mod logging;
+- [L8:8]mod priority;
+- [L9:9]mod process;
+- [L10:10]mod scheduler;
+- [L11:11]mod winapi;
+
 ## src/logging.rs
 - [L12:12]static FINDS_SET: Lazy<Mutex<HashSet<String>>> = Lazy::new(|| Mutex::new(HashSet::default()));
 - [L63:63]static USE_CONSOLE: Lazy<Mutex<bool>> = Lazy::new(|| Mutex::from(false));
@@ -330,14 +343,14 @@
 - [L213:222]fn log_process_find(process_name: &str) 
 
 ## src/main.rs
-- [L57:76]fn apply_process_level<'a>(
+- [L46:65]fn apply_process_level<'a>(
     pid: u32,
     config: &ProcessLevelConfig,
     threads: &impl Fn() -> &'a HashMap<u32, SYSTEM_THREAD_INFORMATION>,
     dry_run: bool,
     apply_configs: &mut ApplyConfigResult,
 ) 
-- [L78:119]fn apply_thread_level<'a>(
+- [L67:108]fn apply_thread_level<'a>(
     pid: u32,
     config: &ThreadLevelConfig,
     prime_core_scheduler: &mut PrimeThreadScheduler,
@@ -346,7 +359,7 @@
     dry_run: bool,
     apply_configs: &mut ApplyConfigResult,
 ) 
-- [L121:156]fn apply_config(
+- [L110:145]fn apply_config(
     cli: &CliArgs,
     configs: &ConfigResult,
     prime_core_scheduler: &mut PrimeThreadScheduler,
@@ -358,10 +371,10 @@
     process_level_config: &ProcessLevelConfig,
     process: &ProcessEntry,
 ) 
-- [L158:172]fn log_apply_results(pid: &u32, name: &String, result: ApplyConfigResult) 
-- [L174:266]fn process_logs(configs: &ConfigResult, blacklist: &[String], logs_path: Option<&str>, output_file: Option<&str>) 
-- [L268:305]fn process_find(cli: &CliArgs, configs: &ConfigResult, blacklist: &[String]) -> Result<(), windows::core::Error> 
-- [L307:612]fn main() -> windows::core::Result<()> 
+- [L147:161]fn log_apply_results(pid: &u32, name: &String, result: ApplyConfigResult) 
+- [L163:255]fn process_logs(configs: &ConfigResult, blacklist: &[String], logs_path: Option<&str>, output_file: Option<&str>) 
+- [L257:294]fn process_find(cli: &CliArgs, configs: &ConfigResult, blacklist: &[String]) -> Result<(), windows::core::Error> 
+- [L296:601]fn main() -> windows::core::Result<()> 
 
 ## src/priority.rs
 - [L7:16]enum ProcessPriority {

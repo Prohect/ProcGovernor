@@ -5,7 +5,9 @@ edition = "2024"
 
 [dependencies]
 chrono = "0.4.42"
+eframe = "0.35.0"
 egui = "0.35.0"
+egui_extras = "0.35.0"
 encoding_rs = "0.8.35"
 ntapi = "0.4.1"
 once_cell = "1.21.3"

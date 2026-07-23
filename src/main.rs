@@ -418,7 +418,7 @@ fn main() -> windows::core::Result<()> {
                 prime_core_scheduler.reset_alive();
                 for (grade, graded_process_level_configs) in &configs.process_level_configs {
                     // process_level_pending dont respect grade being applied just in time
-                    // since it's retain here, it does not hurt performance in next loop iterations
+                    // retain for less iterations
                     process_level_pending.retain(|pid_pending| {
                         !pids_and_names.iter().any(|(pid, name)| -> bool {
                             if pid == pid_pending {
@@ -482,10 +482,14 @@ fn main() -> windows::core::Result<()> {
                 // the scheduler should be inited before thread-level config applying in its previous both-level apply
                 if !prime_core_scheduler.pid_to_process_stats.is_empty() {
                     for (grade, graded_thread_level_configs) in &configs.thread_level_configs {
-                        if !current_loop.is_multiple_of(*grade) {
-                            continue;
-                        }
                         for (pid, name) in &pids_and_names {
+                            // reset_alive() is called each iter, so non-grade loops should set alive status
+                            if !current_loop.is_multiple_of(*grade) {
+                                if prime_core_scheduler.pid_to_process_stats.get(pid).is_some() {
+                                    prime_core_scheduler.set_alive(*pid);
+                                }
+                                continue;
+                            }
                             if thread_level_applied.contains(pid) {
                                 continue;
                             }

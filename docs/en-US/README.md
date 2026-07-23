@@ -10,6 +10,7 @@ ProcGovernor is a Windows service written in Rust that manages process CPU affin
 | [cli.rs](cli.rs/README.md) | Command-line argument parsing and help output |
 | [config.rs](config.rs/README.md) | Configuration file parsing, validation, hot-reload |
 | [apply.rs](apply.rs/README.md) | Core enforcement engine — applies all settings to processes |
+| [job_object.rs](job_object.rs/README.md) | Kernel-enforced CPU affinity via Windows Job Objects |
 | [scheduler.rs](scheduler.rs/README.md) | Prime thread scheduler with hysteresis-based selection |
 | [process.rs](process.rs/README.md) | Process snapshot via NtQuerySystemInformation |
 | [winapi.rs](winapi.rs/README.md) | Windows API wrappers (handles, CPU sets, privileges) |
@@ -27,7 +28,7 @@ The service follows a loop-based enforcement architecture:
 2. **Main loop** — `main.rs` orchestrates the polling cycle and coordinates all subsystems.
 3. **Process snapshot** — `process.rs` takes a system-wide process snapshot via `NtQuerySystemInformation`.
 4. **Rule matching** — Each running process is matched against the loaded configuration rules.
-5. **Apply enforcement** — `apply.rs` applies CPU affinity, priority, IO priority, memory priority, and thread scheduling settings to matched processes.
+5. **Apply enforcement** — `apply.rs` applies job object affinity, CPU affinity, CPU sets, priority, IO priority, memory priority, and thread scheduling settings to matched processes.
 6. **Sleep / ETW wait** — The loop sleeps or waits for ETW process-start events from `event_trace.rs` before repeating.
 
 Configuration hot-reload is supported: the service detects config file changes and re-parses without restart. The prime thread scheduler in `scheduler.rs` uses hysteresis to avoid excessive thread migration between cores.

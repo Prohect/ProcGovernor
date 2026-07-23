@@ -15,6 +15,7 @@ The `apply` module is the core enforcement engine of ProcGovernor. It applies co
 | [get_handles](get_handles.md) | Extracts read and write `HANDLE`s from a [ProcessHandle](../winapi.rs/ProcessHandle.md), preferring full-access over limited. |
 | [log_error_if_new](log_error_if_new.md) | Logs an error only the first time a unique (pid, operation, error_code) combination is seen. |
 | [apply_priority](apply_priority.md) | Reads and optionally sets the process priority class. |
+| [apply_job_object_affinity](apply_job_object_affinity.md) | Applies kernel-enforced CPU affinity via Windows Job Objects (prevents child inheritance bypass). |
 | [apply_affinity](apply_affinity.md) | Reads and optionally sets the process CPU affinity mask. Resets thread ideal processors on change. |
 | [reset_thread_ideal_processors](reset_thread_ideal_processors.md) | Redistributes thread ideal processors across a set of CPUs after an affinity or CPU set change. |
 | [apply_process_default_cpuset](apply_process_default_cpuset.md) | Reads and optionally sets the process default CPU set via the Windows CPU Sets API. |

@@ -26,6 +26,10 @@ pub enum Operation {
     SetProcessInformation2ProcessMemoryPriority,
     SetThreadIdealProcessorEx,
     GetThreadIdealProcessorEx,
+    CreateJobObject,
+    SetInformationJobObject,
+    AssignProcessToJobObject,
+    OpenProcessForJobAssignment,
     InvalidHandle,
 }
 ```
@@ -53,6 +57,10 @@ pub enum Operation {
 | `SetProcessInformation2ProcessMemoryPriority` | 使用 `ProcessMemoryPriority` 类调用 [SetProcessInformation](https://learn.microsoft.com/zh-cn/windows/win32/api/processthreadsapi/nf-processthreadsapi-setprocessinformation)。 |
 | `SetThreadIdealProcessorEx` | [SetThreadIdealProcessorEx](https://learn.microsoft.com/zh-cn/windows/win32/api/processthreadsapi/nf-processthreadsapi-setthreadidealprocessorex) —— 为线程设置理想处理器提示。 |
 | `GetThreadIdealProcessorEx` | [GetThreadIdealProcessorEx](https://learn.microsoft.com/zh-cn/windows/win32/api/processthreadsapi/nf-processthreadsapi-getthreadidealprocessorex) —— 查询线程的理想处理器提示。 |
+| `CreateJobObject` | [CreateJobObjectW](https://learn.microsoft.com/zh-cn/windows/win32/api/jobapi2/nf-jobapi2-createjobobjectw) —— 创建命名 Job Object 以实现内核强制的亲和性。 |
+| `SetInformationJobObject` | [SetInformationJobObject](https://learn.microsoft.com/zh-cn/windows/win32/api/jobapi2/nf-jobapi2-setinformationjobobject) —— 在 Job Object 上设置 `JOB_OBJECT_LIMIT_AFFINITY`。 |
+| `AssignProcessToJobObject` | [AssignProcessToJobObject](https://learn.microsoft.com/zh-cn/windows/win32/api/jobapi2/nf-jobapi2-assignprocesstojobobject) —— 将进程分配到 Job Object。 |
+| `OpenProcessForJobAssignment` | 使用 `PROCESS_SET_QUOTA | PROCESS_TERMINATE` 访问权限调用 `OpenProcess`，用于 Job Object 分配。 |
 | `InvalidHandle` | 哨兵值，表示所需句柄不可用。 |
 
 ## 备注

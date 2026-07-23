@@ -15,6 +15,7 @@
 | [get_handles](get_handles.md) | 从 [ProcessHandle](../winapi.rs/ProcessHandle.md) 中提取读写 `HANDLE`，优先使用完全访问权限而非受限权限。 |
 | [log_error_if_new](log_error_if_new.md) | 仅在首次遇到唯一的 (pid, operation, error_code) 组合时记录错误。 |
 | [apply_priority](apply_priority.md) | 读取并可选地设置进程优先级类。 |
+| [apply_job_object_affinity](apply_job_object_affinity.md) | 通过 Windows Job Objects 应用内核强制的 CPU 亲和性（防止子进程继承绕过）。 |
 | [apply_affinity](apply_affinity.md) | 读取并可选地设置进程 CPU 亲和性掩码。在更改时重置线程理想处理器。 |
 | [reset_thread_ideal_processors](reset_thread_ideal_processors.md) | 在亲和性或 CPU 集合更改后，将线程理想处理器重新分配到一组 CPU 上。 |
 | [apply_process_default_cpuset](apply_process_default_cpuset.md) | 通过 Windows CPU 集合 API 读取并可选地设置进程默认 CPU 集合。 |

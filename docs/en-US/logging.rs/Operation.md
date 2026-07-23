@@ -26,6 +26,10 @@ pub enum Operation {
     SetProcessInformation2ProcessMemoryPriority,
     SetThreadIdealProcessorEx,
     GetThreadIdealProcessorEx,
+    CreateJobObject,
+    SetInformationJobObject,
+    AssignProcessToJobObject,
+    OpenProcessForJobAssignment,
     InvalidHandle,
 }
 ```
@@ -53,6 +57,10 @@ pub enum Operation {
 | `SetProcessInformation2ProcessMemoryPriority` | [SetProcessInformation](https://learn.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-setprocessinformation) with `ProcessMemoryPriority` class. |
 | `SetThreadIdealProcessorEx` | [SetThreadIdealProcessorEx](https://learn.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-setthreadidealprocessorex) — sets ideal processor hint for a thread. |
 | `GetThreadIdealProcessorEx` | [GetThreadIdealProcessorEx](https://learn.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-getthreadidealprocessorex) — queries ideal processor hint for a thread. |
+| `CreateJobObject` | [CreateJobObjectW](https://learn.microsoft.com/en-us/windows/win32/api/jobapi2/nf-jobapi2-createjobobjectw) — creates a named job object for kernel-enforced affinity. |
+| `SetInformationJobObject` | [SetInformationJobObject](https://learn.microsoft.com/en-us/windows/win32/api/jobapi2/nf-jobapi2-setinformationjobobject) — sets `JOB_OBJECT_LIMIT_AFFINITY` on a job object. |
+| `AssignProcessToJobObject` | [AssignProcessToJobObject](https://learn.microsoft.com/en-us/windows/win32/api/jobapi2/nf-jobapi2-assignprocesstojobobject) — assigns a process to a job object. |
+| `OpenProcessForJobAssignment` | `OpenProcess` called with `PROCESS_SET_QUOTA | PROCESS_TERMINATE` access for job object assignment. |
 | `InvalidHandle` | Sentinel value indicating that a required handle was not available. |
 
 ## Remarks

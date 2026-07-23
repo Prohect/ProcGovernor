@@ -9,6 +9,8 @@ Represents a complete set of process-level tuning parameters for a single Window
 pub struct ProcessLevelConfig {
     pub name: String,
     pub priority: ProcessPriority,
+    pub job_object_affinity_spec: String,
+    pub job_object_affinity_cpus: List<[u32; CONSUMER_CPUS]>,
     pub affinity_cpus: List<[u32; CONSUMER_CPUS]>,
     pub cpu_set_cpus: List<[u32; CONSUMER_CPUS]>,
     pub cpu_set_reset_ideal: bool,
@@ -23,6 +25,8 @@ pub struct ProcessLevelConfig {
 |--------|------|-------------|
 | `name` | `String` | Lowercase process name (e.g., `"game.exe"`) used as the lookup key in the config hash map. Matches are performed case-insensitively against running process names. |
 | `priority` | [ProcessPriority](../priority.rs/ProcessPriority.md) | Desired Windows priority class for the process. When set to `ProcessPriority::None`, the service does not modify the process's priority. Valid values include `Idle`, `BelowNormal`, `Normal`, `AboveNormal`, `High`, and `RealTime`. |
+| `job_object_affinity_spec` | `String` | The raw CPU spec string (e.g. `*ecore`, `0-7`) used to name and identify the job object. This is the unparsed text from the config file's `job_affinity` field. Used as part of the job object cache key. |
+| `job_object_affinity_cpus` | `List<[u32; CONSUMER_CPUS]>` | Sorted list of logical processor indices for kernel-enforced job object affinity. An empty list means no job object is created. Unlike `affinity_cpus`, this limit is enforced at the kernel level and cannot be bypassed. |
 | `affinity_cpus` | `List<[u32; CONSUMER_CPUS]>` | Sorted list of logical processor indices defining the hard CPU affinity mask. An empty list means no affinity change is applied. When set, the service calls `SetProcessAffinityMask` and immediately redistributes thread ideal processors across the new CPU set. |
 | `cpu_set_cpus` | `List<[u32; CONSUMER_CPUS]>` | Sorted list of logical processor indices for the process default CPU set (soft affinity). An empty list means no CPU set change is applied. Uses the Windows CPU Sets API (`SetProcessDefaultCpuSets`) which provides a softer scheduling hint than hard affinity. |
 | `cpu_set_reset_ideal` | `bool` | When `true`, resets all thread ideal processor assignments after applying the CPU set. Triggered by prefixing the CPU set specification with `@` in the config file (e.g., `@*ecore`). Useful when combining CPU sets with ideal processor rules to ensure threads are redistributed after the CPU set change. |
@@ -36,25 +40,25 @@ pub struct ProcessLevelConfig {
 A `ProcessLevelConfig` is constructed from a config rule line with the following positional fields:
 
 ```
-process.exe:priority:affinity:cpuset:prime:io_priority:memory_priority:ideal:grade
+process.exe:priority:job_affinity:affinity:cpuset:prime:io_priority:memory_priority:ideal:grade
 ```
 
-Only the first two fields after the process name (`priority` and `affinity`) are required. Omitted fields default to their "no change" values (`None` / empty list / `false`).
+Only the first three fields after the process name (`priority`, `job_affinity`, and `affinity`) are required. Omitted fields default to their "no change" values (`None` / empty list / `false`).
 
 ### Validation during parsing
 
 The [parse_and_insert_rules](parse_and_insert_rules.md) function creates a `ProcessLevelConfig` only when at least one process-level field has a non-default value. If all process-level fields are at their defaults (e.g., the rule only specifies thread-level settings like prime CPUs), no `ProcessLevelConfig` is inserted, and only a [ThreadLevelConfig](ThreadLevelConfig.md) is created.
 
-### Affinity vs. CPU set
+### Affinity types comparison
 
-Both `affinity_cpus` and `cpu_set_cpus` control which processors a process can use, but they differ in enforcement:
+`job_object_affinity_cpus`, `affinity_cpus`, and `cpu_set_cpus` all control which processors a process can use, but differ in enforcement:
 
-| Feature | Affinity (`affinity_cpus`) | CPU Set (`cpu_set_cpus`) |
-|---------|---------------------------|--------------------------|
-| **API** | `SetProcessAffinityMask` | `SetProcessDefaultCpuSets` |
-| **Enforcement** | Hard — threads cannot run on excluded CPUs | Soft — scheduler prefers listed CPUs but may spill |
-| **Scope** | Limits the entire process | Sets default hint; individual threads can override |
-| **Max CPUs** | 64 (single processor group) | Supports >64 CPUs across processor groups |
+| Feature | Job Object (`job_object_affinity_cpus`) | Affinity (`affinity_cpus`) | CPU Set (`cpu_set_cpus`) |
+|---------|---|---|---|
+| **API** | `CreateJobObjectW` + `SetInformationJobObject` + `AssignProcessToJobObject` | `SetProcessAffinityMask` | `SetProcessDefaultCpuSets` |
+| **Enforcement** | Kernel — process and children cannot bypass | Hard — threads cannot run on excluded CPUs | Soft — scheduler prefers listed CPUs but may spill |
+| **Scope** | Limits process and all child processes | Limits the entire process | Sets default hint; individual threads can override |
+| **Max CPUs** | 64 (single processor group) | 64 (single processor group) | Supports >64 CPUs across processor groups |
 
 ### Grade-based organization
 
@@ -70,7 +74,7 @@ If multiple rules define a `ProcessLevelConfig` for the same process name, the p
 |---|---|
 | **Module** | [`src/config.rs`](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf/src/config.rs) |
 | **Created by** | [parse_and_insert_rules](parse_and_insert_rules.md) |
-| **Consumed by** | [apply_priority](../apply.rs/apply_priority.md), [apply_affinity](../apply.rs/apply_affinity.md), [apply_process_default_cpuset](../apply.rs/apply_process_default_cpuset.md), [apply_io_priority](../apply.rs/apply_io_priority.md), [apply_memory_priority](../apply.rs/apply_memory_priority.md) |
+| **Consumed by** | [apply_job_object_affinity](../apply.rs/apply_job_object_affinity.md), [apply_priority](../apply.rs/apply_priority.md), [apply_affinity](../apply.rs/apply_affinity.md), [apply_process_default_cpuset](../apply.rs/apply_process_default_cpuset.md), [apply_io_priority](../apply.rs/apply_io_priority.md), [apply_memory_priority](../apply.rs/apply_memory_priority.md) |
 | **Dependencies** | [ProcessPriority](../priority.rs/ProcessPriority.md), [IOPriority](../priority.rs/IOPriority.md), [MemoryPriority](../priority.rs/MemoryPriority.md), [List](../collections.rs/README.md) |
 | **Privileges** | `PROCESS_SET_INFORMATION` (write), `PROCESS_QUERY_LIMITED_INFORMATION` (read) |
 

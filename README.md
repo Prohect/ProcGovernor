@@ -7,13 +7,14 @@
 ![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/Prohect/ProcGovernor/total)
 
 
-A high-performance Windows process management service written in Rust that automatically applies CPU affinity, priority, I/O priority, and memory priority rules to running processes based on configuration files.
+A high-performance Windows process management service written in Rust that automatically applies CPU affinity, priority, I/O priority, memory priority, and kernel-enforced job object affinity rules to running processes based on configuration files.
 
 ## Overview
 
 ProcGovernor continuously monitors running processes and applies customized scheduling policies based on rules defined in configuration files. It supports:
 
 - **Process Priority Management**: Set process priority class (Idle to Real-time) — see [Priority Levels](#priority-levels)
+- **Job Object Affinity**: Kernel-enforced CPU affinity via Windows Job Objects (prevents processes and children from running on excluded CPUs) — see [Job Object Affinity Limits](#job-object-affinity-limits)
 - **CPU Affinity**: Hard-pin processes to specific logical processors (legacy ≤64 core systems) — see [`apply_affinity()`](docs/en-US/apply.rs/apply_affinity.md)
 - **CPU Sets**: Soft CPU preferences across all processor groups (modern >64 core systems) — see [`apply_process_default_cpuset()`](docs/en-US/apply.rs/apply_process_default_cpuset.md)
 - **Prime Thread Scheduling**: Dynamically identify and assign CPU-intensive threads to designated "prime" cores — see [Prime Thread Scheduling](#prime-thread-scheduling) section below
@@ -60,6 +61,7 @@ ProcGovernor.exe -helpall
 | Feature | Description |
 |---------|-------------|
 | **Process Priority** | Set priority class: Idle, BelowNormal, Normal, AboveNormal, High, Realtime |
+| **Job Object Affinity** | Kernel-enforced CPU affinity via Windows Job Objects (prevents child inheritance bypass). See [`apply_job_object_affinity()`](docs/en-US/apply.rs/apply_job_object_affinity.md) |
 | **CPU Affinity** | Legacy mask-based affinity (≤64 cores, [`SetProcessAffinityMask`](docs/en-US/apply.rs/apply_affinity.md)) |
 | **CPU Sets** | Modern soft CPU preferences (unlimited cores, [`SetProcessDefaultCpuSets`](docs/en-US/apply.rs/apply_process_default_cpuset.md)) |
 | **Prime Thread Scheduling** | Dynamic thread-to-core assignment using hysteresis-based algorithm |
@@ -139,10 +141,38 @@ The configuration file uses INI-like format with sections for constants, aliases
 
 Process rules follow this format:
 ```
-process_name:priority:affinity:cpuset:prime_cpus[@prefixes]:io_priority:memory_priority:ideal[@prefixes]:grade
+process_name:priority:job_affinity:affinity:cpuset:prime_cpus[@prefixes]:io_priority:memory_priority:ideal[@prefixes]:grade
 ```
 
 See [`ProcessLevelConfig`](docs/en-US/config.rs/ProcessLevelConfig.md) for the parsed representation.
+
+### Job Object Affinity Limits
+
+The `job_affinity` field (3rd field, v2.0+) applies a **kernel-enforced** CPU affinity via Windows Job Objects. Unlike regular `affinity` (which is inherited by child processes but can be overridden — a child can call `SetProcessAffinityMask` on itself to escape the parent's restriction), job object affinity limits are enforced by the kernel and cannot be bypassed by the process or any of its children (escaping would require job object API access with proper token and privileges).
+
+**Key differences from regular affinity:**
+
+| Property | `job_affinity` (Job Object) | `affinity` (SetProcessAffinityMask) |
+|----------|-----------------------------|--------------------------------------|
+| Enforcement | Kernel-level | Process-level |
+| Child inheritance | Children inherit the limit AND cannot change it | Children inherit but can override via `SetProcessAffinityMask` |
+| Can be bypassed | No (kernel rejects `SetProcessAffinityMask`; escape requires job object API + privileges) | Yes (child can call `SetProcessAffinityMask` on itself) |
+| Persists after exit | Yes (job object is named) | No |
+
+**Usage:** Set `job_affinity` to restrict processes to specific CPUs, then use `affinity` for a potentially tighter subset. Use `0` to skip (no job object).
+
+```ini
+# Job object enforces E-cores only; process affinity also set to E-cores:
+chrome.exe:normal:*ecore:*ecore:0:0:low:none:0:1
+
+# Job object enforces P-cores; process sees all CPUs (soft affinity unrestricted):
+game.exe:high:*pcore:*all:0:0:normal:none:0:1
+
+# No job object (legacy behavior):
+notepad.exe:normal:0:*pcore:0:0:none:none:0:1
+```
+
+See [`apply_job_object_affinity()`](docs/en-US/apply.rs/apply_job_object_affinity.md) and [`JobObjectManager`](docs/en-US/job_object.rs/JobObjectManager.md) for implementation details.
 
 ### CPU Specification Formats
 
@@ -346,7 +376,9 @@ See [`is_new_error()`](docs/en-US/logging.rs/is_new_error.md) for error deduplic
 
 ## Known Limitations
 
-1. **CPU Affinity ≤64 cores**: The legacy SetProcessAffinityMask API only works within a single processor group. For >64 core systems, use CPU Sets instead.
+1. **CPU Affinity ≤64 cores**: The legacy `SetProcessAffinityMask` API only works within a single processor group. For >64 core systems, use CPU Sets instead.
+
+1. **Job Object Affinity ≤64 cores**: The `JOB_OBJECT_LIMIT_AFFINITY` mask is a 64-bit value, limiting kernel-enforced job object affinity to a single processor group (≤64 logical processors). Jobs will not be created for CPU specs where all indices are ≥64.
 
 2. **Multi-group/NUMA systems**: This project has not been tested on multi-processor-group or NUMA systems. The `ideal` processor assignment currently assigns processors within processor group 0 only. Systems with >64 logical processors or multiple CPU groups may experience unexpected behavior.
 

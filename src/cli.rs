@@ -235,12 +235,13 @@ pub fn get_config_help_lines() -> Vec<&'static str> {
         ## ----------------------------------------------------------------------------
         ## CONFIG FORMAT
         ## ----------------------------------------------------------------------------
-        ##   process_name:priority:affinity:cpuset:prime_cpus[@startModuleName1;startModuleName2]:io_priority:memory_priority:grade
+        ##   process_name:priority:job_affinity:affinity:cpuset:prime_cpus[@startModuleName1;startModuleName2]:io_priority:memory_priority:grade
         ##
         ##   Field descriptions:
         ##     process_name     - Executable name (e.g.: game.exe)
         ##     priority         - Process priority class
-        ##     affinity         - Hard CPU affinity mask (inherited by child processes)
+        ##     job_affinity     - Kernel-enforced CPU affinity via Windows Job Object (prevents process and children from running on excluded CPUs). Use 0 to skip.
+        ##     affinity         - Soft CPU affinity mask (per-process, not inherited by children)
         ##     cpuset           - Soft CPU preference via Windows CPU Sets
         ##     prime_cpus       - CPUs for prime thread scheduling (CPU-intensive threads). Optionally @prefix1;prefix2 to match start module names (default empty)
         ##     io_priority      - I/O priority level
@@ -305,13 +306,13 @@ pub fn get_config_help_lines() -> Vec<&'static str> {
         ##       process1.exe: process2.exe
         ##       # Comments allowed inside
         ##       process3.exe
-        ##   }:priority:affinity:cpuset:prime_cpus[@prefixes]:io_priority:memory_priority:ideal_processor:grade
+        ##   }:priority:job_affinity:affinity:cpuset:prime_cpus[@prefixes]:io_priority:memory_priority:ideal_processor:grade
         ##
         ##   # Named group (single-line)
-        ##   browsers { chrome.exe: firefox.exe }:normal:*e:0:0:low:none:0:1
+        ##   browsers { chrome.exe: firefox.exe }:normal:0:*e:0:0:low:none:0:1
         ##
         ##   # Anonymous group (no name)
-        ##   { notepad.exe: calc.exe }:none:*e:0:0:low:none:0:1
+        ##   { notepad.exe: calc.exe }:none:0:*e:0:0:low:none:0:1
         ##
         ## ============================================================================"#,
     ]

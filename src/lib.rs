@@ -4,6 +4,7 @@ pub mod collections;
 pub mod config;
 pub mod error_codes;
 pub mod event_trace;
+pub mod job_object;
 pub mod logging;
 pub mod priority;
 pub mod process;

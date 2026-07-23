@@ -92,6 +92,10 @@ pub enum Operation {
     SetProcessInformation2ProcessMemoryPriority,
     SetThreadIdealProcessorEx,
     GetThreadIdealProcessorEx,
+    CreateJobObject,
+    SetInformationJobObject,
+    AssignProcessToJobObject,
+    OpenProcessForJobAssignment,
     InvalidHandle,
 }
 #[derive(PartialEq, Eq, Hash)]

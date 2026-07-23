@@ -1,17 +1,17 @@
 # Src Outline, **READ this by MULTIPLE calls if it's too large being outlined by first call**
 
 ## src/apply.rs
-- [L31:35]struct ApplyConfigResult {
+- [L32:36]struct ApplyConfigResult {
     pub changes: Vec<String>,
     pub errors: Vec<String>,
 }
-- [L37]impl ApplyConfigResult
-  - [L38:40]fn new() -> Self 
-  - [L42:47]fn add_change(&mut self, change: String) 
-  - [L49:53]fn add_error(&mut self, error: String) 
-  - [L55:57]fn is_empty(&self) -> bool 
-- [L60:67]fn get_handles(process_handle: &ProcessHandle) -> (Option<HANDLE>, Option<HANDLE>) 
-- [L69:83]fn log_error_if_new(
+- [L38]impl ApplyConfigResult
+  - [L39:41]fn new() -> Self 
+  - [L43:48]fn add_change(&mut self, change: String) 
+  - [L50:54]fn add_error(&mut self, error: String) 
+  - [L56:58]fn is_empty(&self) -> bool 
+- [L61:68]fn get_handles(process_handle: &ProcessHandle) -> (Option<HANDLE>, Option<HANDLE>) 
+- [L70:84]fn log_error_if_new(
     pid: u32,
     tid: u32,
     process_name: &str,
@@ -20,14 +20,21 @@
     apply_config_result: &mut ApplyConfigResult,
     format_msg: impl FnOnce() -> String,
 ) 
-- [L85:131]fn apply_priority(
+- [L86:132]fn apply_priority(
     pid: u32,
     config: &ProcessLevelConfig,
     dry_run: bool,
     process_handle: &ProcessHandle,
     apply_config_result: &mut ApplyConfigResult,
 ) 
-- [L133:209]fn apply_affinity<'a>(
+- [L134:160]fn apply_job_object_affinity(
+    pid: u32,
+    config: &ProcessLevelConfig,
+    dry_run: bool,
+    job_manager: &mut JobObjectManager,
+    apply_config_result: &mut ApplyConfigResult,
+) 
+- [L162:238]fn apply_affinity<'a>(
     pid: u32,
     config: &ProcessLevelConfig,
     dry_run: bool,
@@ -36,7 +43,7 @@
     threads: &impl Fn() -> &'a HashMap<u32, SYSTEM_THREAD_INFORMATION>,
     apply_config_result: &mut ApplyConfigResult,
 ) 
-- [L211:296]fn reset_thread_ideal_processors<'a>(
+- [L240:325]fn reset_thread_ideal_processors<'a>(
     pid: u32,
     config: &ProcessLevelConfig,
     dry_run: bool,
@@ -44,7 +51,7 @@
     threads: &impl Fn() -> &'a HashMap<u32, SYSTEM_THREAD_INFORMATION>,
     apply_config_result: &mut ApplyConfigResult,
 ) 
-- [L298:401]fn apply_process_default_cpuset<'a>(
+- [L327:430]fn apply_process_default_cpuset<'a>(
     pid: u32,
     config: &ProcessLevelConfig,
     dry_run: bool,
@@ -52,28 +59,28 @@
     threads: &impl Fn() -> &'a HashMap<u32, SYSTEM_THREAD_INFORMATION>,
     apply_config_result: &mut ApplyConfigResult,
 ) 
-- [L403:489]fn apply_io_priority(
+- [L432:518]fn apply_io_priority(
     pid: u32,
     config: &ProcessLevelConfig,
     dry_run: bool,
     process_handle: &ProcessHandle,
     apply_config_result: &mut ApplyConfigResult,
 ) 
-- [L491:578]fn apply_memory_priority(
+- [L520:607]fn apply_memory_priority(
     pid: u32,
     config: &ProcessLevelConfig,
     dry_run: bool,
     process_handle: &ProcessHandle,
     apply_config_result: &mut ApplyConfigResult,
 ) 
-- [L580:696]fn prefetch_all_thread_cycles<'a>(
+- [L609:725]fn prefetch_all_thread_cycles<'a>(
     pid: u32,
     config: &ThreadLevelConfig,
     threads: &impl Fn() -> &'a HashMap<u32, SYSTEM_THREAD_INFORMATION>,
     prime_scheduler: &mut PrimeThreadScheduler,
     apply_config_result: &mut ApplyConfigResult,
 ) 
-- [L698:787]fn apply_prime_threads<'a>(
+- [L727:816]fn apply_prime_threads<'a>(
     pid: u32,
     config: &ThreadLevelConfig,
     dry_run: bool,
@@ -83,13 +90,13 @@
     prime_core_scheduler: &mut PrimeThreadScheduler,
     apply_config_result: &mut ApplyConfigResult,
 ) 
-- [L789:803]fn apply_prime_threads_select(
+- [L818:832]fn apply_prime_threads_select(
     pid: u32,
     prime_count: usize,
     tid_with_delta_cycles: &mut [(u32, u64, bool)],
     prime_core_scheduler: &mut PrimeThreadScheduler,
 ) 
-- [L805:950]fn apply_prime_threads_promote(
+- [L834:979]fn apply_prime_threads_promote(
     pid: u32,
     config: &ThreadLevelConfig,
     current_mask: &mut usize,
@@ -97,7 +104,7 @@
     prime_core_scheduler: &mut PrimeThreadScheduler,
     apply_config_result: &mut ApplyConfigResult,
 ) 
-- [L952:1046]fn apply_prime_threads_demote<'a>(
+- [L981:1075]fn apply_prime_threads_demote<'a>(
     pid: u32,
     config: &ThreadLevelConfig,
     threads: &impl Fn() -> &'a HashMap<u32, SYSTEM_THREAD_INFORMATION>,
@@ -105,7 +112,7 @@
     prime_core_scheduler: &mut PrimeThreadScheduler,
     apply_config_result: &mut ApplyConfigResult,
 ) 
-- [L1048:1325]fn apply_ideal_processors<'a>(
+- [L1077:1354]fn apply_ideal_processors<'a>(
     pid: u32,
     config: &ThreadLevelConfig,
     dry_run: bool,
@@ -113,7 +120,7 @@
     prime_scheduler: &mut PrimeThreadScheduler,
     apply_config_result: &mut ApplyConfigResult,
 ) 
-- [L1327:1340]fn update_thread_stats(pid: u32, prime_scheduler: &mut PrimeThreadScheduler) 
+- [L1356:1369]fn update_thread_stats(pid: u32, prime_scheduler: &mut PrimeThreadScheduler) 
 
 ## src/cli.rs
 - [L4:28]struct CliArgs {
@@ -145,9 +152,9 @@
 - [L40:127]fn parse_args(args: &[String], cli: &mut CliArgs) -> Result<()> 
 - [L129:155]fn print_help() 
 - [L157:207]fn print_cli_help() 
-- [L209:318]fn get_config_help_lines() -> Vec<&'static str> 
-- [L320:324]fn print_config_help() 
-- [L326:331]fn print_help_all() 
+- [L209:319]fn get_config_help_lines() -> Vec<&'static str> 
+- [L321:325]fn print_config_help() 
+- [L327:332]fn print_help_all() 
 
 ## src/collections.rs
 - [L4:4]type HashMap<K, V> = FxHashMap<K, V>;
@@ -169,34 +176,36 @@
     pub cpus: List<[u32; CONSUMER_CPUS]>,
     pub prefixes: Vec<String>,
 }
-- [L29:38]struct ProcessLevelConfig {
+- [L29:40]struct ProcessLevelConfig {
     pub name: String,
     pub priority: ProcessPriority,
+    pub job_object_affinity_spec: String,
+    pub job_object_affinity_cpus: List<[u32; CONSUMER_CPUS]>,
     pub affinity_cpus: List<[u32; CONSUMER_CPUS]>,
     pub cpu_set_cpus: List<[u32; CONSUMER_CPUS]>,
     pub cpu_set_reset_ideal: bool,
     pub io_priority: IOPriority,
     pub memory_priority: MemoryPriority,
 }
-- [L39:46]struct ThreadLevelConfig {
+- [L41:48]struct ThreadLevelConfig {
     pub name: String,
     pub prime_threads_cpus: List<[u32; CONSUMER_CPUS]>,
     pub prime_threads_prefixes: Vec<PrimePrefix>,
     pub track_top_x_threads: i32,
     pub ideal_processor_rules: Vec<IdealProcessorRule>,
 }
-- [L48:53]struct ConfigConstants {
+- [L50:55]struct ConfigConstants {
     pub min_active_streak: u8,
     pub keep_threshold: f64,
     pub entry_threshold: f64,
 }
-- [L55]impl Default for ConfigConstants
-  - [L56:62]fn default() -> Self 
-- [L65:113]fn parse_cpu_spec(s: &str) -> List<[u32; CONSUMER_CPUS]> 
-- [L115:117]fn mask_to_cpu_indices(mask: u64) -> List<[u32; CONSUMER_CPUS]> 
-- [L119:127]fn cpu_indices_to_mask(cpus: &[u32]) -> usize 
-- [L129:159]fn format_cpu_indices(cpus: &[u32]) -> String 
-- [L161:175]struct ConfigResult {
+- [L57]impl Default for ConfigConstants
+  - [L58:64]fn default() -> Self 
+- [L67:115]fn parse_cpu_spec(s: &str) -> List<[u32; CONSUMER_CPUS]> 
+- [L117:119]fn mask_to_cpu_indices(mask: u64) -> List<[u32; CONSUMER_CPUS]> 
+- [L121:129]fn cpu_indices_to_mask(cpus: &[u32]) -> usize 
+- [L131:161]fn format_cpu_indices(cpus: &[u32]) -> String 
+- [L163:177]struct ConfigResult {
     pub process_level_configs: HashMap<u32, HashMap<String, ProcessLevelConfig>>,
     pub thread_level_configs: HashMap<u32, HashMap<String, ThreadLevelConfig>>,
     pub constants: ConfigConstants,
@@ -210,48 +219,48 @@
     pub warnings: Vec<String>,
     pub thread_level_configs_count: usize,
 }
-- [L177]impl ConfigResult
-  - [L178:180]fn is_valid(&self) -> bool 
-  - [L182:186]fn total_rules(&self) -> usize 
-  - [L188:217]fn print_report(&self) 
-- [L220:240]fn resolve_cpu_spec(
+- [L179]impl ConfigResult
+  - [L180:182]fn is_valid(&self) -> bool 
+  - [L184:188]fn total_rules(&self) -> usize 
+  - [L190:219]fn print_report(&self) 
+- [L222:242]fn resolve_cpu_spec(
     spec: &str,
     field_name: &str,
     line_number: usize,
     cpu_aliases: &HashMap<String, List<[u32; CONSUMER_CPUS]>>,
     errors: &mut Vec<String>,
 ) -> List<[u32; CONSUMER_CPUS]> 
-- [L242:248]fn collect_members(text: &str, members: &mut Vec<String>) 
-- [L251:291]fn parse_constant(name: &str, value: &str, line_number: usize, result: &mut ConfigResult) 
-- [L293:313]fn parse_alias(
+- [L244:250]fn collect_members(text: &str, members: &mut Vec<String>) 
+- [L253:293]fn parse_constant(name: &str, value: &str, line_number: usize, result: &mut ConfigResult) 
+- [L295:315]fn parse_alias(
     name: &str,
     value: &str,
     line_number: usize,
     cpu_aliases: &mut HashMap<String, List<[u32; CONSUMER_CPUS]>>,
     result: &mut ConfigResult,
 ) 
-- [L315:384]fn parse_ideal_processor_spec(
+- [L317:386]fn parse_ideal_processor_spec(
     spec: &str,
     line_number: usize,
     cpu_aliases: &HashMap<String, List<[u32; CONSUMER_CPUS]>>,
     errors: &mut Vec<String>,
 ) -> Vec<IdealProcessorRule> 
-- [L386:396]fn collect_group_block(lines: &[String], start_index: usize, first_line_content: &str) -> Option<(Vec<String>, Option<String>, usize)> 
-- [L420:741]fn parse_and_insert_rules(
+- [L388:398]fn collect_group_block(lines: &[String], start_index: usize, first_line_content: &str) -> Option<(Vec<String>, Option<String>, usize)> 
+- [L422:750]fn parse_and_insert_rules(
     members: &[String],
     rule_parts: &[&str],
     line_number: usize,
     cpu_aliases: &HashMap<String, List<[u32; CONSUMER_CPUS]>>,
     result: &mut ConfigResult,
 ) 
-- [L743:829]fn read_config<P: AsRef<Path>>(path: P) -> ConfigResult 
-- [L877:888]fn read_bleack_list<P: AsRef<Path>>(path: P) -> Result<Vec<String>> 
-- [L890:894]fn read_utf16le_file(path: &str) -> Result<String> 
-- [L896:900]fn parse_mask(s: &str) -> usize 
-- [L902:1065]fn convert(in_file: Option<String>, out_file: Option<String>) 
-- [L1067:1279]fn sort_and_group_config(in_file: Option<String>, out_file: Option<String>) 
-- [L1281:1303]fn hotreload_blacklist(cli: &CliArgs, blacklist: &mut Vec<String>, last_blacklist_mod_time: &mut Option<std::time::SystemTime>) 
-- [L1305:1338]fn hotreload_config(
+- [L752:838]fn read_config<P: AsRef<Path>>(path: P) -> ConfigResult 
+- [L886:897]fn read_bleack_list<P: AsRef<Path>>(path: P) -> Result<Vec<String>> 
+- [L899:903]fn read_utf16le_file(path: &str) -> Result<String> 
+- [L905:909]fn parse_mask(s: &str) -> usize 
+- [L911:1074]fn convert(in_file: Option<String>, out_file: Option<String>) 
+- [L1076:1288]fn sort_and_group_config(in_file: Option<String>, out_file: Option<String>) 
+- [L1290:1312]fn hotreload_blacklist(cli: &CliArgs, blacklist: &mut Vec<String>, last_blacklist_mod_time: &mut Option<std::time::SystemTime>) 
+- [L1314:1347]fn hotreload_config(
     cli: &CliArgs,
     configs: &mut ConfigResult,
     last_config_mod_time: &mut Option<std::time::SystemTime>,
@@ -284,6 +293,31 @@
 - [L261]impl Drop for EtwProcessMonitor
   - [L262:264]fn drop(&mut self) 
 
+## src/job_object.rs
+- [L20:39]struct JobObjectManager {
+    jobs: HashMap<(String, usize), HANDLE>,
+}
+- [L41]impl JobObjectManager
+  - [L42:44]fn new() -> Self 
+  - [L46:164]fn get_or_create_job(
+        &mut self,
+        spec: &str,
+        cpu_indices: &[u32],
+        pid: u32,
+        process_name: &str,
+        errors: &mut Vec<String>,
+    ) -> Option<HANDLE> 
+  - [L166:238]fn assign_process(
+        &mut self,
+        pid: u32,
+        spec: &str,
+        cpu_indices: &[u32],
+        process_name: &str,
+        errors: &mut Vec<String>,
+    ) -> bool 
+- [L241]impl Drop for JobObjectManager
+  - [L242:248]fn drop(&mut self) 
+
 ## src/lib.rs
 - [L1:1]mod apply;
 - [L2:2]mod cli;
@@ -291,11 +325,12 @@
 - [L4:4]mod config;
 - [L5:5]mod error_codes;
 - [L6:6]mod event_trace;
-- [L7:7]mod logging;
-- [L8:8]mod priority;
-- [L9:9]mod process;
-- [L10:10]mod scheduler;
-- [L11:11]mod winapi;
+- [L7:7]mod job_object;
+- [L8:8]mod logging;
+- [L9:9]mod priority;
+- [L10:10]mod process;
+- [L11:11]mod scheduler;
+- [L12:12]mod winapi;
 
 ## src/logging.rs
 - [L12:12]static FINDS_SET: Lazy<Mutex<HashSet<String>>> = Lazy::new(|| Mutex::new(HashSet::default()));
@@ -306,7 +341,7 @@
 - [L68:68]static FIND_LOG_FILE: Lazy<Mutex<File>> =
 - [L70:70]static FINDS_FAIL_SET: Lazy<Mutex<HashSet<String>>> = Lazy::new(|| Mutex::new(HashSet::default()));
 - [L71:71]static PID_MAP_FAIL_ENTRY_SET: Lazy<Mutex<HashMap<u32, HashMap<ApplyFailEntry, bool>>>> = Lazy::new(|| Mutex::new(HashMap::default()));
-- [L73:96]enum Operation {
+- [L73:100]enum Operation {
     OpenProcess2processQueryLimitedInformation,
     OpenProcess2processSetLimitedInformation,
     OpenProcess2processQueryInformation,
@@ -326,31 +361,36 @@
     SetProcessInformation2ProcessMemoryPriority,
     SetThreadIdealProcessorEx,
     GetThreadIdealProcessorEx,
+    CreateJobObject,
+    SetInformationJobObject,
+    AssignProcessToJobObject,
+    OpenProcessForJobAssignment,
     InvalidHandle,
 }
-- [L97:103]struct ApplyFailEntry {
+- [L101:107]struct ApplyFailEntry {
     tid: u32,
     process_name: String,
     operation: Operation,
     error_code: u32,
 }
-- [L105:148]fn is_new_error(pid: u32, tid: u32, process_name: &str, operation: Operation, error_code: u32) -> bool 
-- [L150:171]fn purge_fail_map(pids_and_names: &[(u32, &str)]) 
-- [L173:182]fn get_log_path(suffix: &str) -> PathBuf 
-- [L184:194]fn log_message(args: &str) 
-- [L196:202]fn log_pure_message(args: &str) 
-- [L204:211]fn log_to_find(msg: &str) 
-- [L213:222]fn log_process_find(process_name: &str) 
+- [L109:152]fn is_new_error(pid: u32, tid: u32, process_name: &str, operation: Operation, error_code: u32) -> bool 
+- [L154:175]fn purge_fail_map(pids_and_names: &[(u32, &str)]) 
+- [L177:186]fn get_log_path(suffix: &str) -> PathBuf 
+- [L188:198]fn log_message(args: &str) 
+- [L200:206]fn log_pure_message(args: &str) 
+- [L208:215]fn log_to_find(msg: &str) 
+- [L217:226]fn log_process_find(process_name: &str) 
 
 ## src/main.rs
-- [L46:65]fn apply_process_level<'a>(
+- [L48:73]fn apply_process_level<'a>(
     pid: u32,
     config: &ProcessLevelConfig,
     threads: &impl Fn() -> &'a HashMap<u32, SYSTEM_THREAD_INFORMATION>,
     dry_run: bool,
+    job_manager: &mut JobObjectManager,
     apply_configs: &mut ApplyConfigResult,
 ) 
-- [L67:108]fn apply_thread_level<'a>(
+- [L75:116]fn apply_thread_level<'a>(
     pid: u32,
     config: &ThreadLevelConfig,
     prime_core_scheduler: &mut PrimeThreadScheduler,
@@ -359,10 +399,11 @@
     dry_run: bool,
     apply_configs: &mut ApplyConfigResult,
 ) 
-- [L110:145]fn apply_config(
+- [L118:154]fn apply_config(
     cli: &CliArgs,
     configs: &ConfigResult,
     prime_core_scheduler: &mut PrimeThreadScheduler,
+    job_manager: &mut JobObjectManager,
     process_level_applied: &mut smallvec::SmallVec<[u32; PIDS]>,
     thread_level_applied: &mut smallvec::SmallVec<[u32; PENDING]>,
     grade: &u32,
@@ -371,10 +412,10 @@
     process_level_config: &ProcessLevelConfig,
     process: &ProcessEntry,
 ) 
-- [L147:161]fn log_apply_results(pid: &u32, name: &String, result: ApplyConfigResult) 
-- [L163:255]fn process_logs(configs: &ConfigResult, blacklist: &[String], logs_path: Option<&str>, output_file: Option<&str>) 
-- [L257:294]fn process_find(cli: &CliArgs, configs: &ConfigResult, blacklist: &[String]) -> Result<(), windows::core::Error> 
-- [L296:601]fn main() -> windows::core::Result<()> 
+- [L156:170]fn log_apply_results(pid: &u32, name: &String, result: ApplyConfigResult) 
+- [L172:264]fn process_logs(configs: &ConfigResult, blacklist: &[String], logs_path: Option<&str>, output_file: Option<&str>) 
+- [L266:303]fn process_find(cli: &CliArgs, configs: &ConfigResult, blacklist: &[String]) -> Result<(), windows::core::Error> 
+- [L305:613]fn main() -> windows::core::Result<()> 
 
 ## src/priority.rs
 - [L7:16]enum ProcessPriority {

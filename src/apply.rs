@@ -2,6 +2,7 @@ use crate::{
     collections::{CONSUMER_CPUS, HashMap, HashSet, List, TIDS_CAPED, TIDS_FULL, list},
     config::{ProcessLevelConfig, ThreadLevelConfig, cpu_indices_to_mask, format_cpu_indices},
     error_codes::{error_from_code_win32, error_from_ntstatus},
+    job_object::JobObjectManager,
     logging::{Operation, is_new_error},
     priority::{IOPriority, MemoryPriority, MemoryPriorityInformation, ProcessPriority, ThreadPriority},
     process::ProcessEntry,
@@ -127,6 +128,34 @@ pub fn apply_priority(
                 }
             }
         }
+    }
+}
+
+/// Applies a kernel-enforced job object CPU affinity limit.
+///
+/// Unlike `apply_affinity` which uses per-process `SetProcessAffinityMask`,
+/// job objects prevent the process AND its children from ever running on
+/// CPUs outside the specified mask. This is a hard kernel-level restriction.
+pub fn apply_job_object_affinity(
+    pid: u32,
+    config: &ProcessLevelConfig,
+    dry_run: bool,
+    job_manager: &mut JobObjectManager,
+    apply_config_result: &mut ApplyConfigResult,
+) {
+    if config.job_object_affinity_cpus.is_empty() {
+        return;
+    }
+
+    let change_msg = format!("Job Affinity: -> [{}]", format_cpu_indices(&config.job_object_affinity_cpus));
+
+    if dry_run {
+        apply_config_result.add_change(change_msg);
+        return;
+    }
+
+    if job_manager.assign_process(pid, &config.job_object_affinity_spec, &config.job_object_affinity_cpus, &config.name, &mut apply_config_result.errors) {
+        apply_config_result.add_change(change_msg);
     }
 }
 

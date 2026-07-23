@@ -1,7 +1,8 @@
 use proc_governor::{
     apply::{
-        ApplyConfigResult, apply_affinity, apply_ideal_processors, apply_io_priority, apply_memory_priority, apply_prime_threads,
-        apply_priority, apply_process_default_cpuset, prefetch_all_thread_cycles, update_thread_stats,
+        ApplyConfigResult, apply_affinity, apply_ideal_processors, apply_io_priority, apply_job_object_affinity,
+        apply_memory_priority, apply_prime_threads, apply_priority, apply_process_default_cpuset, prefetch_all_thread_cycles,
+        update_thread_stats,
     },
     cli::{CliArgs, parse_args, print_help, print_help_all},
     collections::{HashMap, HashSet, List, PENDING, PIDS},
@@ -10,6 +11,7 @@ use proc_governor::{
         sort_and_group_config,
     },
     event_trace::EtwProcessMonitor,
+    job_object::JobObjectManager,
     get_dust_bin_mod, get_fail_find_set, get_local_time, get_logger, get_logger_find, get_pid_map_fail_entry_set, get_use_console, log,
     logging::{log_message, log_process_find, log_pure_message, log_to_find, purge_fail_map},
     process::{PID_TO_PROCESS_MAP, ProcessEntry, ProcessSnapshot, SNAPSHOT_BUFFER},
@@ -50,8 +52,14 @@ fn apply_process_level<'a>(
     config: &ProcessLevelConfig,
     threads: &impl Fn() -> &'a HashMap<u32, SYSTEM_THREAD_INFORMATION>,
     dry_run: bool,
+    job_manager: &mut JobObjectManager,
     apply_configs: &mut ApplyConfigResult,
 ) {
+    // Apply job object affinity BEFORE the process handle is dropped,
+    // so the job assignment and soft affinity are applied in sequence
+    // with the same valid process handle context.
+    apply_job_object_affinity(pid, config, dry_run, job_manager, apply_configs);
+
     let Some(process_handle) = get_process_handle(pid, &config.name) else {
         return;
     };
@@ -113,6 +121,7 @@ fn apply_config(
     cli: &CliArgs,
     configs: &ConfigResult,
     prime_core_scheduler: &mut PrimeThreadScheduler,
+    job_manager: &mut JobObjectManager,
     process_level_applied: &mut smallvec::SmallVec<[u32; PIDS]>,
     thread_level_applied: &mut smallvec::SmallVec<[u32; PENDING]>,
     grade: &u32,
@@ -124,7 +133,7 @@ fn apply_config(
     let mut result = ApplyConfigResult::new();
     let threads_cache: OnceCell<HashMap<u32, SYSTEM_THREAD_INFORMATION>> = OnceCell::new();
     let threads = || threads_cache.get_or_init(|| process.get_threads());
-    apply_process_level(*pid, process_level_config, &threads, cli.dry_run, &mut result);
+    apply_process_level(*pid, process_level_config, &threads, cli.dry_run, job_manager, &mut result);
     if let Some(thread_level_config) = match configs.thread_level_configs.get(grade) {
         Some(thread_level_configs) => thread_level_configs.get(*name),
         None => None,
@@ -390,6 +399,7 @@ fn main() -> windows::core::Result<()> {
     // both-level apply exists to reduce get_threads' enumeration and merge logs for a same process
     let mut process_level_pending: List<[u32; PENDING]> = List::new();
     let mut prime_core_scheduler = PrimeThreadScheduler::new(configs.constants.clone());
+    let mut job_manager = JobObjectManager::new();
 
     while should_continue {
         if cli.log_loop {
@@ -419,6 +429,7 @@ fn main() -> windows::core::Result<()> {
                                         &cli,
                                         &configs,
                                         &mut prime_core_scheduler,
+                                        &mut job_manager,
                                         &mut process_level_applied,
                                         &mut thread_level_applied,
                                         grade,
@@ -455,6 +466,7 @@ fn main() -> windows::core::Result<()> {
                                 &cli,
                                 &configs,
                                 &mut prime_core_scheduler,
+                                &mut job_manager,
                                 &mut process_level_applied,
                                 &mut thread_level_applied,
                                 grade,

@@ -30,6 +30,8 @@ pub struct IdealProcessorRule {
 pub struct ProcessLevelConfig {
     pub name: String,
     pub priority: ProcessPriority,
+    pub job_object_affinity_spec: String,
+    pub job_object_affinity_cpus: List<[u32; CONSUMER_CPUS]>,
     pub affinity_cpus: List<[u32; CONSUMER_CPUS]>,
     pub cpu_set_cpus: List<[u32; CONSUMER_CPUS]>,
     pub cpu_set_reset_ideal: bool,
@@ -428,9 +430,9 @@ fn parse_and_insert_rules(
     cpu_aliases: &HashMap<String, List<[u32; CONSUMER_CPUS]>>,
     result: &mut ConfigResult,
 ) {
-    if rule_parts.len() < 2 {
+    if rule_parts.len() < 3 {
         result.errors.push(format!(
-            "Line {}: Too few fields ({}) - expected at least 2 (priority,affinity)",
+            "Line {}: Too few fields ({}) - expected at least 3 (priority,job_affinity,affinity)",
             line_number,
             rule_parts.len()
         ));
@@ -446,10 +448,14 @@ fn parse_and_insert_rules(
         ));
     }
 
-    let affinity_cpus = resolve_cpu_spec(rule_parts[1], "affinity", line_number, cpu_aliases, &mut result.errors);
+    let job_affinity_spec = rule_parts[1].trim().to_string();
+    let job_object_affinity_cpus =
+        resolve_cpu_spec(rule_parts[1], "job_affinity", line_number, cpu_aliases, &mut result.errors);
 
-    let (cpu_set_cpus, cpu_set_reset_ideal) = if rule_parts.len() >= 3 {
-        let spec = rule_parts[2].trim();
+    let affinity_cpus = resolve_cpu_spec(rule_parts[2], "affinity", line_number, cpu_aliases, &mut result.errors);
+
+    let (cpu_set_cpus, cpu_set_reset_ideal) = if rule_parts.len() >= 4 {
+        let spec = rule_parts[3].trim();
         if let Some(stripped) = spec.strip_prefix('@') {
             (
                 resolve_cpu_spec(stripped, "cpuset", line_number, cpu_aliases, &mut result.errors),
@@ -465,8 +471,8 @@ fn parse_and_insert_rules(
         (List::new(), false)
     };
 
-    let (prime_threads_cpus, prime_threads_prefixes, track_top_x_threads) = if rule_parts.len() >= 4 {
-        let mut prime_spec = rule_parts[3].trim();
+    let (prime_threads_cpus, prime_threads_prefixes, track_top_x_threads) = if rule_parts.len() >= 5 {
+        let mut prime_spec = rule_parts[4].trim();
         let mut track_top_x_threads = 0;
         if prime_spec == "0" {
             (List::new(), Vec::new(), 0)
@@ -609,8 +615,8 @@ fn parse_and_insert_rules(
         )
     };
 
-    let io_priority = if rule_parts.len() >= 5 {
-        let io_str = rule_parts[4].trim();
+    let io_priority = if rule_parts.len() >= 6 {
+        let io_str = rule_parts[5].trim();
         let io_p = IOPriority::from_str(io_str);
         if io_p == IOPriority::None && !io_str.eq_ignore_ascii_case("none") {
             result.warnings.push(format!(
@@ -623,8 +629,8 @@ fn parse_and_insert_rules(
         IOPriority::None
     };
 
-    let memory_priority = if rule_parts.len() >= 6 {
-        let mem_str = rule_parts[5].trim();
+    let memory_priority = if rule_parts.len() >= 7 {
+        let mem_str = rule_parts[6].trim();
         let mem_p = MemoryPriority::from_str(mem_str);
         if mem_p == MemoryPriority::None && !mem_str.eq_ignore_ascii_case("none") {
             result.warnings.push(format!(
@@ -637,13 +643,13 @@ fn parse_and_insert_rules(
         MemoryPriority::None
     };
 
-    let (ideal_processor_rules, grade) = if rule_parts.len() >= 7 {
-        let field6 = rule_parts[6].trim();
+    let (ideal_processor_rules, grade) = if rule_parts.len() >= 8 {
+        let field7 = rule_parts[7].trim();
 
-        if field6.starts_with('*') || field6 == "0" {
-            let ideal = parse_ideal_processor_spec(field6, line_number, cpu_aliases, &mut result.errors);
-            let g = if rule_parts.len() >= 8 {
-                let grade_str = rule_parts[7].trim();
+        if field7.starts_with('*') || field7 == "0" {
+            let ideal = parse_ideal_processor_spec(field7, line_number, cpu_aliases, &mut result.errors);
+            let g = if rule_parts.len() >= 9 {
+                let grade_str = rule_parts[8].trim();
                 match grade_str.parse::<u32>() {
                     Ok(val) if val >= 1 => val,
                     Ok(0) => {
@@ -663,7 +669,7 @@ fn parse_and_insert_rules(
                 1
             };
             (ideal, g)
-        } else if let Ok(g) = field6.parse::<u32>() {
+        } else if let Ok(g) = field7.parse::<u32>() {
             if g == 0 {
                 result
                     .warnings
@@ -673,7 +679,7 @@ fn parse_and_insert_rules(
                 (Vec::new(), g)
             }
         } else {
-            let ideal = parse_ideal_processor_spec(field6, line_number, cpu_aliases, &mut result.errors);
+            let ideal = parse_ideal_processor_spec(field7, line_number, cpu_aliases, &mut result.errors);
             (ideal, 1)
         }
     } else {
@@ -697,6 +703,7 @@ fn parse_and_insert_rules(
         }
 
         let process_level_valid = priority != ProcessPriority::None
+            || !&job_object_affinity_cpus.is_empty()
             || !&affinity_cpus.is_empty()
             || !&cpu_set_cpus.is_empty()
             || io_priority != IOPriority::None
@@ -707,6 +714,8 @@ fn parse_and_insert_rules(
                 ProcessLevelConfig {
                     name: name.clone(),
                     priority,
+                    job_object_affinity_spec: job_affinity_spec.clone(),
+                    job_object_affinity_cpus: job_object_affinity_cpus.clone(),
                     affinity_cpus: affinity_cpus.clone(),
                     cpu_set_cpus: cpu_set_cpus.clone(),
                     cpu_set_reset_ideal,
@@ -845,15 +854,15 @@ pub fn read_config<P: AsRef<Path>>(path: P) -> ConfigResult {
                 parse_and_insert_rules(&members, &rule_parts, line_number, &cpu_aliases, &mut result);
             } else {
                 result.errors.push(format!(
-                    "Line {}: Group '{}' missing rule - use }}:priority:affinity,...",
+                    "Line {}: Group '{}' missing rule - use }}:priority:job_affinity:affinity,...",
                     line_number, group_label
                 ));
             }
         } else {
             let parts: Vec<&str> = line.split(':').collect();
-            if parts.len() < 3 {
+            if parts.len() < 4 {
                 result.errors.push(format!(
-                    "Line {}: Too few fields - expected name:priority:affinity,...",
+                    "Line {}: Too few fields - expected name:priority:job_affinity:affinity,...",
                     line_number
                 ));
                 i += 1;
@@ -1036,7 +1045,7 @@ pub fn convert(in_file: Option<String>, out_file: Option<String>) {
             _ => "none",
         };
 
-        output_lines.push(format!("{}:{}:{}:0:0:none:none", name, priority_str, affinity));
+        output_lines.push(format!("{}:{}:0:{}:0:0:none:none", name, priority_str, affinity));
     }
 
     log!(

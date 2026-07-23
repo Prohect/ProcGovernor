@@ -9,6 +9,8 @@
 
 一个用 Rust 编写的高性能 Windows 进程管理服务，基于配置文件自动为运行中的进程应用 CPU 亲和性、优先级、I/O 优先级、内存优先级和内核强制的 Job Object 亲和性规则。
 
+> **⚠️ v2.0 破坏性变更**：配置规则语法现在在 `priority` 和 `affinity` 之间增加了一个 `job_affinity` 字段（第 3 个字段）。v1.x 格式的规则（`name:priority:affinity:...`）**不兼容** —— 在 priority 后添加 `0` 跳过 Job Object 亲和性：`name:priority:0:affinity:...`。参见 [配置](#配置)。
+
 ## 概述
 
 ProcGovernor 持续监控运行中的进程，并根据配置文件中定义的规则应用定制化的调度策略。它支持：
@@ -186,6 +188,8 @@ game.exe:normal:*a:@0-3:*p:normal:normal:1
 ```
 process_name:priority:job_affinity:affinity:cpuset:prime_cpus[@prefixes]:io_priority:memory_priority:ideal[@prefixes]:grade
 ```
+
+> **从 v1.x 迁移**：在第 3 个字段添加 `0` 跳过 Job Object 亲和性。示例：`game.exe:high:*a:0:0:normal:none:0:1` → `game.exe:high:0:*a:0:0:normal:none:0:1`。
 
 解析后的表示请参见 [`ProcessLevelConfig`](docs/zh-CN/config.rs/ProcessLevelConfig.md) 结构体。
 

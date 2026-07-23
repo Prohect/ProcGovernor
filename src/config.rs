@@ -421,7 +421,7 @@ fn collect_group_block(lines: &[String], start_index: usize, first_line_content:
 
 /// Parses rule fields and inserts config entries for all group members.
 ///
-/// Rule format: priority:affinity:cpuset:prime_cpus:io_priority:memory_priority:ideal_processor:grade
+/// Rule format: priority:job_affinity:affinity:cpuset:prime_cpus:io_priority:memory_priority:ideal_processor:grade
 /// Each field is optional with sensible defaults.
 fn parse_and_insert_rules(
     members: &[String],

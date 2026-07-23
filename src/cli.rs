@@ -235,7 +235,7 @@ pub fn get_config_help_lines() -> Vec<&'static str> {
         ## ----------------------------------------------------------------------------
         ## CONFIG FORMAT
         ## ----------------------------------------------------------------------------
-        ##   process_name:priority:job_affinity:affinity:cpuset:prime_cpus[@startModuleName1;startModuleName2]:io_priority:memory_priority:grade
+        ##   process_name:priority:job_affinity:affinity:cpuset:prime_cpus[@startModuleName1;startModuleName2]:io_priority:memory_priority:ideal_processor:grade
         ##
         ##   Field descriptions:
         ##     process_name     - Executable name (e.g.: game.exe)

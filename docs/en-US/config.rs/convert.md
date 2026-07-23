@@ -41,7 +41,7 @@ The converter recognizes three INI-style key-value pairs from the Process Lasso 
 3. **Build alias reverse map:** A `spec_to_alias` map is constructed so that when a process's CPU spec matches a known named affinity, the output uses the `*alias` reference instead of the raw spec.
 4. **Generate header:** The output begins with config help lines from `get_config_help_lines()` (the CLI module) followed by a conversion comment.
 5. **Emit CPU aliases:** Each `NamedAffinities` entry is emitted as a `*name = cpu_spec` alias line.
-6. **Emit process rules:** All unique process names (from both priorities and affinities maps) are sorted alphabetically and emitted as single-line rules in the format `name:priority:affinity:0:0:none:none`.
+All unique process names (from both priorities and affinities maps) are sorted alphabetically and emitted as single-line rules in the format `name:priority:0:affinity:0:0:none:none` (the 3rd field `0` is the `job_affinity` default; `ideal_processor` and `grade` are omitted and default to `0` and `1` respectively).
 7. **Write output:** The generated lines are written to the output file.
 
 ### Priority mapping
@@ -61,7 +61,7 @@ Process Lasso uses both string and numeric priority identifiers. The converter m
 ### Limitations
 
 - The converter only handles process-level settings (priority and affinity). Thread-level features like prime thread scheduling, ideal processor assignment, and IO/memory priorities are not present in Process Lasso configs and default to `0`/`none` in the output.
-- CPU set information from `DefaultAffinitiesEx` is placed in the affinity field, not the CPU set field. The output format uses `name:priority:affinity:0:0:none:none` where the third field is the affinity and the CPU set field is `0` (unchanged).
+CPU set information from `DefaultAffinitiesEx` is placed in the affinity field, not the CPU set field. The output format uses `name:priority:0:affinity:0:0:none:none` where the third field `0` is the `job_affinity` default, the fourth field is the affinity, and the CPU set field is `0` (unchanged).
 - The legacy mask field in `DefaultAffinitiesEx` triples is ignored; only the CPU range (third element of each triple) is used.
 - Named affinity alias matching is based on exact string comparison of the raw CPU spec. If a process's affinity spec doesn't exactly match a named affinity string, the raw spec is emitted instead of an alias reference.
 

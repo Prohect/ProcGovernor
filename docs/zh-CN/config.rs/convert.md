@@ -41,7 +41,7 @@ pub fn convert(in_file: Option<String>, out_file: Option<String>)
 3. **构建别名反向映射：** 构造一个 `spec_to_alias` 映射，使得当进程的 CPU 规格与已知命名亲和性匹配时，输出使用 `*别名` 引用而非原始规格。
 4. **生成头部：** 输出以来自 `get_config_help_lines()`（CLI 模块）的配置帮助行开头，后跟转换注释。
 5. **发出 CPU 别名：** 每个 `NamedAffinities` 条目作为 `*name = cpu_spec` 别名行发出。
-6. **发出进程规则：** 所有唯一的进程名称（来自优先级和亲和性映射）按字母顺序排序，并以格式 `name:priority:affinity:0:0:none:none` 作为单行规则发出。
+6. **发出进程规则：** 所有唯一的进程名称（来自优先级和亲和性映射）按字母顺序排序，并以格式 `name:priority:0:affinity:0:0:none:none` 作为单行规则发出（第3个字段 `0` 是 `job_affinity` 的默认值；`ideal_processor` 和 `grade` 被省略，分别默认为 `0` 和 `1`）。
 7. **写入输出：** 生成的行被写入输出文件。
 
 ### 优先级映射
@@ -61,7 +61,7 @@ Process Lasso 同时使用字符串和数字优先级标识符。转换器将它
 ### 限制
 
 - 转换器仅处理进程级设置（优先级和亲和性）。线程级功能如主线程调度、理想处理器分配和 IO/内存优先级在 Process Lasso 配置中不存在，在输出中默认为 `0`/`none`。
-- 来自 `DefaultAffinitiesEx` 的 CPU 集信息放置在亲和性字段中，而非 CPU 集字段。输出格式使用 `name:priority:affinity:0:0:none:none`，其中第三字段是亲和性，CPU 集字段为 `0`（未更改）。
+- 来自 `DefaultAffinitiesEx` 的 CPU 集信息放置在亲和性字段中，而非 CPU 集字段。输出格式使用 `name:priority:0:affinity:0:0:none:none`，其中第3个字段 `0` 是 `job_affinity` 的默认值，第4个字段是亲和性，CPU 集字段为 `0`（未更改）。
 - `DefaultAffinitiesEx` 三元组中的旧掩码字段被忽略；仅使用 CPU 范围（每个三元组的第三个元素）。
 - 命名亲和性别名匹配基于原始 CPU 规格的精确字符串比较。如果进程的亲和性规格不完全匹配命名亲和性字符串，则发出原始规格而非别名引用。
 

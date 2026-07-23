@@ -1,8 +1,7 @@
 use proc_governor::{
     apply::{
-        ApplyConfigResult, apply_affinity, apply_ideal_processors, apply_io_priority, apply_job_object_affinity,
-        apply_memory_priority, apply_prime_threads, apply_priority, apply_process_default_cpuset, prefetch_all_thread_cycles,
-        update_thread_stats,
+        ApplyConfigResult, apply_affinity, apply_ideal_processors, apply_io_priority, apply_job_object_affinity, apply_memory_priority,
+        apply_prime_threads, apply_priority, apply_process_default_cpuset, prefetch_all_thread_cycles, update_thread_stats,
     },
     cli::{CliArgs, parse_args, print_help, print_help_all},
     collections::{HashMap, HashSet, List, PENDING, PIDS},
@@ -11,8 +10,9 @@ use proc_governor::{
         sort_and_group_config,
     },
     event_trace::EtwProcessMonitor,
+    get_dust_bin_mod, get_fail_find_set, get_local_time, get_logger, get_logger_find, get_pid_map_fail_entry_set, get_use_console,
     job_object::JobObjectManager,
-    get_dust_bin_mod, get_fail_find_set, get_local_time, get_logger, get_logger_find, get_pid_map_fail_entry_set, get_use_console, log,
+    log,
     logging::{log_message, log_process_find, log_pure_message, log_to_find, purge_fail_map},
     process::{PID_TO_PROCESS_MAP, ProcessEntry, ProcessSnapshot, SNAPSHOT_BUFFER},
     scheduler::PrimeThreadScheduler,
@@ -346,11 +346,10 @@ fn main() -> windows::core::Result<()> {
         .and_then(|bf| metadata(bf).and_then(|m| m.modified()).ok());
     let is_config_empty = configs.process_level_configs.is_empty() && configs.thread_level_configs.is_empty();
     let is_blacklist_empty = blacklist.is_empty();
-    if is_config_empty && is_blacklist_empty
-        && !cli.find_mode {
-            log!("not config, find mode not enabled, exiting");
-            return Ok(());
-        }
+    if is_config_empty && is_blacklist_empty && !cli.find_mode {
+        log!("not config, find mode not enabled, exiting");
+        return Ok(());
+    }
 
     enable_debug_privilege(cli.no_debug_priv);
     enable_inc_base_priority_privilege(cli.no_inc_base_priority);

@@ -9,6 +9,8 @@
 
 A high-performance Windows process management service written in Rust that automatically applies CPU affinity, priority, I/O priority, memory priority, and kernel-enforced job object affinity rules to running processes based on configuration files.
 
+> **⚠️ Breaking Change in v2.0**: The config rule syntax now includes a `job_affinity` field (3rd field) between `priority` and `affinity`. Rules from v1.x (format `name:priority:affinity:...`) are **not compatible** — add `0` after priority to skip job object affinity: `name:priority:0:affinity:...`. See [Configuration](#configuration).
+
 ## Overview
 
 ProcGovernor continuously monitors running processes and applies customized scheduling policies based on rules defined in configuration files. It supports:
@@ -143,6 +145,8 @@ Process rules follow this format:
 ```
 process_name:priority:job_affinity:affinity:cpuset:prime_cpus[@prefixes]:io_priority:memory_priority:ideal[@prefixes]:grade
 ```
+
+> **Migrating from v1.x**: Add `0` as the 3rd field to skip job object affinity. Example: `game.exe:high:*a:0:0:normal:none:0:1` → `game.exe:high:0:*a:0:0:normal:none:0:1`.
 
 See [`ProcessLevelConfig`](docs/en-US/config.rs/ProcessLevelConfig.md) for the parsed representation.
 

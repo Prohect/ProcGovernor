@@ -378,7 +378,7 @@ See [`is_new_error()`](docs/en-US/logging.rs/is_new_error.md) for error deduplic
 
 1. **CPU Affinity ≤64 cores**: The legacy `SetProcessAffinityMask` API only works within a single processor group. For >64 core systems, use CPU Sets instead.
 
-1. **Job Object Affinity ≤64 cores**: The `JOB_OBJECT_LIMIT_AFFINITY` mask is a 64-bit value, limiting kernel-enforced job object affinity to a single processor group (≤64 logical processors). Jobs will not be created for CPU specs where all indices are ≥64.
+2. **Job Object Affinity ≤64 cores**: The `JOB_OBJECT_LIMIT_AFFINITY` mask is a 64-bit value, limiting kernel-enforced job object affinity to a single processor group (≤64 logical processors). Jobs will not be created for CPU specs where all indices are ≥64.
 
 2. **Multi-group/NUMA systems**: This project has not been tested on multi-processor-group or NUMA systems. The `ideal` processor assignment currently assigns processors within processor group 0 only. Systems with >64 logical processors or multiple CPU groups may experience unexpected behavior.
 

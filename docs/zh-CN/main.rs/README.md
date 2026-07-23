@@ -6,7 +6,7 @@
 
 | 名称 | 描述 |
 |------|-------------|
-| [apply_process_level](apply_process_level.md) | 打开进程句柄并应用所有进程级别设置（优先级、亲和性、CPU 集合、IO 优先级、内存优先级）。 |
+| [apply_process_level](apply_process_level.md) | 先应用 Job Object 亲和性（内核强制），再打开进程句柄并应用所有剩余进程级别设置（优先级、亲和性、CPU 集合、IO 优先级、内存优先级）。 |
 | [apply_thread_level](apply_thread_level.md) | 应用所有线程级别设置（Prime 线程调度、理想处理器分配、周期时间跟踪）。 |
 | [apply_config](apply_config.md) | 组合入口点，为匹配的进程应用进程级别和线程级别配置。 |
 | [log_apply_results](log_apply_results.md) | 格式化并记录 [ApplyConfigResult](../apply.rs/ApplyConfigResult.md)，使用对齐的多行输出。 |
@@ -28,4 +28,4 @@
 | Win32 辅助工具 | [winapi.rs](../winapi.rs/README.md) |
 | 日志记录 | [logging.rs](../logging.rs/README.md) |
 
-*为提交 [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf) 记录*
+*为提交 [e8d16f2](https://github.com/Prohect/ProcGovernor/tree/e8d16f2bb3258b3aa6d761002188fe68b71ca85f) 记录*

@@ -1,6 +1,6 @@
 # apply_process_level 函数 (main.rs)
 
-为给定的 PID 打开进程句柄，并在单次遍历中应用所有进程级设置 — 优先级类、CPU 亲和性掩码、默认 CPU 集合、IO 优先级和内存优先级。这是当进程首次匹配配置规则时（或启用了连续应用时每个迭代）调用一次的进程级包装器。
+先应用 Job Object 亲和性（通过 Windows Job Objects 内核强制），再为给定的 PID 打开进程句柄，然后在单次遍历中应用所有剩余进程级设置 — 优先级类、CPU 亲和性掩码、默认 CPU 集合、IO 优先级和内存优先级。这是当进程首次匹配配置规则时（或启用了连续应用时每个迭代）调用一次的进程级包装器。
 
 ## 语法
 
@@ -10,6 +10,7 @@ fn apply_process_level<'a>(
     config: &ProcessLevelConfig,
     threads: &impl Fn() -> &'a HashMap<u32, SYSTEM_THREAD_INFORMATION>,
     dry_run: bool,
+    job_manager: &mut JobObjectManager,
     apply_configs: &mut ApplyConfigResult,
 )
 ```
@@ -22,7 +23,7 @@ fn apply_process_level<'a>(
 
 `config: &ProcessLevelConfig`
 
-包含所需进程级设置（优先级、亲和性 CPU、CPU 集合 CPU、IO 优先级、内存优先级）的 [`ProcessLevelConfig`](../config.rs/ProcessLevelConfig.md)。打开进程句柄时，`config.name` 字段用于错误报告。
+包含所需进程级设置（Job Object 亲和性、优先级、亲和性 CPU、CPU 集合 CPU、IO 优先级、内存优先级）的 [`ProcessLevelConfig`](../config.rs/ProcessLevelConfig.md)。打开进程句柄时，`config.name` 字段用于错误报告。
 
 `threads: &impl Fn() -> &'a HashMap<u32, SYSTEM_THREAD_INFORMATION>`
 
@@ -31,6 +32,10 @@ fn apply_process_level<'a>(
 `dry_run: bool`
 
 当为 **true** 时，所有下游 `apply_*` 函数记录*将要*更改的内容而不调用任何 Windows API。当为 **false** 时，更改将应用于活动进程。
+
+`job_manager: &mut JobObjectManager`
+
+缓存和管理用于内核强制 CPU 亲和性的命名 Windows Job Objects 的管理器。参见 [`JobObjectManager`](../job_object.rs/JobObjectManager.md)。
 
 `apply_configs: &mut ApplyConfigResult`
 
@@ -44,13 +49,14 @@ fn apply_process_level<'a>(
 
 该函数遵循固定的操作顺序：
 
-1. **打开句柄** — 调用 [`get_process_handle`](../winapi.rs/get_process_handle.md) 获取 [`ProcessHandle`](../winapi.rs/ProcessHandle.md)。如果句柄无法打开（例如，访问被拒绝、进程已退出），函数立即返回，无任何效果且不记录错误。
-2. **应用优先级** — 委托给 [`apply_priority`](../apply.rs/apply_priority.md)。
-3. **应用亲和性** — 委托给 [`apply_affinity`](../apply.rs/apply_affinity.md)。传递一个局部 `current_mask` 变量以捕获进程当前的亲和性掩码供下游使用。
-4. **应用 CPU 集合** — 委托给 [`apply_process_default_cpuset`](../apply.rs/apply_process_default_cpuset.md)。
-5. **应用 IO 优先级** — 委托给 [`apply_io_priority`](../apply.rs/apply_io_priority.md)。
-6. **应用内存优先级** — 委托给 [`apply_memory_priority`](../apply.rs/apply_memory_priority.md)。
-7. **释放句柄** — 在所有操作完成后显式释放 `ProcessHandle`。
+1. **应用 Job Object 亲和性** — 委托给 [`apply_job_object_affinity`](../apply.rs/apply_job_object_affinity.md)。此步骤在打开进程句柄之前执行，以便在单次进程级应用遍历中依次完成 Job 分配和软亲和性。
+2. **打开句柄** — 调用 [`get_process_handle`](../winapi.rs/get_process_handle.md) 获取 [`ProcessHandle`](../winapi.rs/ProcessHandle.md)。如果句柄无法打开（例如，访问被拒绝、进程已退出），函数立即返回，无任何效果且不记录错误。
+3. **应用优先级** — 委托给 [`apply_priority`](../apply.rs/apply_priority.md)。
+4. **应用亲和性** — 委托给 [`apply_affinity`](../apply.rs/apply_affinity.md)。传递一个局部 `current_mask` 变量以捕获进程当前的亲和性掩码供下游使用。
+5. **应用 CPU 集合** — 委托给 [`apply_process_default_cpuset`](../apply.rs/apply_process_default_cpuset.md)。
+6. **应用 IO 优先级** — 委托给 [`apply_io_priority`](../apply.rs/apply_io_priority.md)。
+7. **应用内存优先级** — 委托给 [`apply_memory_priority`](../apply.rs/apply_memory_priority.md)。
+8. **释放句柄** — 在所有操作完成后显式释放 `ProcessHandle`。
 
 每个 `apply_*` 函数独立检查其对应的配置字段是否设置为 `None`，并在如此时短路。这意味着仅指定了优先级和亲和性的配置不会触及 IO 或内存优先级。
 
@@ -62,9 +68,9 @@ fn apply_process_level<'a>(
 
 | | |
 |---|---|
-| **模块** | [`src/main.rs`](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf/src/main.rs) |
+| **模块** | [`src/main.rs`](https://github.com/Prohect/ProcGovernor/tree/e8d16f2bb3258b3aa6d761002188fe68b71ca85f/src/main.rs) |
 | **调用者** | [`apply_config`](apply_config.md) |
-| **被调函数** | [`get_process_handle`](../winapi.rs/get_process_handle.md)、[`apply_priority`](../apply.rs/apply_priority.md)、[`apply_affinity`](../apply.rs/apply_affinity.md)、[`apply_process_default_cpuset`](../apply.rs/apply_process_default_cpuset.md)、[`apply_io_priority`](../apply.rs/apply_io_priority.md)、[`apply_memory_priority`](../apply.rs/apply_memory_priority.md) |
+| **被调函数** | [`get_process_handle`](../winapi.rs/get_process_handle.md)、[`apply_job_object_affinity`](../apply.rs/apply_job_object_affinity.md)、[`apply_priority`](../apply.rs/apply_priority.md)、[`apply_affinity`](../apply.rs/apply_affinity.md)、[`apply_process_default_cpuset`](../apply.rs/apply_process_default_cpuset.md)、[`apply_io_priority`](../apply.rs/apply_io_priority.md)、[`apply_memory_priority`](../apply.rs/apply_memory_priority.md) |
 | **Win32 API** | 无直接调用（委托给被调函数） |
 | **权限** | `SeDebugPrivilege`（用于打开提升进程的句柄） |
 
@@ -75,7 +81,9 @@ fn apply_process_level<'a>(
 | 线程级对应函数 | [`apply_thread_level`](apply_thread_level.md) |
 | 组合调用者 | [`apply_config`](apply_config.md) |
 | 应用引擎概览 | [apply.rs](../apply.rs/README.md) |
+| Job Object 管理器 | [`JobObjectManager`](../job_object.rs/JobObjectManager.md) |
+| 内核强制亲和性应用 | [`apply_job_object_affinity`](../apply.rs/apply_job_object_affinity.md) |
 | 配置结构体 | [`ProcessLevelConfig`](../config.rs/ProcessLevelConfig.md) |
 | 结果累加器 | [`ApplyConfigResult`](../apply.rs/ApplyConfigResult.md) |
 
-*文档记录于提交：[facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*文档记录于提交：[e8d16f2](https://github.com/Prohect/ProcGovernor/tree/e8d16f2bb3258b3aa6d761002188fe68b71ca85f)*

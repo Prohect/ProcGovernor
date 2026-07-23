@@ -9,6 +9,7 @@ fn apply_config(
     cli: &CliArgs,
     configs: &ConfigResult,
     prime_core_scheduler: &mut PrimeThreadScheduler,
+    job_manager: &mut JobObjectManager,
     process_level_applied: &mut SmallVec<[u32; PIDS]>,
     thread_level_applied: &mut SmallVec<[u32; PENDING]>,
     grade: &u32,
@@ -32,6 +33,10 @@ The full [ConfigResult](../config.rs/ConfigResult.md). Used to look up a matchin
 `prime_core_scheduler: &mut PrimeThreadScheduler`
 
 The [PrimeThreadScheduler](../scheduler.rs/PrimeThreadScheduler.md) instance, passed through to [apply_thread_level](apply_thread_level.md) for prime thread tracking and scheduling.
+
+`job_manager: &mut JobObjectManager`
+
+The job object manager that caches and manages named Windows Job Objects for kernel-enforced CPU affinity. Passed through to [`apply_process_level`](apply_process_level.md). See [`JobObjectManager`](../job_object.rs/JobObjectManager.md).
 
 `process_level_applied: &mut SmallVec<[u32; PIDS]>`
 
@@ -104,4 +109,4 @@ The function asserts (by convention) that the grade used to look up the process-
 | Configuration types | [ProcessLevelConfig](../config.rs/ProcessLevelConfig.md), [ThreadLevelConfig](../config.rs/ThreadLevelConfig.md) |
 | Module overview | [main.rs](README.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [e8d16f2](https://github.com/Prohect/ProcGovernor/tree/e8d16f2bb3258b3aa6d761002188fe68b71ca85f)*

@@ -6,7 +6,7 @@ The `main` module is the application entry point and top-level orchestrator of P
 
 | Name | Description |
 |------|-------------|
-| [apply_process_level](apply_process_level.md) | Opens a process handle and applies all process-level settings (priority, affinity, CPU set, IO priority, memory priority). |
+| [apply_process_level](apply_process_level.md) | Applies job object affinity (kernel-enforced), then opens a process handle and applies all remaining process-level settings (priority, affinity, CPU set, IO priority, memory priority). |
 | [apply_thread_level](apply_thread_level.md) | Applies all thread-level settings (prime thread scheduling, ideal processor assignment, cycle time tracking). |
 | [apply_config](apply_config.md) | Combined entry point that applies both process-level and thread-level configs for a matched process. |
 | [log_apply_results](log_apply_results.md) | Formats and logs an [ApplyConfigResult](../apply.rs/ApplyConfigResult.md) with aligned multi-line output. |
@@ -28,4 +28,4 @@ The `main` module is the application entry point and top-level orchestrator of P
 | Win32 helpers | [winapi.rs](../winapi.rs/README.md) |
 | Logging | [logging.rs](../logging.rs/README.md) |
 
-*Documented for Commit: [facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*Documented for Commit: [e8d16f2](https://github.com/Prohect/ProcGovernor/tree/e8d16f2bb3258b3aa6d761002188fe68b71ca85f)*

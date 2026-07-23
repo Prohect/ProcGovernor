@@ -9,6 +9,7 @@ fn apply_config(
     cli: &CliArgs,
     configs: &ConfigResult,
     prime_core_scheduler: &mut PrimeThreadScheduler,
+    job_manager: &mut JobObjectManager,
     process_level_applied: &mut SmallVec<[u32; PIDS]>,
     thread_level_applied: &mut SmallVec<[u32; PENDING]>,
     grade: &u32,
@@ -32,6 +33,10 @@ fn apply_config(
 `prime_core_scheduler: &mut PrimeThreadScheduler`
 
 [PrimeThreadScheduler](../scheduler.rs/PrimeThreadScheduler.md) 实例，传递给 [apply_thread_level](apply_thread_level.md) 以进行主线程跟踪和调度。
+
+`job_manager: &mut JobObjectManager`
+
+缓存和管理用于内核强制 CPU 亲和性的命名 Windows Job Objects 的管理器。传递给 [`apply_process_level`](apply_process_level.md)。参见 [`JobObjectManager`](../job_object.rs/JobObjectManager.md)。
 
 `process_level_applied: &mut SmallVec<[u32; PIDS]>`
 
@@ -104,4 +109,4 @@ fn apply_config(
 | 配置类型 | [ProcessLevelConfig](../config.rs/ProcessLevelConfig.md)、[ThreadLevelConfig](../config.rs/ThreadLevelConfig.md) |
 | 模块概览 | [main.rs](README.md) |
 
-*文档记录于提交：[facc6e1](https://github.com/Prohect/ProcGovernor/tree/facc6e145992bd6a24dc7f5f21525085e10a7caf)*
+*文档记录于提交：[e8d16f2](https://github.com/Prohect/ProcGovernor/tree/e8d16f2bb3258b3aa6d761002188fe68b71ca85f)*
